@@ -1,0 +1,24 @@
+h1. XNMaths.framework
+
+Provides:
+
+ * Matrix and Vector classes, some vector and matrix operations.
+ * Linear equation systems solving
+ * 2D function drawing with Graphable protocol (that should be probably renamed).
+ * Approximation algorythms such as newton, lagrange interpolations, linear and cubic splines.
+
+Depends on:
+
+ * PHGraph.framework is used for 2D graph rendering. The framework will be bundled in this repository.
+
+Used in:
+
+ * My lab works for Calculus of Approximations course in Moscow State University of Aviation.
+
+h2. What's next
+
+I plan to migrate matrix and vector routines to use Apple's vecLib since it's much, much faster. Using LAPACK and BLAS will also be a great plus.
+
+h2. Contributing
+
+You can fork, modify and push, pull requests are appreciated. If you just need another feature and you want to discuss that first — just create an issue for that.
