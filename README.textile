@@ -17,7 +17,13 @@ Used in:
 
 h2. What's next
 
-I plan to migrate matrix and vector routines to use Apple's vecLib since it's much, much faster. Using LAPACK and BLAS will also be a great plus.
+Todo: 
+
+* Naming conventions. I mean: What types to use? create my own float / double / point aliases? 
+* Define 2D/3D semantics. What's 2D? Is f(x) a 2D function? It's OneArgumentFunction, not 2DFunction i think since it returns a value, not a point. 
+* Dependencies and plotting. PHGraph is slow. Recalculating function on every point IS slow. Using PLPlot + SurfaceData / LineData can solve the issue. 
+* Remove PHGraph dependency, remove stupid protocols with it. 
+* Speedup calculations by using BLAS/LAPACK from vecLib.
 
 h2. Contributing
 

@@ -46,6 +46,8 @@
 		E57522F110B6661C004D572E /* XN2DLinearSpline.h in Headers */ = {isa = PBXBuildFile; fileRef = E57522EE10B6661C004D572E /* XN2DLinearSpline.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E57522F210B6661C004D572E /* XN2DLinearSpline.m in Sources */ = {isa = PBXBuildFile; fileRef = E57522EF10B6661C004D572E /* XN2DLinearSpline.m */; };
 		E575230910B671EE004D572E /* Graphable.h in Headers */ = {isa = PBXBuildFile; fileRef = E575230610B671EE004D572E /* Graphable.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E575248610B7968D004D572E /* README.textile in Resources */ = {isa = PBXBuildFile; fileRef = E575248510B7968D004D572E /* README.textile */; };
+		E575248710B7968E004D572E /* README.textile in Resources */ = {isa = PBXBuildFile; fileRef = E575248510B7968D004D572E /* README.textile */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -93,6 +95,7 @@
 		E57522EE10B6661C004D572E /* XN2DLinearSpline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XN2DLinearSpline.h; sourceTree = "<group>"; };
 		E57522EF10B6661C004D572E /* XN2DLinearSpline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XN2DLinearSpline.m; sourceTree = "<group>"; };
 		E575230610B671EE004D572E /* Graphable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Graphable.h; sourceTree = "<group>"; };
+		E575248510B7968D004D572E /* README.textile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.textile; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -154,6 +157,7 @@
 		089C1665FE841158C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E575248510B7968D004D572E /* README.textile */,
 				8DC2EF5A0486A6940098B216 /* Info.plist */,
 				089C1666FE841158C02AAC07 /* InfoPlist.strings */,
 			);
@@ -377,6 +381,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */,
+				E575248710B7968E004D572E /* README.textile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -384,6 +389,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E575248610B7968D004D572E /* README.textile in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
