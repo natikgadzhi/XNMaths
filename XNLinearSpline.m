@@ -1,16 +1,27 @@
 //
-//  XN2DLinearSpline.m
+//  XNLinearSpline.m
 //  XNMaths
+//
+//  XNLinearSplineElements functions (builders)
+//  
+//  XNLinearSpline implementation
+//  Interpolates a 2D function in some points array with a linear spline.
+//  
 //
 //  Created by Нат Гаджибалаев on 20.11.09.
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
-#import "XN2DLinearSpline.h"
+#import "XNLinearSpline.h"
 
-XN2DLinearSplineElement XNMake2DLinearSplineElement(CGFloat a, CGFloat b)
+#pragma mark -
+#pragma	mark Spline interploation element data 
+
+//
+// Make spline element.
+XNLinearSplineElement XNMakeLinearSplineElement(CGFloat a, CGFloat b)
 {
-	XN2DLinearSplineElement element;
+	XNLinearSplineElement element;
 	element.a = a;
 	element.b = b;
 	return element;
@@ -18,16 +29,16 @@ XN2DLinearSplineElement XNMake2DLinearSplineElement(CGFloat a, CGFloat b)
 
 
 
-@implementation XN2DLinearSpline
+@implementation XNLinearSpline
 
-- (XN2DLinearSpline *) initWithPoints: (NSArray *)aPoints
+- (XNLinearSpline *) initWithPoints: (NSArray *)aPoints
 {
 	// initialize self reference.
 	self = [super init];
 	
 	// init approx points
 	approximationPoints = [aPoints copy];
-	interpolationElements = calloc( aPoints.count, sizeof(XN2DLinearSplineElement ));
+	interpolationElements = calloc( aPoints.count, sizeof(XNLinearSplineElement ));
 	
 	for( NSInteger i = 1; i < aPoints.count; i++){
 		NSPoint startPoint	= [[aPoints objectAtIndex: i-1] pointValue];
@@ -36,14 +47,14 @@ XN2DLinearSplineElement XNMake2DLinearSplineElement(CGFloat a, CGFloat b)
 		CGFloat a = (endPoint.y - startPoint.y)/(endPoint.x - startPoint.y);
 		CGFloat b = (endPoint.y - startPoint.y)/(endPoint.x - startPoint.y)*startPoint.x + startPoint.y;
 		
-		interpolationElements[i] = XNMake2DLinearSplineElement(a,b);
+		interpolationElements[i] = XNMakeLinearSplineElement(a,b);
 	}
 	
 	return self;
 }
 
 #pragma mark -
-#pragma mark Graphable methods
+#pragma mark Value getters
 
 - (double) doubleValueWithDouble: (double) a_DoubleX
 {
@@ -57,16 +68,6 @@ XN2DLinearSplineElement XNMake2DLinearSplineElement(CGFloat a, CGFloat b)
 	}
 	
 	return 0;
-}
-
-- (NSNumber *) objectValueWithDouble: (double) a_DoubleX
-{
-	return [NSNumber numberWithDouble: [self doubleValueWithDouble:a_DoubleX]]; 
-}
-
-- (NSNumber *) objectValueWithObject: (NSNumber *) a_X
-{
-	return [self objectValueWithDouble: [a_X doubleValue]];
 }
 
 

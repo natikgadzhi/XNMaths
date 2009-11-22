@@ -1,6 +1,7 @@
 //
-//  XN2DCubicSpline.h
-//  Assignation 3.2
+//  XNCubicSpline.h
+// 
+//  XNFuntion interpolation witn cubic spline
 //
 //  Created by Нат Гаджибалаев on 15.11.09.
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
@@ -11,21 +12,18 @@
 #import "XNMatrix.h"
 #import "XNLinearEquationSystem.h"
 
-@interface XN2DCubicSpline : NSObject {
+@interface XNCubicSpline : NSObject {
 	
 }
 
 # pragma mark -
 # pragma mark Initialization methods
-- (XN2DCubicSpline *) initWithPoints: (NSArray *) aPoints;
+- (XNCubicSpline *) initWithPoints: (NSArray *) aPoints;
 
 
 # pragma mark -
-# pragma mark XNFunction interface methods
-- (double) doubleValueWithDouble: (double) a_X;
-- (double) doubleValueWIthObject: (NSNumber *) a_X;
-- (NSNumber *) objectValueWithDouble: (double) a_X;
-- (NSNumber *) objectValueWithObject: (NSNumber *) a_X;
+# pragma mark Value getters
+- (double) doubleValueWithDouble: (double) a_DoubleX;
 
 
 # pragma mark -

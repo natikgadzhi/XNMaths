@@ -23,12 +23,21 @@
 	GCMathParser* parser;
 }
 
+#pragma mark -
+#pragma mark Properties
 @property(retain) NSString* expression;
 
+#pragma mark -
+#pragma mark Initialization
 // initialize with an expression! 
 - (XNFunction*) initWithExpression: (NSString*) aExpression; 
 
+#pragma mark -
+#pragma mark Value getters
 - (double) doubleValueWithDouble: (double) a_DoubleX; 
 
+#pragma mark -
+#pragma mark Graphics and plotting related
+- (void) render;
 
 @end

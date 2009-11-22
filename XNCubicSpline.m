@@ -1,21 +1,22 @@
 //
-//  XN2DCubicSpline.m
-//  Assignation 3.2
+//  XNCubicSpline.m
+//
+//  Provices XNCubicSplineInterploation class. 
 //
 //  Created by Нат Гаджибалаев on 15.11.09.
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
-#import "XN2DCubicSpline.h"
+#import "XNCubicSpline.h"
 #import "XNMatrix.h"
 
 
-@implementation XN2DCubicSpline
+@implementation XNCubicSpline
 
 # pragma mark -
 # pragma mark Initialization methods
 
-- (XN2DCubicSpline *) initWithPoints: (NSArray *) aPoints
+- (XNCubicSpline *) initWithPoints: (NSArray *) aPoints
 {
 	self = [super init];
 	

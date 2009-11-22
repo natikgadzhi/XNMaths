@@ -57,4 +57,12 @@
 	return [parser evaluate: expression];
 }
 
+
+#pragma mark -
+#pragma mark Graphics and plotting related
+- (void) render
+{
+	
+}
+
 @end

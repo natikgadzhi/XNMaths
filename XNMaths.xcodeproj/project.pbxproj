@@ -40,12 +40,12 @@
 		E575222110B64C68004D572E /* XNLinearEquationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = E575222010B64C68004D572E /* XNLinearEquationSystem.m */; };
 		E575222210B64C68004D572E /* XNLinearEquationSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = E575221F10B64C68004D572E /* XNLinearEquationSystem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E575222310B64C68004D572E /* XNLinearEquationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = E575222010B64C68004D572E /* XNLinearEquationSystem.m */; };
-		E575222B10B64C7F004D572E /* XN2DCubicSpline.m in Sources */ = {isa = PBXBuildFile; fileRef = E575222A10B64C7F004D572E /* XN2DCubicSpline.m */; };
-		E575222C10B64C7F004D572E /* XN2DCubicSpline.h in Headers */ = {isa = PBXBuildFile; fileRef = E575222910B64C7F004D572E /* XN2DCubicSpline.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E575222D10B64C7F004D572E /* XN2DCubicSpline.m in Sources */ = {isa = PBXBuildFile; fileRef = E575222A10B64C7F004D572E /* XN2DCubicSpline.m */; };
-		E57522F010B6661C004D572E /* XN2DLinearSpline.m in Sources */ = {isa = PBXBuildFile; fileRef = E57522EF10B6661C004D572E /* XN2DLinearSpline.m */; };
-		E57522F110B6661C004D572E /* XN2DLinearSpline.h in Headers */ = {isa = PBXBuildFile; fileRef = E57522EE10B6661C004D572E /* XN2DLinearSpline.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E57522F210B6661C004D572E /* XN2DLinearSpline.m in Sources */ = {isa = PBXBuildFile; fileRef = E57522EF10B6661C004D572E /* XN2DLinearSpline.m */; };
+		E575222B10B64C7F004D572E /* XNCubicSpline.m in Sources */ = {isa = PBXBuildFile; fileRef = E575222A10B64C7F004D572E /* XNCubicSpline.m */; };
+		E575222C10B64C7F004D572E /* XNCubicSpline.h in Headers */ = {isa = PBXBuildFile; fileRef = E575222910B64C7F004D572E /* XNCubicSpline.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E575222D10B64C7F004D572E /* XNCubicSpline.m in Sources */ = {isa = PBXBuildFile; fileRef = E575222A10B64C7F004D572E /* XNCubicSpline.m */; };
+		E57522F010B6661C004D572E /* XNLinearSpline.m in Sources */ = {isa = PBXBuildFile; fileRef = E57522EF10B6661C004D572E /* XNLinearSpline.m */; };
+		E57522F110B6661C004D572E /* XNLinearSpline.h in Headers */ = {isa = PBXBuildFile; fileRef = E57522EE10B6661C004D572E /* XNLinearSpline.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E57522F210B6661C004D572E /* XNLinearSpline.m in Sources */ = {isa = PBXBuildFile; fileRef = E57522EF10B6661C004D572E /* XNLinearSpline.m */; };
 		E575248610B7968D004D572E /* README.textile in Resources */ = {isa = PBXBuildFile; fileRef = E575248510B7968D004D572E /* README.textile */; };
 		E575248710B7968E004D572E /* README.textile in Resources */ = {isa = PBXBuildFile; fileRef = E575248510B7968D004D572E /* README.textile */; };
 		E575249E10B79A67004D572E /* PLPlot planning.graffle in Resources */ = {isa = PBXBuildFile; fileRef = E575249D10B79A67004D572E /* PLPlot planning.graffle */; };
@@ -93,10 +93,10 @@
 		E575221710B64C39004D572E /* XNMatrix.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNMatrix.m; sourceTree = "<group>"; };
 		E575221F10B64C68004D572E /* XNLinearEquationSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNLinearEquationSystem.h; sourceTree = "<group>"; };
 		E575222010B64C68004D572E /* XNLinearEquationSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNLinearEquationSystem.m; sourceTree = "<group>"; };
-		E575222910B64C7F004D572E /* XN2DCubicSpline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XN2DCubicSpline.h; sourceTree = "<group>"; };
-		E575222A10B64C7F004D572E /* XN2DCubicSpline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XN2DCubicSpline.m; sourceTree = "<group>"; };
-		E57522EE10B6661C004D572E /* XN2DLinearSpline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XN2DLinearSpline.h; sourceTree = "<group>"; };
-		E57522EF10B6661C004D572E /* XN2DLinearSpline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XN2DLinearSpline.m; sourceTree = "<group>"; };
+		E575222910B64C7F004D572E /* XNCubicSpline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNCubicSpline.h; sourceTree = "<group>"; };
+		E575222A10B64C7F004D572E /* XNCubicSpline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNCubicSpline.m; sourceTree = "<group>"; };
+		E57522EE10B6661C004D572E /* XNLinearSpline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNLinearSpline.h; sourceTree = "<group>"; };
+		E57522EF10B6661C004D572E /* XNLinearSpline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNLinearSpline.m; sourceTree = "<group>"; };
 		E575248510B7968D004D572E /* README.textile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.textile; sourceTree = "<group>"; };
 		E575249D10B79A67004D572E /* PLPlot planning.graffle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "PLPlot planning.graffle"; path = "doc/PLPlot planning.graffle"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -177,7 +177,16 @@
 				E5751F6210B60522004D572E /* XNFunction+LagrangeInterpolation.m */,
 				E5751F6310B60522004D572E /* XNFunction+NewtonInterpolation.h */,
 				E5751F6410B60522004D572E /* XNFunction+NewtonInterpolation.m */,
-				E518A8D810B890D000D2E454 /* Not revisited */,
+				E575222910B64C7F004D572E /* XNCubicSpline.h */,
+				E575222A10B64C7F004D572E /* XNCubicSpline.m */,
+				E57522EE10B6661C004D572E /* XNLinearSpline.h */,
+				E57522EF10B6661C004D572E /* XNLinearSpline.m */,
+				E575221410B64C39004D572E /* XNVector.h */,
+				E575221510B64C39004D572E /* XNVector.m */,
+				E575221610B64C39004D572E /* XNMatrix.h */,
+				E575221710B64C39004D572E /* XNMatrix.m */,
+				E575221F10B64C68004D572E /* XNLinearEquationSystem.h */,
+				E575222010B64C68004D572E /* XNLinearEquationSystem.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -209,23 +218,6 @@
 				32DBCF5E0370ADEE00C91783 /* XNMaths_Prefix.pch */,
 			);
 			name = "Other Sources";
-			sourceTree = "<group>";
-		};
-		E518A8D810B890D000D2E454 /* Not revisited */ = {
-			isa = PBXGroup;
-			children = (
-				E575222910B64C7F004D572E /* XN2DCubicSpline.h */,
-				E575222A10B64C7F004D572E /* XN2DCubicSpline.m */,
-				E57522EE10B6661C004D572E /* XN2DLinearSpline.h */,
-				E57522EF10B6661C004D572E /* XN2DLinearSpline.m */,
-				E575221410B64C39004D572E /* XNVector.h */,
-				E575221510B64C39004D572E /* XNVector.m */,
-				E575221610B64C39004D572E /* XNMatrix.h */,
-				E575221710B64C39004D572E /* XNMatrix.m */,
-				E575221F10B64C68004D572E /* XNLinearEquationSystem.h */,
-				E575222010B64C68004D572E /* XNLinearEquationSystem.m */,
-			);
-			name = "Not revisited";
 			sourceTree = "<group>";
 		};
 		E518A91810B8C99800D2E454 /* PLplot */ = {
@@ -289,8 +281,8 @@
 				E5751F6510B60522004D572E /* XNFunction+LagrangeInterpolation.h in Headers */,
 				E5751F6710B60522004D572E /* XNFunction+NewtonInterpolation.h in Headers */,
 				E575222210B64C68004D572E /* XNLinearEquationSystem.h in Headers */,
-				E575222C10B64C7F004D572E /* XN2DCubicSpline.h in Headers */,
-				E57522F110B6661C004D572E /* XN2DLinearSpline.h in Headers */,
+				E575222C10B64C7F004D572E /* XNCubicSpline.h in Headers */,
+				E57522F110B6661C004D572E /* XNLinearSpline.h in Headers */,
 				E518A91410B8C98A00D2E454 /* pldll.h in Headers */,
 				E518A91510B8C98A00D2E454 /* plConfig.h in Headers */,
 				E518A91710B8C98A00D2E454 /* plplot.h in Headers */,
@@ -407,8 +399,8 @@
 				E575221B10B64C39004D572E /* XNVector.m in Sources */,
 				E575221D10B64C39004D572E /* XNMatrix.m in Sources */,
 				E575222310B64C68004D572E /* XNLinearEquationSystem.m in Sources */,
-				E575222D10B64C7F004D572E /* XN2DCubicSpline.m in Sources */,
-				E57522F210B6661C004D572E /* XN2DLinearSpline.m in Sources */,
+				E575222D10B64C7F004D572E /* XNCubicSpline.m in Sources */,
+				E57522F210B6661C004D572E /* XNLinearSpline.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -423,8 +415,8 @@
 				E575221810B64C39004D572E /* XNVector.m in Sources */,
 				E575221910B64C39004D572E /* XNMatrix.m in Sources */,
 				E575222110B64C68004D572E /* XNLinearEquationSystem.m in Sources */,
-				E575222B10B64C7F004D572E /* XN2DCubicSpline.m in Sources */,
-				E57522F010B6661C004D572E /* XN2DLinearSpline.m in Sources */,
+				E575222B10B64C7F004D572E /* XNCubicSpline.m in Sources */,
+				E57522F010B6661C004D572E /* XNLinearSpline.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
