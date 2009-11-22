@@ -32,7 +32,7 @@
 // initialize with an expression! 
 - (XNFunction*) initWithExpression: (NSString*) aExpression; 
 
-#pragma mark -
+#pragma mark -`
 #pragma mark Value getters
 - (double) doubleValueWithDouble: (double) a_DoubleX; 
 

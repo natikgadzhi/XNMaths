@@ -9,11 +9,9 @@
 /* Begin PBXBuildFile section */
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
-		E518A91310B8C98A00D2E454 /* libplplot.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E518A91110B8C98A00D2E454 /* libplplot.dylib */; };
-		E518A91410B8C98A00D2E454 /* pldll.h in Headers */ = {isa = PBXBuildFile; fileRef = E518A90F10B8C98A00D2E454 /* pldll.h */; };
-		E518A91510B8C98A00D2E454 /* plConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = E518A91010B8C98A00D2E454 /* plConfig.h */; };
-		E518A91610B8C98A00D2E454 /* libplplot.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E518A91110B8C98A00D2E454 /* libplplot.dylib */; };
-		E518A91710B8C98A00D2E454 /* plplot.h in Headers */ = {isa = PBXBuildFile; fileRef = E518A91210B8C98A00D2E454 /* plplot.h */; };
+		E518AA7610B8D65300D2E454 /* libplplot.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E518AA7510B8D65300D2E454 /* libplplot.dylib */; };
+		E518AA7710B8D65300D2E454 /* libplplot.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E518AA7510B8D65300D2E454 /* libplplot.dylib */; };
+		E518AA7910B8D6AF00D2E454 /* libplplot.dylib in CopyFiles */ = {isa = PBXBuildFile; fileRef = E518AA7510B8D65300D2E454 /* libplplot.dylib */; };
 		E5751F1110B602D8004D572E /* XNMaths.h in Headers */ = {isa = PBXBuildFile; fileRef = E5751F0F10B602D8004D572E /* XNMaths.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5751F3110B60492004D572E /* GCMathParser.h in Headers */ = {isa = PBXBuildFile; fileRef = E5751F2D10B60492004D572E /* GCMathParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5751F3210B60492004D572E /* GCMathParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E5751F2E10B60492004D572E /* GCMathParser.m */; };
@@ -52,6 +50,19 @@
 		E575249F10B79A67004D572E /* PLPlot planning.graffle in Resources */ = {isa = PBXBuildFile; fileRef = E575249D10B79A67004D572E /* PLPlot planning.graffle */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		E518AA7D10B8D6CD00D2E454 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 6;
+			files = (
+				E518AA7910B8D6AF00D2E454 /* libplplot.dylib in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		0867D69BFE84028FC02AAC07 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = /System/Library/Frameworks/Foundation.framework; sourceTree = "<absolute>"; };
 		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
@@ -61,10 +72,7 @@
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* XNMaths.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XNMaths.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
-		E518A90F10B8C98A00D2E454 /* pldll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pldll.h; sourceTree = "<group>"; };
-		E518A91010B8C98A00D2E454 /* plConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = plConfig.h; sourceTree = "<group>"; };
-		E518A91110B8C98A00D2E454 /* libplplot.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libplplot.dylib; sourceTree = "<group>"; };
-		E518A91210B8C98A00D2E454 /* plplot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = plplot.h; sourceTree = "<group>"; };
+		E518AA7510B8D65300D2E454 /* libplplot.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libplplot.dylib; sourceTree = "<group>"; };
 		E5751F0F10B602D8004D572E /* XNMaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMaths.h; sourceTree = "<group>"; };
 		E5751F2D10B60492004D572E /* GCMathParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMathParser.h; sourceTree = "<group>"; };
 		E5751F2E10B60492004D572E /* GCMathParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMathParser.m; sourceTree = "<group>"; };
@@ -106,8 +114,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E518A91610B8C98A00D2E454 /* libplplot.dylib in Frameworks */,
 				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
+				E518AA7710B8D65300D2E454 /* libplplot.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -117,7 +125,7 @@
 			files = (
 				E575220E10B64BE5004D572E /* Cocoa.framework in Frameworks */,
 				E575217510B64BC6004D572E /* SenTestingKit.framework in Frameworks */,
-				E518A91310B8C98A00D2E454 /* libplplot.dylib in Frameworks */,
+				E518AA7610B8D65300D2E454 /* libplplot.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -194,7 +202,7 @@
 		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				E518A91110B8C98A00D2E454 /* libplplot.dylib */,
+				E518AA7510B8D65300D2E454 /* libplplot.dylib */,
 				1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
@@ -220,20 +228,9 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
-		E518A91810B8C99800D2E454 /* PLplot */ = {
-			isa = PBXGroup;
-			children = (
-				E518A90F10B8C98A00D2E454 /* pldll.h */,
-				E518A91010B8C98A00D2E454 /* plConfig.h */,
-				E518A91210B8C98A00D2E454 /* plplot.h */,
-			);
-			name = PLplot;
-			sourceTree = "<group>";
-		};
 		E5751F2B10B60483004D572E /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
-				E518A91810B8C99800D2E454 /* PLplot */,
 				E5751F2C10B60492004D572E /* GCMathParser */,
 			);
 			name = Dependencies;
@@ -283,9 +280,6 @@
 				E575222210B64C68004D572E /* XNLinearEquationSystem.h in Headers */,
 				E575222C10B64C7F004D572E /* XNCubicSpline.h in Headers */,
 				E57522F110B6661C004D572E /* XNLinearSpline.h in Headers */,
-				E518A91410B8C98A00D2E454 /* pldll.h in Headers */,
-				E518A91510B8C98A00D2E454 /* plConfig.h in Headers */,
-				E518A91710B8C98A00D2E454 /* plplot.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -300,6 +294,7 @@
 				8DC2EF520486A6940098B216 /* Resources */,
 				8DC2EF540486A6940098B216 /* Sources */,
 				8DC2EF560486A6940098B216 /* Frameworks */,
+				E518AA7D10B8D6CD00D2E454 /* CopyFiles */,
 			);
 			buildRules = (
 			);
