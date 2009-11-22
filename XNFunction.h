@@ -1,24 +1,18 @@
 //
 //  XNFunction.m 
 // 
-//  Calculus of approximations, Moscow State University of Aviation
-//  Assignation 3
-//  
+//  XNFunction class. 
+//  XNFunction represents a numeric function with a numeric argument.
 //
 //  Created by Нат Гаджибалаев on 07.11.09.
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
 #import <Cocoa/Cocoa.h>
-
 #import "GCMathParser.h"
-#import "Graphable.h"
+#import "plplot.h"
 
-/* 
- * A math function model. 
- * holds the expression and allows single argument value retrieval. 
- */
-@interface XN2DFunction: NSObject <Graphable>
+@interface XNFunction: NSObject
 {	
 	// the expression to evalute. 
 	NSString* expression;
@@ -32,8 +26,9 @@
 @property(retain) NSString* expression;
 
 // initialize with an expression! 
-- (XN2DFunction*) initWithExpression: (NSString*) aExpression; 
+- (XNFunction*) initWithExpression: (NSString*) aExpression; 
 
+- (double) doubleValueWithDouble: (double) a_DoubleX; 
 
 
 @end

@@ -1,19 +1,23 @@
 //
-//  XN2DFunction+LagrangeInterpolation.m
-//  Assignation 3
+//  XNFunction+LagrangeInterpolation.m
+//
+//  Provides XNFuntion as a lagrange polynome initialization category implementation. 
+//  Creates an expression. 
+//  
+//  Accuracy is a constant. 
 //
 //  Created by Нат Гаджибалаев on 12.11.09.
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
-#import "XN2DFunction+LagrangeInterpolation.h"
+#import "XNFunction+LagrangeInterpolation.h"
 
 
-@implementation XN2DFunction (LagrangeInterpolation)
+@implementation XNFunction (LagrangeInterpolation)
 
 //
 // initializes funtion as an approximation. 
-- (XN2DFunction*) initLagrangeInterpolationWithPoints: (NSMutableArray*)aPoints
+- (XNFunction*) initLagrangeInterpolationWithPoints: (NSMutableArray*)aPoints
 {
 		
 	// init our expression template. 
@@ -40,7 +44,7 @@
 	}
 	[expressionString appendString:	@"0"];
 
-	self = [[XN2DFunction alloc] initWithExpression: expressionString];
+	self = [[XNFunction alloc] initWithExpression: expressionString];
 	return self;
 }
 

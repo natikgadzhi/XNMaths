@@ -9,27 +9,28 @@
 /* Begin PBXBuildFile section */
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
+		E518A91310B8C98A00D2E454 /* libplplot.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E518A91110B8C98A00D2E454 /* libplplot.dylib */; };
+		E518A91410B8C98A00D2E454 /* pldll.h in Headers */ = {isa = PBXBuildFile; fileRef = E518A90F10B8C98A00D2E454 /* pldll.h */; };
+		E518A91510B8C98A00D2E454 /* plConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = E518A91010B8C98A00D2E454 /* plConfig.h */; };
+		E518A91610B8C98A00D2E454 /* libplplot.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E518A91110B8C98A00D2E454 /* libplplot.dylib */; };
+		E518A91710B8C98A00D2E454 /* plplot.h in Headers */ = {isa = PBXBuildFile; fileRef = E518A91210B8C98A00D2E454 /* plplot.h */; };
 		E5751F1110B602D8004D572E /* XNMaths.h in Headers */ = {isa = PBXBuildFile; fileRef = E5751F0F10B602D8004D572E /* XNMaths.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5751F3110B60492004D572E /* GCMathParser.h in Headers */ = {isa = PBXBuildFile; fileRef = E5751F2D10B60492004D572E /* GCMathParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5751F3210B60492004D572E /* GCMathParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E5751F2E10B60492004D572E /* GCMathParser.m */; };
 		E5751F3310B60492004D572E /* ZExpParser.h in Headers */ = {isa = PBXBuildFile; fileRef = E5751F2F10B60492004D572E /* ZExpParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5751F3410B60492004D572E /* ZExpParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5751F3010B60492004D572E /* ZExpParser.mm */; };
-		E5751F3A10B604F0004D572E /* XN2DFunctionGraph.h in Headers */ = {isa = PBXBuildFile; fileRef = E5751F3810B604F0004D572E /* XN2DFunctionGraph.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E5751F3B10B604F0004D572E /* XN2DFunctionGraph.m in Sources */ = {isa = PBXBuildFile; fileRef = E5751F3910B604F0004D572E /* XN2DFunctionGraph.m */; };
-		E5751F4C10B60506004D572E /* PHGraph.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5751F4B10B60506004D572E /* PHGraph.framework */; };
-		E5751F5F10B60516004D572E /* XN2DFunction.h in Headers */ = {isa = PBXBuildFile; fileRef = E5751F5D10B60516004D572E /* XN2DFunction.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E5751F6010B60516004D572E /* XN2DFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = E5751F5E10B60516004D572E /* XN2DFunction.m */; };
-		E5751F6510B60522004D572E /* XN2DFunction+LagrangeInterpolation.h in Headers */ = {isa = PBXBuildFile; fileRef = E5751F6110B60522004D572E /* XN2DFunction+LagrangeInterpolation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E5751F6610B60522004D572E /* XN2DFunction+LagrangeInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = E5751F6210B60522004D572E /* XN2DFunction+LagrangeInterpolation.m */; };
-		E5751F6710B60522004D572E /* XN2DFunction+NewtonInterpolation.h in Headers */ = {isa = PBXBuildFile; fileRef = E5751F6310B60522004D572E /* XN2DFunction+NewtonInterpolation.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E5751F6810B60522004D572E /* XN2DFunction+NewtonInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = E5751F6410B60522004D572E /* XN2DFunction+NewtonInterpolation.m */; };
+		E5751F5F10B60516004D572E /* XNFunction.h in Headers */ = {isa = PBXBuildFile; fileRef = E5751F5D10B60516004D572E /* XNFunction.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5751F6010B60516004D572E /* XNFunction.m in Sources */ = {isa = PBXBuildFile; fileRef = E5751F5E10B60516004D572E /* XNFunction.m */; };
+		E5751F6510B60522004D572E /* XNFunction+LagrangeInterpolation.h in Headers */ = {isa = PBXBuildFile; fileRef = E5751F6110B60522004D572E /* XNFunction+LagrangeInterpolation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5751F6610B60522004D572E /* XNFunction+LagrangeInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = E5751F6210B60522004D572E /* XNFunction+LagrangeInterpolation.m */; };
+		E5751F6710B60522004D572E /* XNFunction+NewtonInterpolation.h in Headers */ = {isa = PBXBuildFile; fileRef = E5751F6310B60522004D572E /* XNFunction+NewtonInterpolation.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5751F6810B60522004D572E /* XNFunction+NewtonInterpolation.m in Sources */ = {isa = PBXBuildFile; fileRef = E5751F6410B60522004D572E /* XNFunction+NewtonInterpolation.m */; };
 		E575216B10B64B8E004D572E /* XNVectorTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E575216410B64B8E004D572E /* XNVectorTest.m */; };
 		E575216C10B64B8E004D572E /* XNMatrixTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E575216610B64B8E004D572E /* XNMatrixTest.m */; };
 		E575216D10B64B8E004D572E /* XNLinearEquationSystemTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E575216810B64B8E004D572E /* XNLinearEquationSystemTest.m */; };
 		E575216E10B64B8E004D572E /* CubicSplineTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E575216A10B64B8E004D572E /* CubicSplineTest.m */; };
 		E575217510B64BC6004D572E /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E575217410B64BC6004D572E /* SenTestingKit.framework */; };
 		E575220E10B64BE5004D572E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
-		E575221010B64BF0004D572E /* PHGraph.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E5751F4B10B60506004D572E /* PHGraph.framework */; };
 		E575221810B64C39004D572E /* XNVector.m in Sources */ = {isa = PBXBuildFile; fileRef = E575221510B64C39004D572E /* XNVector.m */; };
 		E575221910B64C39004D572E /* XNMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = E575221710B64C39004D572E /* XNMatrix.m */; };
 		E575221A10B64C39004D572E /* XNVector.h in Headers */ = {isa = PBXBuildFile; fileRef = E575221410B64C39004D572E /* XNVector.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -45,9 +46,10 @@
 		E57522F010B6661C004D572E /* XN2DLinearSpline.m in Sources */ = {isa = PBXBuildFile; fileRef = E57522EF10B6661C004D572E /* XN2DLinearSpline.m */; };
 		E57522F110B6661C004D572E /* XN2DLinearSpline.h in Headers */ = {isa = PBXBuildFile; fileRef = E57522EE10B6661C004D572E /* XN2DLinearSpline.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E57522F210B6661C004D572E /* XN2DLinearSpline.m in Sources */ = {isa = PBXBuildFile; fileRef = E57522EF10B6661C004D572E /* XN2DLinearSpline.m */; };
-		E575230910B671EE004D572E /* Graphable.h in Headers */ = {isa = PBXBuildFile; fileRef = E575230610B671EE004D572E /* Graphable.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E575248610B7968D004D572E /* README.textile in Resources */ = {isa = PBXBuildFile; fileRef = E575248510B7968D004D572E /* README.textile */; };
 		E575248710B7968E004D572E /* README.textile in Resources */ = {isa = PBXBuildFile; fileRef = E575248510B7968D004D572E /* README.textile */; };
+		E575249E10B79A67004D572E /* PLPlot planning.graffle in Resources */ = {isa = PBXBuildFile; fileRef = E575249D10B79A67004D572E /* PLPlot planning.graffle */; };
+		E575249F10B79A67004D572E /* PLPlot planning.graffle in Resources */ = {isa = PBXBuildFile; fileRef = E575249D10B79A67004D572E /* PLPlot planning.graffle */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -59,20 +61,21 @@
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8DC2EF5B0486A6940098B216 /* XNMaths.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XNMaths.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
+		E518A90F10B8C98A00D2E454 /* pldll.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = pldll.h; sourceTree = "<group>"; };
+		E518A91010B8C98A00D2E454 /* plConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = plConfig.h; sourceTree = "<group>"; };
+		E518A91110B8C98A00D2E454 /* libplplot.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; path = libplplot.dylib; sourceTree = "<group>"; };
+		E518A91210B8C98A00D2E454 /* plplot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = plplot.h; sourceTree = "<group>"; };
 		E5751F0F10B602D8004D572E /* XNMaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMaths.h; sourceTree = "<group>"; };
 		E5751F2D10B60492004D572E /* GCMathParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMathParser.h; sourceTree = "<group>"; };
 		E5751F2E10B60492004D572E /* GCMathParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMathParser.m; sourceTree = "<group>"; };
 		E5751F2F10B60492004D572E /* ZExpParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZExpParser.h; sourceTree = "<group>"; };
 		E5751F3010B60492004D572E /* ZExpParser.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ZExpParser.mm; sourceTree = "<group>"; };
-		E5751F3810B604F0004D572E /* XN2DFunctionGraph.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XN2DFunctionGraph.h; sourceTree = "<group>"; };
-		E5751F3910B604F0004D572E /* XN2DFunctionGraph.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XN2DFunctionGraph.m; sourceTree = "<group>"; };
-		E5751F4B10B60506004D572E /* PHGraph.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = PHGraph.framework; sourceTree = "<group>"; };
-		E5751F5D10B60516004D572E /* XN2DFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XN2DFunction.h; sourceTree = "<group>"; };
-		E5751F5E10B60516004D572E /* XN2DFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XN2DFunction.m; sourceTree = "<group>"; };
-		E5751F6110B60522004D572E /* XN2DFunction+LagrangeInterpolation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XN2DFunction+LagrangeInterpolation.h"; sourceTree = "<group>"; };
-		E5751F6210B60522004D572E /* XN2DFunction+LagrangeInterpolation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XN2DFunction+LagrangeInterpolation.m"; sourceTree = "<group>"; };
-		E5751F6310B60522004D572E /* XN2DFunction+NewtonInterpolation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XN2DFunction+NewtonInterpolation.h"; sourceTree = "<group>"; };
-		E5751F6410B60522004D572E /* XN2DFunction+NewtonInterpolation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XN2DFunction+NewtonInterpolation.m"; sourceTree = "<group>"; };
+		E5751F5D10B60516004D572E /* XNFunction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNFunction.h; sourceTree = "<group>"; };
+		E5751F5E10B60516004D572E /* XNFunction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNFunction.m; sourceTree = "<group>"; };
+		E5751F6110B60522004D572E /* XNFunction+LagrangeInterpolation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XNFunction+LagrangeInterpolation.h"; sourceTree = "<group>"; };
+		E5751F6210B60522004D572E /* XNFunction+LagrangeInterpolation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XNFunction+LagrangeInterpolation.m"; sourceTree = "<group>"; };
+		E5751F6310B60522004D572E /* XNFunction+NewtonInterpolation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "XNFunction+NewtonInterpolation.h"; sourceTree = "<group>"; };
+		E5751F6410B60522004D572E /* XNFunction+NewtonInterpolation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "XNFunction+NewtonInterpolation.m"; sourceTree = "<group>"; };
 		E575215D10B64B6D004D572E /* Test.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = Test.octest; sourceTree = BUILT_PRODUCTS_DIR; };
 		E575215E10B64B6D004D572E /* Test-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Test-Info.plist"; sourceTree = "<group>"; };
 		E575216310B64B8E004D572E /* XNVectorTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNVectorTest.h; sourceTree = "<group>"; };
@@ -94,8 +97,8 @@
 		E575222A10B64C7F004D572E /* XN2DCubicSpline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XN2DCubicSpline.m; sourceTree = "<group>"; };
 		E57522EE10B6661C004D572E /* XN2DLinearSpline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XN2DLinearSpline.h; sourceTree = "<group>"; };
 		E57522EF10B6661C004D572E /* XN2DLinearSpline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XN2DLinearSpline.m; sourceTree = "<group>"; };
-		E575230610B671EE004D572E /* Graphable.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Graphable.h; sourceTree = "<group>"; };
 		E575248510B7968D004D572E /* README.textile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.textile; sourceTree = "<group>"; };
+		E575249D10B79A67004D572E /* PLPlot planning.graffle */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; name = "PLPlot planning.graffle"; path = "doc/PLPlot planning.graffle"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,8 +106,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E518A91610B8C98A00D2E454 /* libplplot.dylib in Frameworks */,
 				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
-				E5751F4C10B60506004D572E /* PHGraph.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -112,9 +115,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E575221010B64BF0004D572E /* PHGraph.framework in Frameworks */,
 				E575220E10B64BE5004D572E /* Cocoa.framework in Frameworks */,
 				E575217510B64BC6004D572E /* SenTestingKit.framework in Frameworks */,
+				E518A91310B8C98A00D2E454 /* libplplot.dylib in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -157,6 +160,7 @@
 		089C1665FE841158C02AAC07 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E575249D10B79A67004D572E /* PLPlot planning.graffle */,
 				E575248510B7968D004D572E /* README.textile */,
 				8DC2EF5A0486A6940098B216 /* Info.plist */,
 				089C1666FE841158C02AAC07 /* InfoPlist.strings */,
@@ -167,11 +171,13 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				E575221E10B64C51004D572E /* Equations */,
-				E575221310B64C1E004D572E /* Vector and Matrix related */,
-				E5751F3710B604E3004D572E /* Graph */,
-				E5751F3610B604D6004D572E /* Interpolation */,
-				E5751F3510B604C0004D572E /* Basics */,
+				E5751F5D10B60516004D572E /* XNFunction.h */,
+				E5751F5E10B60516004D572E /* XNFunction.m */,
+				E5751F6110B60522004D572E /* XNFunction+LagrangeInterpolation.h */,
+				E5751F6210B60522004D572E /* XNFunction+LagrangeInterpolation.m */,
+				E5751F6310B60522004D572E /* XNFunction+NewtonInterpolation.h */,
+				E5751F6410B60522004D572E /* XNFunction+NewtonInterpolation.m */,
+				E518A8D810B890D000D2E454 /* Not revisited */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -179,6 +185,7 @@
 		1058C7B0FEA5585E11CA2CBB /* Linked Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E518A91110B8C98A00D2E454 /* libplplot.dylib */,
 				1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */,
 			);
 			name = "Linked Frameworks";
@@ -188,7 +195,6 @@
 			isa = PBXGroup;
 			children = (
 				E575217410B64BC6004D572E /* SenTestingKit.framework */,
-				E5751F4B10B60506004D572E /* PHGraph.framework */,
 				0867D6A5FE840307C02AAC07 /* AppKit.framework */,
 				D2F7E79907B2D74100F64583 /* CoreData.framework */,
 				0867D69BFE84028FC02AAC07 /* Foundation.framework */,
@@ -205,9 +211,37 @@
 			name = "Other Sources";
 			sourceTree = "<group>";
 		};
+		E518A8D810B890D000D2E454 /* Not revisited */ = {
+			isa = PBXGroup;
+			children = (
+				E575222910B64C7F004D572E /* XN2DCubicSpline.h */,
+				E575222A10B64C7F004D572E /* XN2DCubicSpline.m */,
+				E57522EE10B6661C004D572E /* XN2DLinearSpline.h */,
+				E57522EF10B6661C004D572E /* XN2DLinearSpline.m */,
+				E575221410B64C39004D572E /* XNVector.h */,
+				E575221510B64C39004D572E /* XNVector.m */,
+				E575221610B64C39004D572E /* XNMatrix.h */,
+				E575221710B64C39004D572E /* XNMatrix.m */,
+				E575221F10B64C68004D572E /* XNLinearEquationSystem.h */,
+				E575222010B64C68004D572E /* XNLinearEquationSystem.m */,
+			);
+			name = "Not revisited";
+			sourceTree = "<group>";
+		};
+		E518A91810B8C99800D2E454 /* PLplot */ = {
+			isa = PBXGroup;
+			children = (
+				E518A90F10B8C98A00D2E454 /* pldll.h */,
+				E518A91010B8C98A00D2E454 /* plConfig.h */,
+				E518A91210B8C98A00D2E454 /* plplot.h */,
+			);
+			name = PLplot;
+			sourceTree = "<group>";
+		};
 		E5751F2B10B60483004D572E /* Dependencies */ = {
 			isa = PBXGroup;
 			children = (
+				E518A91810B8C99800D2E454 /* PLplot */,
 				E5751F2C10B60492004D572E /* GCMathParser */,
 			);
 			name = Dependencies;
@@ -222,40 +256,6 @@
 				E5751F3010B60492004D572E /* ZExpParser.mm */,
 			);
 			name = GCMathParser;
-			sourceTree = "<group>";
-		};
-		E5751F3510B604C0004D572E /* Basics */ = {
-			isa = PBXGroup;
-			children = (
-				E5751F5D10B60516004D572E /* XN2DFunction.h */,
-				E5751F5E10B60516004D572E /* XN2DFunction.m */,
-			);
-			name = Basics;
-			sourceTree = "<group>";
-		};
-		E5751F3610B604D6004D572E /* Interpolation */ = {
-			isa = PBXGroup;
-			children = (
-				E575222910B64C7F004D572E /* XN2DCubicSpline.h */,
-				E575222A10B64C7F004D572E /* XN2DCubicSpline.m */,
-				E5751F6110B60522004D572E /* XN2DFunction+LagrangeInterpolation.h */,
-				E5751F6210B60522004D572E /* XN2DFunction+LagrangeInterpolation.m */,
-				E5751F6310B60522004D572E /* XN2DFunction+NewtonInterpolation.h */,
-				E5751F6410B60522004D572E /* XN2DFunction+NewtonInterpolation.m */,
-				E57522EE10B6661C004D572E /* XN2DLinearSpline.h */,
-				E57522EF10B6661C004D572E /* XN2DLinearSpline.m */,
-			);
-			name = Interpolation;
-			sourceTree = "<group>";
-		};
-		E5751F3710B604E3004D572E /* Graph */ = {
-			isa = PBXGroup;
-			children = (
-				E5751F3810B604F0004D572E /* XN2DFunctionGraph.h */,
-				E5751F3910B604F0004D572E /* XN2DFunctionGraph.m */,
-				E575230610B671EE004D572E /* Graphable.h */,
-			);
-			name = Graph;
 			sourceTree = "<group>";
 		};
 		E575216210B64B8E004D572E /* Test */ = {
@@ -273,26 +273,6 @@
 			name = Test;
 			sourceTree = "<group>";
 		};
-		E575221310B64C1E004D572E /* Vector and Matrix related */ = {
-			isa = PBXGroup;
-			children = (
-				E575221410B64C39004D572E /* XNVector.h */,
-				E575221510B64C39004D572E /* XNVector.m */,
-				E575221610B64C39004D572E /* XNMatrix.h */,
-				E575221710B64C39004D572E /* XNMatrix.m */,
-			);
-			name = "Vector and Matrix related";
-			sourceTree = "<group>";
-		};
-		E575221E10B64C51004D572E /* Equations */ = {
-			isa = PBXGroup;
-			children = (
-				E575221F10B64C68004D572E /* XNLinearEquationSystem.h */,
-				E575222010B64C68004D572E /* XNLinearEquationSystem.m */,
-			);
-			name = Equations;
-			sourceTree = "<group>";
-		};
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
@@ -305,14 +285,15 @@
 				E5751F1110B602D8004D572E /* XNMaths.h in Headers */,
 				E5751F3110B60492004D572E /* GCMathParser.h in Headers */,
 				E5751F3310B60492004D572E /* ZExpParser.h in Headers */,
-				E5751F3A10B604F0004D572E /* XN2DFunctionGraph.h in Headers */,
-				E5751F5F10B60516004D572E /* XN2DFunction.h in Headers */,
-				E5751F6510B60522004D572E /* XN2DFunction+LagrangeInterpolation.h in Headers */,
-				E5751F6710B60522004D572E /* XN2DFunction+NewtonInterpolation.h in Headers */,
+				E5751F5F10B60516004D572E /* XNFunction.h in Headers */,
+				E5751F6510B60522004D572E /* XNFunction+LagrangeInterpolation.h in Headers */,
+				E5751F6710B60522004D572E /* XNFunction+NewtonInterpolation.h in Headers */,
 				E575222210B64C68004D572E /* XNLinearEquationSystem.h in Headers */,
 				E575222C10B64C7F004D572E /* XN2DCubicSpline.h in Headers */,
 				E57522F110B6661C004D572E /* XN2DLinearSpline.h in Headers */,
-				E575230910B671EE004D572E /* Graphable.h in Headers */,
+				E518A91410B8C98A00D2E454 /* pldll.h in Headers */,
+				E518A91510B8C98A00D2E454 /* plConfig.h in Headers */,
+				E518A91710B8C98A00D2E454 /* plplot.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -382,6 +363,7 @@
 			files = (
 				8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */,
 				E575248710B7968E004D572E /* README.textile in Resources */,
+				E575249F10B79A67004D572E /* PLPlot planning.graffle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -390,6 +372,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E575248610B7968D004D572E /* README.textile in Resources */,
+				E575249E10B79A67004D572E /* PLPlot planning.graffle in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,10 +401,9 @@
 			files = (
 				E5751F3210B60492004D572E /* GCMathParser.m in Sources */,
 				E5751F3410B60492004D572E /* ZExpParser.mm in Sources */,
-				E5751F3B10B604F0004D572E /* XN2DFunctionGraph.m in Sources */,
-				E5751F6010B60516004D572E /* XN2DFunction.m in Sources */,
-				E5751F6610B60522004D572E /* XN2DFunction+LagrangeInterpolation.m in Sources */,
-				E5751F6810B60522004D572E /* XN2DFunction+NewtonInterpolation.m in Sources */,
+				E5751F6010B60516004D572E /* XNFunction.m in Sources */,
+				E5751F6610B60522004D572E /* XNFunction+LagrangeInterpolation.m in Sources */,
+				E5751F6810B60522004D572E /* XNFunction+NewtonInterpolation.m in Sources */,
 				E575221B10B64C39004D572E /* XNVector.m in Sources */,
 				E575221D10B64C39004D572E /* XNMatrix.m in Sources */,
 				E575222310B64C68004D572E /* XNLinearEquationSystem.m in Sources */,
@@ -480,6 +462,10 @@
 				GCC_PREFIX_HEADER = XNMaths_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = XNMaths;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -502,6 +488,10 @@
 				GCC_PREFIX_HEADER = XNMaths_Prefix.pch;
 				INFOPLIST_FILE = Info.plist;
 				INSTALL_PATH = "$(HOME)/Library/Frameworks";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				PRODUCT_NAME = XNMaths;
 				WRAPPER_EXTENSION = framework;
 			};
@@ -551,6 +541,10 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
 				INFOPLIST_FILE = "Test-Info.plist";
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-framework",
 					Cocoa,
@@ -580,6 +574,10 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
 				INFOPLIST_FILE = "Test-Info.plist";
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(SRCROOT)\"",
+				);
 				OTHER_LDFLAGS = (
 					"-framework",
 					Cocoa,

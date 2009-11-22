@@ -10,12 +10,9 @@
 
 #import <Cocoa/Cocoa.h>
 
-#import "Graphable.h"
-#import "XN2DFunction.h"
-#import "XN2DFunctionGraph.h"
-
-#import	"XN2DFunction+LagrangeInterpolation.h"
-#import "XN2DFunction+NewtonInterpolation.h"
+#import "XNFunction.h"
+#import	"XNFunction+LagrangeInterpolation.h"
+#import "XNFunction+NewtonInterpolation.h"
 
 #import "XN2DLinearSpline.h"
 #import "XN2DCubicSpline.h"

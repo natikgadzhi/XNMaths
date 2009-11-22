@@ -1,16 +1,24 @@
 //
 //  XN2DFunction+NewtonInterpolation.m
-//  Assignation 3
+//
+//  Provides XNFunction newton interpolation category. 
+//  A method to init a function as a newton polynome with an array of points.
+//  
+//  First used in Assignation 3.1 2009
 //
 //  Created by Нат Гаджибалаев on 13.11.09.
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
-#import "XN2DFunction+NewtonInterpolation.h"
+#import "XNFunction+NewtonInterpolation.h"
 
 
-@implementation XN2DFunction(NewtonInterpolation)
+@implementation XNFunction (NewtonInterpolation)
 
+#pragma mark -
+#pragma mark Private calss methods
+
+//
 // calculate finite differencial of values 
 + (double) finiteDiffWithPoints: (NSMutableArray*) aPoints
 {
@@ -26,12 +34,13 @@
 	NSMutableArray *aPointsWithoutFirst = [aPoints mutableCopy];
 	[aPointsWithoutFirst removeObjectAtIndex:0];
 	
-	return ( [XN2DFunction finiteDiffWithPoints:aPointsWithoutLast] - [XN2DFunction finiteDiffWithPoints:aPointsWithoutFirst] ) / 
+	return ( [XNFunction finiteDiffWithPoints:aPointsWithoutLast] - [XNFunction finiteDiffWithPoints:aPointsWithoutFirst] ) / 
 		( [[aPoints objectAtIndex:0] pointValue].x - [[aPoints lastObject] pointValue].x);
 }
 
+//
 // Initialize newton interpolation with points
-- (XN2DFunction*) initNewtonInterpolationWithPoints: (NSMutableArray*) aPoints
+- (XNFunction*) initNewtonInterpolationWithPoints: (NSMutableArray*) aPoints
 {
 	NSUInteger iteration = 1;
 	NSMutableString* expressionString = [NSMutableString stringWithCapacity: 50];
@@ -41,7 +50,7 @@
 		NSPoint i = [iValue pointValue];
 		NSMutableArray* pointsForDiff = [[aPoints subarrayWithRange: NSMakeRange(0, iteration)] mutableCopy];
 		
-		[expressionString appendString:[NSString stringWithFormat: @"%f", [XN2DFunction finiteDiffWithPoints: pointsForDiff]]];
+		[expressionString appendString:[NSString stringWithFormat: @"%f", [XNFunction finiteDiffWithPoints: pointsForDiff]]];
 		NSMutableString* productString = [NSMutableString stringWithCapacity:10];
 
 		for( NSValue* jValue in pointsForDiff)
@@ -65,8 +74,8 @@
 	}
 	
 	[expressionString appendString: @"0"];
-	NSLog( expressionString );
-	self = [[XN2DFunction alloc] initWithExpression: expressionString];
+	
+	self = [[XNFunction alloc] initWithExpression: expressionString];
 	return self;
 }
 
