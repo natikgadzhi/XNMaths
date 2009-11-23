@@ -13,19 +13,23 @@
 //
 
 #import "XNFunction.h"
+#import "GCMathParser.h"
+#import "XNLineData.h"
 
 
 @implementation XNFunction
 
-//
-// Properties
 @synthesize expression;
 
 #pragma mark -
-#pragma mark Initialization
+#pragma mark Class methods init
++ (XNFunction*) functionWithExpression: (NSString*)aExpression
+{
+	return [[XNFunction alloc] initWithExpression:aExpression];
+}
 
-//
-// Initialize a new function with a string expression. 
+#pragma mark -
+#pragma mark Initialization
 - (XNFunction*) initWithExpression: (NSString*) aExpression;
 { 
 	self = [super init];
@@ -36,8 +40,6 @@
 
 #pragma mark -
 #pragma mark Deallocation method
-
-// deallocate instance
 - (void) dealloc
 {
 	[expression release];
@@ -46,23 +48,19 @@
 }
 
 #pragma mark -
-#pragma mark Value getters
-
-// 
-// double with double
-// Evalutes the expression once again to get the value. 
-- (double) doubleValueWithDouble: (double) a_DoubleX
+#pragma mark Value getters 
+- (CGFloat) valueWithFloat: (CGFloat) a_X
 {
-	[parser setSymbolValue: a_DoubleX forKey: @"x"];
-	return [parser evaluate: expression];
+	//TODO: Optimize this. Read GCMathParser first.
+	[parser setSymbolValue: a_X forKey: @"x"];
+	return (CGFloat)[parser evaluate: expression];
 }
 
-
 #pragma mark -
-#pragma mark Graphics and plotting related
-- (void) render
+#pragma mark Private (data related) 
+- (XNLineData *) createLineDataInRange: (XNFloatRange*)range withQuality: (NSUInteger) lineQuality
 {
-	
+	return [[XNLineData alloc] initWithFunction:self inRange: range withQuality:lineQuality];
 }
 
 @end

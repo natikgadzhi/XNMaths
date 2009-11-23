@@ -15,7 +15,6 @@
 
 @interface XNMatrix : NSObject {
 	NSUInteger rowsCount, columnsCount;
-	
 	CGFloat **data;
 }
 

@@ -9,35 +9,39 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "GCMathParser.h"
-#import "plplot.h"
+
+@class GCMathParser;
+@class XNFloatRange;
+@class XNLineData;
 
 @interface XNFunction: NSObject
 {	
 	// the expression to evalute. 
-	NSString* expression;
+	NSString *expression;
 	
 	// parser object. 
 	// we need the object to pass the params
 	// and than call #evalute method on it. 
-	GCMathParser* parser;
+	GCMathParser *parser;
 }
 
 #pragma mark -
 #pragma mark Properties
-@property(retain) NSString* expression;
+@property(retain) NSString *expression;
 
 #pragma mark -
-#pragma mark Initialization
-// initialize with an expression! 
-- (XNFunction*) initWithExpression: (NSString*) aExpression; 
+#pragma mark Class initialization
++ (XNFunction*) functionWithExpression: (NSString*)aExpression;
+
+#pragma mark -
+#pragma mark Instance inititalization
+- (XNFunction*) initWithExpression: (NSString*)aExpression; 
 
 #pragma mark -`
 #pragma mark Value getters
-- (double) doubleValueWithDouble: (double) a_DoubleX; 
+- (CGFloat) valueWithFloat: (CGFloat) a_X; 
 
 #pragma mark -
-#pragma mark Graphics and plotting related
-- (void) render;
-
+#pragma mark Private (data related) 
+- (XNLineData *) createLineDataInRange: (XNFloatRange*)range withQuality: (NSUInteger) lineQuality;
 @end
