@@ -20,7 +20,7 @@
 #import "XNCubicSpline.h"
 
 #import "XNLineData.h"
-#import "XNPlot.h"
+#import "XN2DPlot.h"
 
 
 

@@ -11,9 +11,9 @@
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 		E518ABE710B9E71700D2E454 /* libplplot.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E518ABE610B9E71700D2E454 /* libplplot.dylib */; };
 		E518ABE810B9E71800D2E454 /* libplplot.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = E518ABE610B9E71700D2E454 /* libplplot.dylib */; };
-		E518AD6410BB22C800D2E454 /* XNPlot.h in Headers */ = {isa = PBXBuildFile; fileRef = E518AD6210BB22C800D2E454 /* XNPlot.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E518AD6510BB22C800D2E454 /* XNPlot.m in Sources */ = {isa = PBXBuildFile; fileRef = E518AD6310BB22C800D2E454 /* XNPlot.m */; };
-		E518AD6610BB22C800D2E454 /* XNPlot.m in Sources */ = {isa = PBXBuildFile; fileRef = E518AD6310BB22C800D2E454 /* XNPlot.m */; };
+		E518AD6410BB22C800D2E454 /* XN2DPlot.h in Headers */ = {isa = PBXBuildFile; fileRef = E518AD6210BB22C800D2E454 /* XN2DPlot.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E518AD6510BB22C800D2E454 /* XN2DPlot.m in Sources */ = {isa = PBXBuildFile; fileRef = E518AD6310BB22C800D2E454 /* XN2DPlot.m */; };
+		E518AD6610BB22C800D2E454 /* XN2DPlot.m in Sources */ = {isa = PBXBuildFile; fileRef = E518AD6310BB22C800D2E454 /* XN2DPlot.m */; };
 		E518AD7A10BB262700D2E454 /* XNLineData.h in Headers */ = {isa = PBXBuildFile; fileRef = E518AD7810BB262700D2E454 /* XNLineData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E518AD7B10BB262700D2E454 /* XNLineData.m in Sources */ = {isa = PBXBuildFile; fileRef = E518AD7910BB262700D2E454 /* XNLineData.m */; };
 		E518AD7C10BB262700D2E454 /* XNLineData.m in Sources */ = {isa = PBXBuildFile; fileRef = E518AD7910BB262700D2E454 /* XNLineData.m */; };
@@ -68,8 +68,8 @@
 		8DC2EF5B0486A6940098B216 /* XNMaths.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = XNMaths.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		E518ABE610B9E71700D2E454 /* libplplot.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libplplot.dylib; path = /usr/local/lib/libplplot.dylib; sourceTree = "<absolute>"; };
-		E518AD6210BB22C800D2E454 /* XNPlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNPlot.h; sourceTree = "<group>"; };
-		E518AD6310BB22C800D2E454 /* XNPlot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNPlot.m; sourceTree = "<group>"; };
+		E518AD6210BB22C800D2E454 /* XN2DPlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XN2DPlot.h; sourceTree = "<group>"; };
+		E518AD6310BB22C800D2E454 /* XN2DPlot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XN2DPlot.m; sourceTree = "<group>"; };
 		E518AD7810BB262700D2E454 /* XNLineData.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNLineData.h; sourceTree = "<group>"; };
 		E518AD7910BB262700D2E454 /* XNLineData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNLineData.m; sourceTree = "<group>"; };
 		E518B00910BB471500D2E454 /* XNFloatRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNFloatRange.h; sourceTree = "<group>"; };
@@ -196,8 +196,8 @@
 				E575221710B64C39004D572E /* XNMatrix.m */,
 				E575221F10B64C68004D572E /* XNLinearEquationSystem.h */,
 				E575222010B64C68004D572E /* XNLinearEquationSystem.m */,
-				E518AD6210BB22C800D2E454 /* XNPlot.h */,
-				E518AD6310BB22C800D2E454 /* XNPlot.m */,
+				E518AD6210BB22C800D2E454 /* XN2DPlot.h */,
+				E518AD6310BB22C800D2E454 /* XN2DPlot.m */,
 				E518AD7810BB262700D2E454 /* XNLineData.h */,
 				E518AD7910BB262700D2E454 /* XNLineData.m */,
 				E518B00910BB471500D2E454 /* XNFloatRange.h */,
@@ -287,7 +287,7 @@
 				E575222210B64C68004D572E /* XNLinearEquationSystem.h in Headers */,
 				E575222C10B64C7F004D572E /* XNCubicSpline.h in Headers */,
 				E57522F110B6661C004D572E /* XNLinearSpline.h in Headers */,
-				E518AD6410BB22C800D2E454 /* XNPlot.h in Headers */,
+				E518AD6410BB22C800D2E454 /* XN2DPlot.h in Headers */,
 				E518AD7A10BB262700D2E454 /* XNLineData.h in Headers */,
 				E518B00B10BB471500D2E454 /* XNFloatRange.h in Headers */,
 			);
@@ -405,7 +405,7 @@
 				E575222310B64C68004D572E /* XNLinearEquationSystem.m in Sources */,
 				E575222D10B64C7F004D572E /* XNCubicSpline.m in Sources */,
 				E57522F210B6661C004D572E /* XNLinearSpline.m in Sources */,
-				E518AD6510BB22C800D2E454 /* XNPlot.m in Sources */,
+				E518AD6510BB22C800D2E454 /* XN2DPlot.m in Sources */,
 				E518AD7B10BB262700D2E454 /* XNLineData.m in Sources */,
 				E518B00C10BB471500D2E454 /* XNFloatRange.m in Sources */,
 			);
@@ -424,7 +424,7 @@
 				E575222110B64C68004D572E /* XNLinearEquationSystem.m in Sources */,
 				E575222B10B64C7F004D572E /* XNCubicSpline.m in Sources */,
 				E57522F010B6661C004D572E /* XNLinearSpline.m in Sources */,
-				E518AD6610BB22C800D2E454 /* XNPlot.m in Sources */,
+				E518AD6610BB22C800D2E454 /* XN2DPlot.m in Sources */,
 				E518AD7C10BB262700D2E454 /* XNLineData.m in Sources */,
 				E518B00D10BB471500D2E454 /* XNFloatRange.m in Sources */,
 			);
