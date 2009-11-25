@@ -19,11 +19,13 @@
 #pragma mark Class initializers
 + (XNFloatRange*) rangeWithMin:(CGFloat)aMin max:(CGFloat)aMax; 
 + (XNFloatRange*) rangeWithRange:(NSRange)range;
++ (XNFloatRange*) rangeWithCArray:(CGFloat*)array withCapacity:(NSUInteger)capacity;
 
 #pragma mark -
 #pragma mark Instance initializers
 - (XNFloatRange*) initWithMin: (CGFloat) aMin max: (CGFloat) aMax;
 - (XNFloatRange*) initWithRange:(NSRange)range;
+- (XNFloatRange*) initWithCArray:(CGFloat*)array withCapacity:(NSUInteger)capacity;
 
 #pragma mark -
 #pragma mark Instance logic

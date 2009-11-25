@@ -6,10 +6,16 @@
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
+#pragma mark -
+#pragma mark Imports && classes requirements 
+
 #import <Cocoa/Cocoa.h>
 
 @class XNFloatRange;
 @class XNFunction;
+
+#pragma mark -
+#pragma mark XNLIneData class public interface
 
 @interface XNLineData : NSObject {
 	
@@ -23,11 +29,21 @@
 	NSUInteger quality, pointsCount;
 }
 
+#pragma mark -
+#pragma mark XNLineData object public properties declaration
+
 @property(readonly) CGFloat *xData;
 @property(readonly) CGFloat *yData;
 @property(readonly) XNFloatRange *xRange, *yRange;
 @property(readonly) NSUInteger quality, pointsCount;
 
-- (XNLineData *)initWithFunction: (XNFunction *)aFunction inRange: (XNFloatRange*)newRange withQuality: (NSUInteger) lineQuality;
+
+#pragma mark -
+#pragma mark Class init methods
++ (XNLineData *) lineDataWithFunction: (XNFunction*)aFunction inRange: (XNFloatRange*)range withQuality: (NSUInteger) lineQuality;
++ (XNLineData *) lineDataWithXData: (CGFloat*)x yData:(CGFloat*)y pointsCount: (NSUInteger) count;
+
+- (XNLineData *) initWithXData: (CGFloat*)x yData:(CGFloat*)y pointsCount: (NSUInteger) count;
+- (XNLineData *) initWithFunction: (XNFunction *)aFunction inRange: (XNFloatRange*)newRange withQuality: (NSUInteger) lineQuality;
 
 @end

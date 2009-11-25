@@ -11,16 +11,20 @@
 
 #import <Cocoa/Cocoa.h>
 
+@class XNLineData;
+
 #pragma mark -
 #pragma mark XNLInearSplineElement structure. 
 
+//
 // Struct that incapsulates interpolation element. 
 // 
 typedef struct {
 	CGFloat a,b;
 } XNLinearSplineElement;
 
-// Make interpolation element
+//
+// Creates new XNLinearInterpolationElement.
 //
 XNLinearSplineElement XNMakeLinearSplineElement(CGFloat a, CGFloat b);
 
@@ -34,8 +38,14 @@ XNLinearSplineElement XNMakeLinearSplineElement(CGFloat a, CGFloat b);
 	XNLinearSplineElement *interpolationElements;
 }
 
++ (XNLinearSpline *) splineWithPoints: (NSArray *)aPoints;
+
 //
 // Initialize with approx points
 - (XNLinearSpline *) initWithPoints: (NSArray *)aPoints;
+
+#pragma mark -
+#pragma mark Data
+- (XNLineData*) lineData;
 
 @end

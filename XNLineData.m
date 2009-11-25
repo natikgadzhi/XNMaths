@@ -6,15 +6,53 @@
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
+#pragma mark -
+#pragma mark Imports
+
 #import "XNFLoatRange.h"
 #import "XNLineData.h"
 #import "XNFunction.h"
+
+#pragma mark -
+#pragma mark LineData class implementation 
 
 @implementation XNLineData
 
 @synthesize xData, yData;
 @synthesize xRange, yRange;
 @synthesize quality, pointsCount;
+
+#pragma mark - 
+#pragma mark Class init methods 
+
++ (XNLineData *) lineDataWithFunction: (XNFunction*)aFunction inRange: (XNFloatRange*)range withQuality: (NSUInteger) lineQuality
+{
+	return [[XNLineData alloc] initWithFunction:aFunction inRange:range withQuality:lineQuality ];
+}
+
++ (XNLineData *) lineDataWithXData: (CGFloat*)x yData:(CGFloat*)y pointsCount: (NSUInteger) count;
+{
+	return [[XNLineData alloc] initWithXData: x yData: y pointsCount: count ];
+}
+
+#pragma mark -
+#pragma mark Instance init methods
+
+- (XNLineData *) initWithXData: (CGFloat*)x yData:(CGFloat*)y pointsCount: (NSUInteger) count
+{
+	self = [super init];
+	
+	xData = x;
+	yData = y;
+	pointsCount = count;
+	
+	xRange = [XNFloatRange rangeWithCArray:xData withCapacity:pointsCount ];
+	yRange = [XNFloatRange rangeWithCArray:yData withCapacity:pointsCount ];
+	
+	quality = (NSUInteger)(xRange.length / pointsCount);
+	
+	return self;
+}
 
 - (XNLineData *)initWithFunction: (XNFunction*)aFunction inRange: (XNFloatRange*)newRange withQuality: (NSUInteger) lineQuality
 {

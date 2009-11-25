@@ -24,6 +24,11 @@
 	return [[XNFloatRange alloc] initWithRange:range];
 }
 
++ (XNFloatRange*) rangeWithCArray:(CGFloat*)array withCapacity:(NSUInteger)capacity
+{
+	return [[XNFloatRange alloc] initWithCArray:array withCapacity:capacity ];
+}
+
 #pragma mark -
 #pragma mark Instance initializers
 - (XNFloatRange*) initWithMin:(CGFloat)aMin max:(CGFloat)aMax
@@ -40,6 +45,26 @@
 	self = [super init];
 	min = (CGFloat)(range.location);
 	max = (CGFloat)(range.length);
+	
+	return self;
+}
+
+- (XNFloatRange*) initWithCArray:(CGFloat*)array withCapacity:(NSUInteger)capacity
+{
+	self = [super init];
+	
+	min = array[0];
+	max = array[0];
+	
+	for( NSUInteger i = 0; i < capacity; i++ ){
+		if( array[i] < min ){
+			min = array[i];
+		}
+		
+		if( array[i] > max){
+			max = array[i];
+		}
+	}
 	
 	return self;
 }

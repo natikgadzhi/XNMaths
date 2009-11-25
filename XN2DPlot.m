@@ -133,10 +133,7 @@
 	}
 	
 	// draw!
-	plscol0(15, (NSInteger)([color redComponent]*255), (NSInteger)([color greenComponent]*255), (NSInteger)([color blueComponent]*255));
-	plcol(15);
-	plwid(width);
-	plline(line.pointsCount, line.xData, line.yData);
+	[self renderLine: line color: color width: width];
 	
 	// label!
 	//plptex( xRange.min + 1.0f , yRange.max - 1.0f - labelsDrawn * 0.8f, 1.0f, 0.0f, 1, [label cString] );
@@ -173,6 +170,18 @@
 	
 	free(x);
 	free(y);
+}
+
+- (void) renderLine: (XNLineData *)data color: (NSColor *)color width: (NSUInteger)width
+{
+	// draw!
+	plscol0(15, (NSInteger)([color redComponent]*255), (NSInteger)([color greenComponent]*255), (NSInteger)([color blueComponent]*255));
+	plcol(15);
+	plwid(width);
+	plline(data.pointsCount, data.xData, data.yData);
+	
+	// back to default width: 
+	plwid(1);
 }
 
 - (void) renderPointsWithX: (CGFloat*)x y: (CGFloat*)y  count: (NSUInteger)count color: (NSColor*) color

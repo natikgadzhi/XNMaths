@@ -54,6 +54,8 @@
 - (void) renderPoint: (XN2DPoint)point color: (NSColor*)color;
 - (void) renderPoints: (NSArray*)arrayOfPoints color: (NSColor*)color;
 
+- (void) renderLine: (XNLineData *)data color: (NSColor *)color width: (NSUInteger)width;
+
 #pragma mark -
 #pragma mark Finalize
 - (void) finalize;
