@@ -20,6 +20,7 @@
 		E518B00B10BB471500D2E454 /* XNFloatRange.h in Headers */ = {isa = PBXBuildFile; fileRef = E518B00910BB471500D2E454 /* XNFloatRange.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E518B00C10BB471500D2E454 /* XNFloatRange.m in Sources */ = {isa = PBXBuildFile; fileRef = E518B00A10BB471500D2E454 /* XNFloatRange.m */; };
 		E518B00D10BB471500D2E454 /* XNFloatRange.m in Sources */ = {isa = PBXBuildFile; fileRef = E518B00A10BB471500D2E454 /* XNFloatRange.m */; };
+		E518B1FD10BD953100D2E454 /* XN2DPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = E518B1FB10BD953100D2E454 /* XN2DPoint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5751F1110B602D8004D572E /* XNMaths.h in Headers */ = {isa = PBXBuildFile; fileRef = E5751F0F10B602D8004D572E /* XNMaths.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5751F3110B60492004D572E /* GCMathParser.h in Headers */ = {isa = PBXBuildFile; fileRef = E5751F2D10B60492004D572E /* GCMathParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5751F3210B60492004D572E /* GCMathParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E5751F2E10B60492004D572E /* GCMathParser.m */; };
@@ -74,6 +75,7 @@
 		E518AD7910BB262700D2E454 /* XNLineData.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNLineData.m; sourceTree = "<group>"; };
 		E518B00910BB471500D2E454 /* XNFloatRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNFloatRange.h; sourceTree = "<group>"; };
 		E518B00A10BB471500D2E454 /* XNFloatRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNFloatRange.m; sourceTree = "<group>"; };
+		E518B1FB10BD953100D2E454 /* XN2DPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XN2DPoint.h; sourceTree = "<group>"; };
 		E5751F0F10B602D8004D572E /* XNMaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMaths.h; sourceTree = "<group>"; };
 		E5751F2D10B60492004D572E /* GCMathParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMathParser.h; sourceTree = "<group>"; };
 		E5751F2E10B60492004D572E /* GCMathParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMathParser.m; sourceTree = "<group>"; };
@@ -202,6 +204,7 @@
 				E518AD7910BB262700D2E454 /* XNLineData.m */,
 				E518B00910BB471500D2E454 /* XNFloatRange.h */,
 				E518B00A10BB471500D2E454 /* XNFloatRange.m */,
+				E518B1FB10BD953100D2E454 /* XN2DPoint.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -290,6 +293,7 @@
 				E518AD6410BB22C800D2E454 /* XN2DPlot.h in Headers */,
 				E518AD7A10BB262700D2E454 /* XNLineData.h in Headers */,
 				E518B00B10BB471500D2E454 /* XNFloatRange.h in Headers */,
+				E518B1FD10BD953100D2E454 /* XN2DPoint.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

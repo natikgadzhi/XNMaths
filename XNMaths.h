@@ -21,6 +21,7 @@
 
 #import "XNLineData.h"
 #import "XN2DPlot.h"
+#import "XN2DPoint.h"
 
 
 

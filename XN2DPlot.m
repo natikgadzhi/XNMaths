@@ -15,10 +15,14 @@
 #import "XNFunction.h"
 #import "XNLineData.h"
 #import "XNFloatRange.h"
+#import "XN2DPoint.h"
 #import "plplot.h"
 
 @interface XN2DPlot (Private)
 - (void) initializePLplot;
+//- (void) setCurrentColor: (NSColor*)color;
+
+- (void) renderPointsWithX: (CGFloat*)x y: (CGFloat*)y  count: (NSUInteger)count color: (NSColor*) color;
 @end
 
 
@@ -51,6 +55,9 @@
 
 - (XN2DPlot*) initInRect: (NSRect)rect withTitle: (NSString*)newTitle quality: (NSUInteger)newQuality
 {
+	// default values 
+	labelsDrawn = 0;
+	
 	// set range from rect
 	xRange = [XNFloatRange rangeWithMin: rect.origin.x max: (rect.origin.x + rect.size.width)];
 	yRange = [XNFloatRange rangeWithMin: rect.origin.y max: (rect.origin.y + rect.size.height)];
@@ -79,8 +86,11 @@
 	plinit();
 	
 	// 2d env
+	plscol0(1, 0, 0, 0);
+	plcol(1);
 	plenv( xRange.min, xRange.max, yRange.min, yRange.max, 1, 1);
-	pllab([[NSString stringWithString: @"X"] cString], [[NSString stringWithString: @"Y"] cString], [title cString]);
+	pllab([[NSString stringWithString: @"(x axis)"] cString], [[NSString stringWithString: @"(y axis)"] cString], [title cString]);
+	plscol0(1, 1, 0, 0);
 }
 
 
@@ -88,6 +98,21 @@
 #pragma mark Drawing API
 
 - (void) renderFunction: (XNFunction*)aFunction inRange: (XNFloatRange*)range withColor: (NSColor*)color;
+{
+	[self renderFunction:aFunction inRange:range withColor:color labeled: aFunction.expression];
+}
+
+- (void) renderFunction: (XNFunction*)aFunction inRange: (XNFloatRange*)range withColor: (NSColor*)color width: (NSUInteger)width
+{
+	[self renderFunction:aFunction inRange:range withColor:color labeled: aFunction.expression width: width];
+}
+
+- (void) renderFunction: (XNFunction*)aFunction inRange: (XNFloatRange*) range withColor: (NSColor*)color labeled: (NSString*)label 
+{
+	[self renderFunction:aFunction inRange:range withColor:color labeled: aFunction.expression width: 1];
+}
+
+- (void) renderFunction: (XNFunction*)aFunction inRange: (XNFloatRange*) range withColor: (NSColor*)color labeled: (NSString*)label width: (NSUInteger)width
 {
 	XNLineData *line = [aFunction createLineDataInRange: range withQuality:quality];
 	
@@ -107,14 +132,59 @@
 		yRange.max = line.yRange.max;
 	}
 	
+	// draw!
 	plscol0(15, (NSInteger)([color redComponent]*255), (NSInteger)([color greenComponent]*255), (NSInteger)([color blueComponent]*255));
 	plcol(15);
+	plwid(width);
 	plline(line.pointsCount, line.xData, line.yData);
+	
+	// label!
+	//plptex( xRange.min + 1.0f , yRange.max - 1.0f - labelsDrawn * 0.8f, 1.0f, 0.0f, 1, [label cString] );
+	//NSLog(label);
+	
+	labelsDrawn++;
+}
+
+- (void) renderPoint: (XN2DPoint)point color: (NSColor*) color
+{
+	CGFloat* x = calloc(1, sizeof(CGFloat));
+	CGFloat* y = calloc(1, sizeof(CGFloat));
+	
+	x[0] = point.x;
+	y[0] = point.y;
+	
+	[self renderPointsWithX:x y:y count:1 color:color];
+	
+	free(x);
+	free(y);
+}
+
+- (void) renderPoints: (NSArray*) arrayOfPoints color:(NSColor*) color
+{
+	CGFloat* x = calloc(arrayOfPoints.count, sizeof(CGFloat));
+	CGFloat* y = calloc(arrayOfPoints.count, sizeof(CGFloat));
+	
+	for( NSUInteger i = 0; i < arrayOfPoints.count; i++){
+		x[i] = [[arrayOfPoints objectAtIndex:i] pointValue].x;
+		y[i] = [[arrayOfPoints objectAtIndex:i] pointValue].y;
+	}
+	
+	[self renderPointsWithX:x y:y count:arrayOfPoints.count color:color];
+	
+	free(x);
+	free(y);
+}
+
+- (void) renderPointsWithX: (CGFloat*)x y: (CGFloat*)y  count: (NSUInteger)count color: (NSColor*) color
+{
+	plscol0(15, (NSInteger)([color redComponent]*255), (NSInteger)([color greenComponent]*255), (NSInteger)([color blueComponent]*255));
+	plcol(15);
+	plpoin(count, x, y, 21);
 }
 
 - (void) finalize
 {
-	plend();
+	plend1();
 }
 
 

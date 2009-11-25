@@ -9,6 +9,7 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "XN2DPoint.h"
 
 @class XNFloatRange;
 @class XNLineData;
@@ -24,6 +25,9 @@
 	
 	// and this calculation quality. Points per one float unit (1.0f). 20 is default.
 	NSUInteger quality;
+	
+	// drawn labels count
+	NSUInteger labelsDrawn;
 }
 
 @property(readonly) NSString *title;
@@ -43,6 +47,12 @@
 #pragma mark -
 #pragma mark Drawing API
 - (void) renderFunction: (XNFunction*)aFunction inRange: (XNFloatRange*) range withColor: (NSColor*)color;
+- (void) renderFunction: (XNFunction*)aFunction inRange: (XNFloatRange*) range withColor: (NSColor*)color labeled: (NSString*)label;
+- (void) renderFunction: (XNFunction*)aFunction inRange: (XNFloatRange*) range withColor: (NSColor*)color width: (NSUInteger)width;
+- (void) renderFunction: (XNFunction*)aFunction inRange: (XNFloatRange*) range withColor: (NSColor*)color labeled: (NSString*)label width: (NSUInteger)width;
+
+- (void) renderPoint: (XN2DPoint)point color: (NSColor*)color;
+- (void) renderPoints: (NSArray*)arrayOfPoints color: (NSColor*)color;
 
 #pragma mark -
 #pragma mark Finalize
