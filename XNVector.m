@@ -98,12 +98,12 @@
 #pragma mark Debuging
 - (void) printToLog
 {
-	NSLog(@"Vector if $d elements", capacity);
+	NSLog(@"Vector if %d elements", capacity);
 	NSMutableString *logFormatForRow = [NSMutableString stringWithCapacity: 30];
 	for( NSInteger i = 0; i < capacity; i++ ){
 		[logFormatForRow appendString: [NSMutableString stringWithFormat: @"%1.2f, ", data[i]]];
 	}
-	NSLog(@"[%s]", logFormatForRow);
+	NSLog(@"[%@]", logFormatForRow);
 }
 
 

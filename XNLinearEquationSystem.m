@@ -58,9 +58,9 @@
 		[solution setValue: ([p valueAtIndex:i+1]*[solution valueAtIndex:i+1] + [q valueAtIndex:i+1]) atIndex: i];
 	}
 	
-	for( NSUInteger i = 0; i < solution.capacity; i++ ){
-		[solution setValue: floorf([solution valueAtIndex: i]) atIndex: i];
-	}
+//	for( NSUInteger i = 0; i < solution.capacity; i++ ){
+//		[solution setValue: floorf([solution valueAtIndex: i]) atIndex: i];
+//	}
 	
 	return solution;
 }

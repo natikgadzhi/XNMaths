@@ -21,6 +21,8 @@
 		E518B00C10BB471500D2E454 /* XNFloatRange.m in Sources */ = {isa = PBXBuildFile; fileRef = E518B00A10BB471500D2E454 /* XNFloatRange.m */; };
 		E518B00D10BB471500D2E454 /* XNFloatRange.m in Sources */ = {isa = PBXBuildFile; fileRef = E518B00A10BB471500D2E454 /* XNFloatRange.m */; };
 		E518B1FD10BD953100D2E454 /* XN2DPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = E518B1FB10BD953100D2E454 /* XN2DPoint.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E518B40710BE081A00D2E454 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E518B40610BE081A00D2E454 /* Accelerate.framework */; };
+		E518B40810BE081A00D2E454 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E518B40610BE081A00D2E454 /* Accelerate.framework */; };
 		E5751F1110B602D8004D572E /* XNMaths.h in Headers */ = {isa = PBXBuildFile; fileRef = E5751F0F10B602D8004D572E /* XNMaths.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5751F3110B60492004D572E /* GCMathParser.h in Headers */ = {isa = PBXBuildFile; fileRef = E5751F2D10B60492004D572E /* GCMathParser.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E5751F3210B60492004D572E /* GCMathParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E5751F2E10B60492004D572E /* GCMathParser.m */; };
@@ -76,6 +78,7 @@
 		E518B00910BB471500D2E454 /* XNFloatRange.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNFloatRange.h; sourceTree = "<group>"; };
 		E518B00A10BB471500D2E454 /* XNFloatRange.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNFloatRange.m; sourceTree = "<group>"; };
 		E518B1FB10BD953100D2E454 /* XN2DPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XN2DPoint.h; sourceTree = "<group>"; };
+		E518B40610BE081A00D2E454 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = /System/Library/Frameworks/Accelerate.framework; sourceTree = "<absolute>"; };
 		E5751F0F10B602D8004D572E /* XNMaths.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMaths.h; sourceTree = "<group>"; };
 		E5751F2D10B60492004D572E /* GCMathParser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GCMathParser.h; sourceTree = "<group>"; };
 		E5751F2E10B60492004D572E /* GCMathParser.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = GCMathParser.m; sourceTree = "<group>"; };
@@ -119,6 +122,7 @@
 			files = (
 				8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */,
 				E518ABE810B9E71800D2E454 /* libplplot.dylib in Frameworks */,
+				E518B40710BE081A00D2E454 /* Accelerate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -129,6 +133,7 @@
 				E575220E10B64BE5004D572E /* Cocoa.framework in Frameworks */,
 				E575217510B64BC6004D572E /* SenTestingKit.framework in Frameworks */,
 				E518ABE710B9E71700D2E454 /* libplplot.dylib in Frameworks */,
+				E518B40810BE081A00D2E454 /* Accelerate.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -221,6 +226,7 @@
 		1058C7B2FEA5585E11CA2CBB /* Other Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E518B40610BE081A00D2E454 /* Accelerate.framework */,
 				E575217410B64BC6004D572E /* SenTestingKit.framework */,
 				0867D6A5FE840307C02AAC07 /* AppKit.framework */,
 				D2F7E79907B2D74100F64583 /* CoreData.framework */,

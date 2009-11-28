@@ -190,7 +190,7 @@
 		for( NSInteger j = 0; j < columnsCount; j++ ){
 			[logFormatForRow appendString: [NSMutableString stringWithFormat: @"%1.2f, ", data[i][j]]];
 		}
-		NSLog(@"[%s]", logFormatForRow);
+		NSLog(@"[%@]", logFormatForRow);
 	}
 }
 

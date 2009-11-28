@@ -1,30 +1,34 @@
 h1. XNMaths.framework
 
-Provides:
+XNMaths is a small framework which provides some methematical classes and functions in Objective-C. 
+You might want to use it if you need a matrix class in Objective-C and you're lazy enought not to use native C arrays with all the pain of pointer arithmetics. 
 
- * Matrix and Vector classes, some vector and matrix operations.
- * Linear equation systems solving
- * 2D function drawing with Graphable protocol (that should be probably renamed).
- * Approximation algorythms such as newton, lagrange interpolations, linear and cubic splines.
+It's suitable for: 
+* Drawing 2D function graphs by string expression. 
+* Drawing surfaces is comming soon. We plan to provide a simple yet powerfull Objective-C interface wrapper to build beautiful, percise scientific graphs/plots really stunning simple. 
+* Building math function interpolation polynomes (multiple methods are available: lagrange, newton, cubic splines and others are coming soon)
+* Solving linear equation systems with really simple Objective-C class model. 
+* Solving hyperbolic, parabolic, elliptic equations is the killer feature: will be released in a month. 
 
-Depends on:
+It provides: 
+ 
+* XNVector and XNMatrix classes which store data internally as plain c arrays, which is fast. 
+* XNFunction class which is math function class, which can build a function from expression string using GCMathParser. 2D functions, surfaces (functions of two and more arguments) are coming soon. 
+* XNFunction also provides methods to build a interpolation of target function by array of points and interpolation methods (Lagrange and Newton are currently supported).
+* Plotting capabilities: is uses PLplot library to render 2Dplots. Full support of advanced 3D plotting is coming soon.
+* XNMatrix and XNVector class will provide basic linear algebra capabilities really soon, we're working hard to wrap Apple's Accelerate.framework with it's cBLAS and cLAPACK native interfaces. 
+* Test suite with SENTestingKit, covering XNMatrix, XNVector and most of XNFunction methods. 
+* It's own classes to work with native C types: XNFloat, XNDouble (if i'll decide we need to go with it), XN2DPoint, etc. We need it to provide more consistend code. Using CGFloat is just not okay semantically.
 
- * PHGraph.framework is used for 2D graph rendering. The framework will be bundled in this repository.
+h2. More structured future plans
 
-Used in:
-
- * My lab works for Calculus of Approximations course in Moscow State University of Aviation.
-
-h2. What's next
-
-Todo: 
-
-* Naming conventions. I mean: What types to use? create my own float / double / point aliases? 
-* Define 2D/3D semantics. What's 2D? Is f(x) a 2D function? It's OneArgumentFunction, not 2DFunction i think since it returns a value, not a point. 
-* Dependencies and plotting. PHGraph is slow. Recalculating function on every point IS slow. Using PLPlot + SurfaceData / LineData can solve the issue. 
-* Remove PHGraph dependency, remove stupid protocols with it. 
-* Speedup calculations by using BLAS/LAPACK from vecLib.
+* Equations subsystem and matrices will be rewritten to integrate with cLAPACK data format more percise and work faster with it. 
+* Plotting subsystem is still unstable and needs more debugging / enchancing. I'd like not to use Aquaterm, if possible. 
+* ... 
 
 h2. Contributing
 
-You can fork, modify and push, pull requests are appreciated. If you just need another feature and you want to discuss that first — just create an issue for that.
+I'd really appreciate if you give XNMaths a try. Just download the XNMaths.framework, build your hello world project with it and share your experience. 
+Example recipes are coming with the first public review :)
+
+You can fork, modify and push, pull requests are appreciated. If you just need another feature and you want to discuss that first -- just create an issue for that.

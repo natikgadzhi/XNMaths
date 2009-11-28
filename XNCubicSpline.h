@@ -7,28 +7,32 @@
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
+#pragma mark -
+#pragma mark Imports
+
 #import <Cocoa/Cocoa.h>
-#import "XNVector.h"
-#import "XNMatrix.h"
-#import "XNLinearEquationSystem.h"
+#import "XN2DPoint.h"
+
+@class XNLineData;
+
+// any classes? 
+
+#pragma mark -
+#pragma mark XNCubicSpline class interface
 
 @interface XNCubicSpline : NSObject {
-	
+	CGFloat *a, *b, *c, *d, *h;
+	XN2DPoint *approximationPoints;
 }
 
-# pragma mark -
-# pragma mark Initialization methods
+#pragma mark -
+#pragma mark Initialization methods
++ (XNCubicSpline *) splineWithPoints: (NSArray *) aPoints;
+
 - (XNCubicSpline *) initWithPoints: (NSArray *) aPoints;
 
-
-# pragma mark -
-# pragma mark Value getters
-- (double) doubleValueWithDouble: (double) a_DoubleX;
-
-
-# pragma mark -
-# pragma mark Private methods
-
-// TODO: Add some private methods here. 
+#pragma mark -
+#pragma mark Other methods
+- (XNLineData *) lineData;
 
 @end
