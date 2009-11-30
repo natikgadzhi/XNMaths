@@ -8,11 +8,16 @@
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
+#pragma mark -
+#pragma mark Imports 
 #import <Cocoa/Cocoa.h>
 
 @class GCMathParser;
 @class XNFloatRange;
 @class XNLineData;
+
+#pragma mark -
+#pragma mark XNFunction class interface
 
 @interface XNFunction: NSObject
 {	

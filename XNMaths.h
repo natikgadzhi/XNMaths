@@ -16,6 +16,9 @@
 #import	"XNFunction+LagrangeInterpolation.h"
 #import "XNFunction+NewtonInterpolation.h"
 
+#import "XNVector.h"
+#import "XNMatrix.h"
+
 #import "XNLinearSpline.h"
 #import "XNCubicSpline.h"
 

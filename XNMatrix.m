@@ -6,13 +6,30 @@
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
+#pragma mark -
+#pragma mark Imports
+
 #import "XNMatrix.h"
+#import "XNVector.h"
 
-
+#pragma mark -
+#pragma mark XNMatrix class implementation
 @implementation XNMatrix
 
 @synthesize rowsCount;
 @synthesize columnsCount;
+
+#pragma mark -
+#pragma mark Class init methods
+- (XNMatrix *) matrixWithRows: (NSUInteger) newRowsCount columns: (NSUInteger) newColumnsCount
+{
+	return [[XNMatrix alloc] initWithRows: newRowsCount columns: newColumnsCount];
+}
+
+- (XNMatrix *) matrixWithRows: (NSUInteger) newRowsCount columns: (NSUInteger) newColumnsCount filledWith: ( CGFloat *) newCArray
+{
+	return [[XNMatrix alloc] initWithRows: newRowsCount columns: newColumnsCount filledWith: newCArray];
+}
 
 #pragma mark -
 #pragma mark Initialization methods.
@@ -23,33 +40,29 @@
 	rowsCount = newRowsCount;
 	columnsCount = newColumnsCount;
 	
-	data = calloc( rowsCount, sizeof(CGFloat*));
+	data = calloc( rowsCount * columnsCount, sizeof(CGFloat));
 	
 	for( NSUInteger i = 0; i < rowsCount; i++ ){
-		data[i] = calloc( columnsCount, sizeof(CGFloat));
-		
 		for(NSUInteger j = 0; j < columnsCount; j++){
-			data[i][j] = 0.0f;
+			data[i * columnsCount + j] = 0.0f;
 		}
 	}
 		
 	return self; 
 }
 
-- (XNMatrix *) initWithRows: (NSUInteger) newRowsCount columns: (NSUInteger) newColumnsCount filledWith: ( CGFloat **) newCArray
+- (XNMatrix *) initWithRows: (NSUInteger) newRowsCount columns: (NSUInteger) newColumnsCount filledWith: ( CGFloat *) newCArray
 {
 	self = [super init];
 	
 	rowsCount = newRowsCount;
 	columnsCount = newColumnsCount;
 	
-	data = calloc( rowsCount, sizeof(CGFloat*));
+	data = calloc( rowsCount * columnsCount, sizeof(CGFloat));
 	
 	for( NSUInteger i = 0; i < rowsCount; i++ ){
-		data[i] = calloc( columnsCount, sizeof(CGFloat));
-		
 		for(NSUInteger j = 0; j < columnsCount; j++){
-			data[i][j] = newCArray[i][j];
+			data[i * columnsCount + j] = newCArray[i * columnsCount + j];
 		}
 	}
 	
@@ -67,7 +80,7 @@
 		 row, column, rowsCount, columnsCount];
 	}
 	
-	return data[row][column];
+	return data[ (row * columnsCount) + column ];
 }
 
 - (void) setValue: (CGFloat)value atRow: (NSUInteger)row column: (NSUInteger)column
@@ -77,7 +90,7 @@
 			row, column, rowsCount, columnsCount];
 	}
 	
-	data[row][column] = value;
+	data[row * columnsCount + column] = value;
 }
 
 #pragma mark -
@@ -99,7 +112,7 @@
 	CGFloat *columnData = calloc(rowsCount, sizeof(CGFloat));
 	
 	for( NSUInteger i = 0; i < rowsCount; i++ ){
-		columnData[i] = data[i][index];
+		columnData[i] = data[i * columnsCount + index];
 	}
 	
 	return [[XNVector alloc] initWithCapacity: rowsCount filledWith: columnData];
@@ -115,12 +128,16 @@
 	CGFloat *rowData = calloc(columnsCount, sizeof(CGFloat));
 	
 	for( NSUInteger j = 0; j < columnsCount; j++ ){
-		rowData[j] = data[index][j];
+		rowData[j] = data[index * columnsCount + j];
 	}
 	
 	return [[XNVector alloc] initWithCapacity: columnsCount filledWith: rowData];
 }
 
+//
+// removeColumnAtIndex: 
+// Removes a column by index from the matrix. 
+//
 - (void) removeColumnAtIndex: (NSUInteger) index
 {
 	if( index >= columnsCount){
@@ -132,25 +149,29 @@
 		[NSException raise: @"Can't remove row error." format: @"Can't remove a column in a single-column matrix."];
 	}
 	
-	for( NSUInteger i = 0; i < rowsCount; i++ ){
-		// create a shorter row
-		CGFloat* dataRow = calloc(columnsCount - 1, sizeof(CGFloat));
-		// copy a part of the row before removed column
-		for( NSUInteger j = 0; j < index; j++ ){
-			dataRow[j] = data[i][j];
+	CGFloat *newData = calloc(rowsCount * (columnsCount - 1), sizeof(CGFloat));
+	
+	for( NSUInteger j = 0; j < index; j++ ){
+		for( NSUInteger i = 0; i < rowsCount; i++ ){
+			newData[(i * (columnsCount - 1)) + j] = data[(i * columnsCount) + j];
 		}
-		
-		// copy a part of the row after the column
-		for( NSUInteger j = index; j < columnsCount - 1; j++ ){
-			dataRow[j] = data[i][j + 1];
-		}
-		
-		free(data[i]);
-		data[i] = dataRow;
 	}
+	
+	for( NSUInteger j = index + 1; j < columnsCount; j++ ){
+		for( NSUInteger i = 0; i < rowsCount; i++ ){
+			newData[(i * (columnsCount-1)) + (j - 1)] = data[(i * columnsCount) + j];
+		}
+	}
+	
+	free(data);
+	data = newData;
 	columnsCount--;
 }
 
+//
+// removeRowAtIndex: 
+// Removes a row from the matrix. 
+// 
 - (void) removeRowAtIndex: (NSUInteger) index
 {
 	if(index >= rowsCount){
@@ -162,12 +183,30 @@
 		[NSException raise: @"Can't remove row error." format: @"Can't remove a row in a single-row matrix."];
 	}
 	
-	for( NSUInteger i = index + 1; i < rowsCount; i++ ){
-		data[i-1] = data[i];
+	//
+	// We can't just remove ane row since memory allocation is done at once. 
+	// We'll create a new data array and release the one that exists now. 
+	
+	CGFloat *newData = calloc( (rowsCount - 1) * columnsCount, sizeof(CGFloat));
+	
+	// 
+	// Copy data before the removed row
+	for( NSUInteger i = 0; i < index; i++ ){
+		for( NSUInteger j = 0; j < columnsCount; j++ ){
+			newData[ (i * columnsCount) + j] = data[ (i * columnsCount) + j];
+		}
 	}
 	
-	free(data[rowsCount - 1]);
-	data[rowsCount - 1] = NULL;
+	//
+	// Copy data after the removed row
+	for( NSUInteger i = index + 1; i < rowsCount; i++ ){
+		for( NSUInteger j = 0; j < columnsCount; j++ ){
+			newData[ ((i - 1) * columnsCount) + j] = data[ (i * columnsCount) + j];
+		}
+	}
+	
+	free(data);
+	data = newData;
 	rowsCount--;
 }
 
@@ -188,7 +227,8 @@
 	for(NSInteger i = 0; i < rowsCount; i++ ){
 		NSMutableString *logFormatForRow = [NSMutableString stringWithCapacity: 30];
 		for( NSInteger j = 0; j < columnsCount; j++ ){
-			[logFormatForRow appendString: [NSMutableString stringWithFormat: @"%1.2f, ", data[i][j]]];
+			//NSLog(@"%d x %d => %f", (i * columnsCount), j, data[(i * columnsCount) + j]);
+			[logFormatForRow appendString: [NSMutableString stringWithFormat: @"%1.2f, ", data[(i * columnsCount) + j]]];
 		}
 		NSLog(@"[%@]", logFormatForRow);
 	}
@@ -199,10 +239,6 @@
 #pragma mark Dealloc
 - (void) dealloc
 {
-	for( NSUInteger i = 0; i < rowsCount; i++ ){
-		free(data[i]);
-		data[i] = NULL;
-	}
 	free(data);
 	
 	[super dealloc];

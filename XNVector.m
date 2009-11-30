@@ -9,15 +9,38 @@
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
+#pragma mark -
+#pragma mark Imports
+
 #import "XNVector.h"
 
+#pragma mark -
+#pragma mark XNVector class implementation
 
 @implementation XNVector
 
 @synthesize capacity;
 
 #pragma mark -
-#pragma mark Initialization methods
+#pragma mark Class init methods
+
++ (XNVector *) vectorWithMutableArray: (NSMutableArray *) vertices
+{
+	return [[XNVector alloc] initWithMutableArray: vertices];
+}
+
++ (XNVector *) vectorWithCapacity: (NSUInteger) newCapacity filledWith: (CGFloat *) newCArray
+{
+	return [[XNVector alloc] initWithCapacity: newCapacity filedWith: newCArray];
+}
+
++ (XNVector *) vectorWithCapacity: (NSUInteger) newCapacity
+{
+	return [[XNVector alloc] initWithCapacity: newCapacity];
+}
+
+#pragma mark -
+#pragma mark Instance initialization methods
 
 // Init with just a capacity (really just allocates) 
 - (XNVector *) initWithCapacity: (NSUInteger) newCapacity
@@ -60,12 +83,12 @@
 
 
 // Initilize the vector with array of double
-- (XNVector *) initWithMutableArray: (NSMutableArray *) newVertices 
+- (XNVector *) initWithMutableArray: (NSMutableArray *) vertices 
 {
-	self = [self initWithCapacity: newVertices.count];
+	self = [self initWithCapacity: vertices.count];
 	
-	for( NSUInteger i = 0; i < newVertices.count; i++){
-		[self setValue: [[newVertices objectAtIndex: i] floatValue] atIndex: i];
+	for( NSUInteger i = 0; i < vertices.count; i++){
+		[self setValue: [[vertices objectAtIndex: i] floatValue] atIndex: i];
 	}
 	
 	return self;

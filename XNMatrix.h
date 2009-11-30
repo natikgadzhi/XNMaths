@@ -9,21 +9,32 @@
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
-#import "XNVector.h"
+#pragma mark -
+#pragma mark Imports
 
+#import <Cocoa/Cocoa.h>
+@class XNVector;
+
+#pragma mark -
+#pragma	mark XNMatrix class interface
 
 @interface XNMatrix : NSObject {
 	NSUInteger rowsCount, columnsCount;
-	CGFloat **data;
+	CGFloat *data;
 }
 
 @property NSUInteger rowsCount, columnsCount;
 
 #pragma mark -
+#pragma mark Class init methods
+- (XNMatrix *) matrixWithRows: (NSUInteger) newRowsCount columns: (NSUInteger) newColumnsCount;
+- (XNMatrix *) matrixWithRows: (NSUInteger) newRowsCount columns: (NSUInteger) newColumnsCount filledWith: ( CGFloat *) newCArray;
+
+
+#pragma mark -
 #pragma mark Initialization methods.
 - (XNMatrix *) initWithRows: (NSUInteger) newRowsCount columns: (NSUInteger) newColumnsCount;
-- (XNMatrix *) initWithRows: (NSUInteger) newRowsCount columns: (NSUInteger) newColumnsCount filledWith: ( CGFloat **) newCArray;
+- (XNMatrix *) initWithRows: (NSUInteger) newRowsCount columns: (NSUInteger) newColumnsCount filledWith: ( CGFloat *) newCArray;
 
 #pragma mark -
 #pragma mark Object mgmt

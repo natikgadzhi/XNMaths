@@ -9,20 +9,36 @@
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
+#pragma mark -
+#pragma mark Imports 
+
 #import <Cocoa/Cocoa.h>
 
+#pragma mark -
+#pragma mark XNVector class interface
 
 @interface XNVector : NSObject {
-	// real data storage
+	//
+	// array of float. 
+	// dynamically allocated.
 	CGFloat *data;
+	
+	// 
+	// vector capacity
 	NSUInteger capacity;
 }
 
 @property NSUInteger capacity;
 
 #pragma mark -
-#pragma mark Initialization methods
-- (XNVector *) initWithMutableArray: (NSMutableArray *) newVertices;
+#pragma mark Class init methods
++ (XNVector *) vectorWithMutableArray: (NSMutableArray *) vertices;
++ (XNVector *) vectorWithCapacity: (NSUInteger) newCapacity filledWith: (CGFloat *) newCArray;
++ (XNVector *) vectorWithCapacity: (NSUInteger) newCapacity;
+
+#pragma mark -
+#pragma mark Instance initialization methods
+- (XNVector *) initWithMutableArray: (NSMutableArray *) vertices;
 - (XNVector *) initWithCapacity: (NSUInteger) newCapacity filledWith: (CGFloat *) newCArray;
 - (XNVector *) initWithCapacity: (NSUInteger) newCapacity;
 
@@ -30,6 +46,11 @@
 #pragma mark Getters and setters
 - (CGFloat) valueAtIndex: (NSUInteger) index;
 - (void) setValue: (CGFloat) value atIndex: (NSUInteger) index;
+
+#pragma mark -
+#pragma mark IO
+// TODO
+// -(void) toCArray: (CGFloat*) array withCapacity: (NSUInteger)arrayCapacity; 
 
 #pragma mark -
 #pragma mark Debuging
