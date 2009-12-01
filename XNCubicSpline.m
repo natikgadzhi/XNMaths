@@ -10,8 +10,8 @@
 #import "XNCubicSpline.h"
 #import "XNVector.h"
 #import "XNMatrix.h"
+#import "XNLineData.h"
 #import "XNLinearEquationSystem.h"
-
 
 @implementation XNCubicSpline
 
@@ -38,16 +38,15 @@
 	
 	XNLinearEquationSystem *equationSystem;
 	
-	//
-	// and this is the count of points supplied. 
-	NSUInteger n;
-	
+	NSUInteger n; 
 	
 	// 
 	// Step 2. 
 	// Initializing and allocating variables and parameters
 	// Points count property
 	n = aPoints.count; 
+	
+	approximationPoints = [aPoints retain];
 	
 	//
 	// alloc X and Y arrays.
@@ -79,7 +78,6 @@
 	// Fill h array
 	for( NSInteger i = 1; i < n; i++){
 		h[i-1] = x[i] - x[i-1];
-		NSLog(@"Initialized h[%d] = %f", i-1, h[i-1]);
 	}
 	
 	//
@@ -105,15 +103,10 @@
 		[equationMatrix	setValue: 3*( (f[i+2]-f[i+1])/h[i+1] - (f[i+1]-f[i])/h[i] ) atRow:i column: n-2];
  	}
 	
-	//
-	// DEBUG: 
-	[equationMatrix printToLog];
-	
 	equationSystem = [[XNLinearEquationSystem alloc] initWithMatrix:equationMatrix];
 	
 	XNVector *cVector = [equationSystem sweep];
 	
-	[cVector printToLog];
 	//
 	// setting values... 
 	// 
@@ -124,22 +117,77 @@
 	
 	//
 	// set C values. 
-	for( NSUInteger i = 1; i < n-2; i++ ){
+	for( NSUInteger i = 1; i < n-1; i++ ){
 		c[i] = [cVector valueAtIndex: i-1];
 	}
 	
 	// 
 	// set values for a-d
-	for( NSUInteger i = 0; i < n-2; i++ ){
-		
+	for( NSUInteger i = 0; i < n-1; i++ ){
+		a[i] = f[i];
 	}
+	
+	for( NSUInteger i = 0; i < n-2; i++ ){
+		b[i] = (f[i+1] - f[i])/h[i] - (1./3.)*h[i]*(c[i+1] + 2*c[i]);
+		d[i] = (c[i+1] - c[i])/(3*h[i]);
+	}
+	
+	b[n-2] = (f[n-1] - f[n-2])/h[n-2] - (2./3.)*h[n-2]*c[n-2];
+	d[n-2] = -c[n-2]/(3*h[n-2]);
 	
 	return self;
 }
 
 - (XNLineData *) lineData
 {
+	// data
+	CGFloat *x, *y;
 	
+	// count of points in data arrays
+	NSUInteger pointsCount = 0;
+	
+	// range of datapoints.
+	CGFloat xMin, xMax; 
+	
+	xMin = [[approximationPoints objectAtIndex:0] pointValue].x;
+	xMax = [[approximationPoints objectAtIndex:0] pointValue].x;
+	
+	for(NSValue *pointObject in approximationPoints){
+		NSPoint point = [pointObject pointValue];
+		
+		if( xMin > point.x ){
+			xMin = point.x;
+		}
+		
+		if(xMax < point.x){
+			xMax = point.x;
+		}
+ 	}
+	
+	pointsCount = (int)(xMax - xMin) * 100;
+	CGFloat step = (xMax - xMin)/(float)pointsCount;
+	
+	// init data arrays and fill them
+	x = calloc(pointsCount, sizeof(CGFloat));
+	y = calloc(pointsCount, sizeof(CGFloat));
+	
+	for(NSUInteger dataIndex = 0; dataIndex < pointsCount; dataIndex++ ){
+		CGFloat xValue = xMin + step * dataIndex;
+		
+		for( NSUInteger i = 1; i < approximationPoints.count; i++ ){
+			if( xValue >= [[approximationPoints objectAtIndex: i-1] pointValue].x && xValue <= [[approximationPoints objectAtIndex: i] pointValue].x ){
+				CGFloat xFrom = [[approximationPoints objectAtIndex: i-1] pointValue].x;
+				x[dataIndex] = xValue;
+				y[dataIndex] = a[i-1] + b[i-1]*(xValue -  xFrom) + c[i-1]*pow((xValue -  xFrom), 2) + d[i-1]*pow((xValue -  xFrom), 3);
+			}
+		}
+		
+		NSLog(@"calculating point %d at %f with value %f", dataIndex, x[dataIndex], y[dataIndex]);
+	}
+	
+	NSLog(@"%d points total from x = %f to %f with step %f", pointsCount, xMin, xMax, step);
+	
+	return [XNLineData lineDataWithXData:x yData:y pointsCount:pointsCount];
 }
 
 

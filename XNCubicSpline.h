@@ -22,7 +22,7 @@
 
 @interface XNCubicSpline : NSObject {
 	CGFloat *a, *b, *c, *d, *h;
-	XN2DPoint *approximationPoints;
+	NSArray *approximationPoints;
 }
 
 #pragma mark -
