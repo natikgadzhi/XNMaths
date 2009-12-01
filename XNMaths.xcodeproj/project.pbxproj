@@ -59,16 +59,16 @@
 		E575248710B7968E004D572E /* README.textile in Resources */ = {isa = PBXBuildFile; fileRef = E575248510B7968D004D572E /* README.textile */; };
 		E575249E10B79A67004D572E /* PLPlot planning.graffle in Resources */ = {isa = PBXBuildFile; fileRef = E575249D10B79A67004D572E /* PLPlot planning.graffle */; };
 		E575249F10B79A67004D572E /* PLPlot planning.graffle in Resources */ = {isa = PBXBuildFile; fileRef = E575249D10B79A67004D572E /* PLPlot planning.graffle */; };
-		E57C818B10C5457E006B2981 /* XNFunctionOf2D.h in Headers */ = {isa = PBXBuildFile; fileRef = E57C818910C5457D006B2981 /* XNFunctionOf2D.h */; };
+		E57C818B10C5457E006B2981 /* XNFunctionOf2D.h in Headers */ = {isa = PBXBuildFile; fileRef = E57C818910C5457D006B2981 /* XNFunctionOf2D.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E57C818C10C5457E006B2981 /* XNFunctionOf2D.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C818A10C5457D006B2981 /* XNFunctionOf2D.m */; };
 		E57C818D10C5457E006B2981 /* XNFunctionOf2D.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C818A10C5457D006B2981 /* XNFunctionOf2D.m */; };
 		E57C81AB10C55AC9006B2981 /* XNSurfaceData.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C81AA10C55AC9006B2981 /* XNSurfaceData.m */; };
-		E57C81AC10C55AC9006B2981 /* XNSurfaceData.h in Headers */ = {isa = PBXBuildFile; fileRef = E57C81A910C55AC9006B2981 /* XNSurfaceData.h */; };
+		E57C81AC10C55AC9006B2981 /* XNSurfaceData.h in Headers */ = {isa = PBXBuildFile; fileRef = E57C81A910C55AC9006B2981 /* XNSurfaceData.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E57C81AD10C55AC9006B2981 /* XNSurfaceData.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C81AA10C55AC9006B2981 /* XNSurfaceData.m */; };
 		E57C81F610C56CAE006B2981 /* XN3DPlot.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C81F510C56CAE006B2981 /* XN3DPlot.m */; };
-		E57C81F710C56CAE006B2981 /* XN3DPlot.h in Headers */ = {isa = PBXBuildFile; fileRef = E57C81F410C56CAE006B2981 /* XN3DPlot.h */; };
+		E57C81F710C56CAE006B2981 /* XN3DPlot.h in Headers */ = {isa = PBXBuildFile; fileRef = E57C81F410C56CAE006B2981 /* XN3DPlot.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E57C81F810C56CAE006B2981 /* XN3DPlot.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C81F510C56CAE006B2981 /* XN3DPlot.m */; };
-		E57C81FB10C56E1E006B2981 /* XNBox.h in Headers */ = {isa = PBXBuildFile; fileRef = E57C81F910C56E1E006B2981 /* XNBox.h */; };
+		E57C81FB10C56E1E006B2981 /* XNBox.h in Headers */ = {isa = PBXBuildFile; fileRef = E57C81F910C56E1E006B2981 /* XNBox.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E57C81FC10C56E1E006B2981 /* XNBox.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C81FA10C56E1E006B2981 /* XNBox.m */; };
 		E57C81FD10C56E1E006B2981 /* XNBox.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C81FA10C56E1E006B2981 /* XNBox.m */; };
 /* End PBXBuildFile section */
@@ -207,37 +207,16 @@
 		08FB77AEFE84172EC02AAC07 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				E5751F5D10B60516004D572E /* XNFunction.h */,
-				E5751F5E10B60516004D572E /* XNFunction.m */,
-				E5751F6110B60522004D572E /* XNFunction+LagrangeInterpolation.h */,
-				E5751F6210B60522004D572E /* XNFunction+LagrangeInterpolation.m */,
-				E5751F6310B60522004D572E /* XNFunction+NewtonInterpolation.h */,
-				E5751F6410B60522004D572E /* XNFunction+NewtonInterpolation.m */,
+				E57C824610C578D0006B2981 /* Plotting */,
+				E57C822410C57897006B2981 /* Matrix and Vector */,
+				E57C822110C57880006B2981 /* Other */,
+				E57C822010C57868006B2981 /* Function */,
 				E575222910B64C7F004D572E /* XNCubicSpline.h */,
 				E575222A10B64C7F004D572E /* XNCubicSpline.m */,
 				E57522EE10B6661C004D572E /* XNLinearSpline.h */,
 				E57522EF10B6661C004D572E /* XNLinearSpline.m */,
-				E575221410B64C39004D572E /* XNVector.h */,
-				E575221510B64C39004D572E /* XNVector.m */,
-				E575221610B64C39004D572E /* XNMatrix.h */,
-				E575221710B64C39004D572E /* XNMatrix.m */,
 				E575221F10B64C68004D572E /* XNLinearEquationSystem.h */,
 				E575222010B64C68004D572E /* XNLinearEquationSystem.m */,
-				E518AD6210BB22C800D2E454 /* XN2DPlot.h */,
-				E518AD6310BB22C800D2E454 /* XN2DPlot.m */,
-				E518AD7810BB262700D2E454 /* XNLineData.h */,
-				E518AD7910BB262700D2E454 /* XNLineData.m */,
-				E518B00910BB471500D2E454 /* XNFloatRange.h */,
-				E518B00A10BB471500D2E454 /* XNFloatRange.m */,
-				E518B1FB10BD953100D2E454 /* XN2DPoint.h */,
-				E57C818910C5457D006B2981 /* XNFunctionOf2D.h */,
-				E57C818A10C5457D006B2981 /* XNFunctionOf2D.m */,
-				E57C81A910C55AC9006B2981 /* XNSurfaceData.h */,
-				E57C81AA10C55AC9006B2981 /* XNSurfaceData.m */,
-				E57C81F410C56CAE006B2981 /* XN3DPlot.h */,
-				E57C81F510C56CAE006B2981 /* XN3DPlot.m */,
-				E57C81F910C56E1E006B2981 /* XNBox.h */,
-				E57C81FA10C56E1E006B2981 /* XNBox.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -304,6 +283,59 @@
 				E575216A10B64B8E004D572E /* CubicSplineTest.m */,
 			);
 			name = Test;
+			sourceTree = "<group>";
+		};
+		E57C822010C57868006B2981 /* Function */ = {
+			isa = PBXGroup;
+			children = (
+				E57C818910C5457D006B2981 /* XNFunctionOf2D.h */,
+				E57C818A10C5457D006B2981 /* XNFunctionOf2D.m */,
+				E5751F5D10B60516004D572E /* XNFunction.h */,
+				E5751F5E10B60516004D572E /* XNFunction.m */,
+				E5751F6110B60522004D572E /* XNFunction+LagrangeInterpolation.h */,
+				E5751F6210B60522004D572E /* XNFunction+LagrangeInterpolation.m */,
+				E5751F6310B60522004D572E /* XNFunction+NewtonInterpolation.h */,
+				E5751F6410B60522004D572E /* XNFunction+NewtonInterpolation.m */,
+			);
+			name = Function;
+			sourceTree = "<group>";
+		};
+		E57C822110C57880006B2981 /* Other */ = {
+			isa = PBXGroup;
+			children = (
+				E518B1FB10BD953100D2E454 /* XN2DPoint.h */,
+				E518B00910BB471500D2E454 /* XNFloatRange.h */,
+				E518B00A10BB471500D2E454 /* XNFloatRange.m */,
+				E57C81F910C56E1E006B2981 /* XNBox.h */,
+				E57C81FA10C56E1E006B2981 /* XNBox.m */,
+			);
+			name = Other;
+			sourceTree = "<group>";
+		};
+		E57C822410C57897006B2981 /* Matrix and Vector */ = {
+			isa = PBXGroup;
+			children = (
+				E575221410B64C39004D572E /* XNVector.h */,
+				E575221510B64C39004D572E /* XNVector.m */,
+				E575221610B64C39004D572E /* XNMatrix.h */,
+				E575221710B64C39004D572E /* XNMatrix.m */,
+			);
+			name = "Matrix and Vector";
+			sourceTree = "<group>";
+		};
+		E57C824610C578D0006B2981 /* Plotting */ = {
+			isa = PBXGroup;
+			children = (
+				E518AD6210BB22C800D2E454 /* XN2DPlot.h */,
+				E518AD6310BB22C800D2E454 /* XN2DPlot.m */,
+				E57C81F410C56CAE006B2981 /* XN3DPlot.h */,
+				E57C81F510C56CAE006B2981 /* XN3DPlot.m */,
+				E518AD7810BB262700D2E454 /* XNLineData.h */,
+				E518AD7910BB262700D2E454 /* XNLineData.m */,
+				E57C81A910C55AC9006B2981 /* XNSurfaceData.h */,
+				E57C81AA10C55AC9006B2981 /* XNSurfaceData.m */,
+			);
+			name = Plotting;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

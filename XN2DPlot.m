@@ -201,6 +201,9 @@
 #pragma mark Dealloc
 - (void) dealloc
 {
+	[xRange release];
+	[yRange release];
+	
 	[super dealloc];
 }
 

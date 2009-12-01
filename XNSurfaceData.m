@@ -21,7 +21,7 @@
 
 #pragma mark -
 #pragma mark Class init methods
-+ (XNSurfaceData *) lineDataWithFunction: (XNFunctionOf2D*) aFunction 
++ (XNSurfaceData *) surfaceWithFunction: (XNFunctionOf2D*) aFunction 
 								  xRange: (XNFloatRange*) aXRange 
 								  yRange: (XNFloatRange*) aYRange 
 							 withQuality: (NSUInteger) lineQuality

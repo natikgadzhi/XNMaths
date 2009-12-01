@@ -10,21 +10,37 @@
 
 #import <Cocoa/Cocoa.h>
 
+// 
+// Include some shared structures and classes
+#import "XN2DPoint.h"
 #import "XNFloatRange.h"
+#import "XNBox.h"
 
+//
+// Include function-related classes
 #import "XNFunction.h"
 #import	"XNFunction+LagrangeInterpolation.h"
 #import "XNFunction+NewtonInterpolation.h"
 
+#import "XNFunctionOf2D.h"
+
+//
+// Include matrices and vectors
 #import "XNVector.h"
 #import "XNMatrix.h"
 
+// 
+// Include splines
 #import "XNLinearSpline.h"
 #import "XNCubicSpline.h"
 
+//
+// Include plotting classes
 #import "XNLineData.h"
+#import "XNSurfaceData.h"
 #import "XN2DPlot.h"
-#import "XN2DPoint.h"
+#import "XN3DPlot.h"
+
 
 
 
