@@ -11,7 +11,6 @@
 #pragma mark Imports
 
 #import <Cocoa/Cocoa.h>
-#import "XN2DPoint.h"
 
 @class XNLineData;
 

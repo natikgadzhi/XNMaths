@@ -9,7 +9,10 @@
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
+#import <Cocoa/Cocoa.h>
 
 typedef struct _XN3DPoint {
 	CGFloat x,y,z;
 } XN3DPoint;
+
+XN3DPoint XNMake3DPoint(CGFloat aX, CGFloat aY, CGFloat aZ);

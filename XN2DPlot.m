@@ -15,7 +15,6 @@
 #import "XNFunction.h"
 #import "XNLineData.h"
 #import "XNFloatRange.h"
-#import "XN2DPoint.h"
 #import "plplot.h"
 
 @interface XN2DPlot (Private)

@@ -45,20 +45,6 @@ XNLinearSplineElement XNMakeLinearSplineElement(CGFloat a, CGFloat b)
 	
 	// init approx points
 	approximationPoints = [aPoints copy];
-
-	// TODO: Fixme. It doesn't work fine for me.
-
-//	interpolationElements = calloc( aPoints.count, sizeof(XNLinearSplineElement ));
-//	
-//	for( NSInteger i = 1; i < aPoints.count; i++){
-//		NSPoint startPoint	= [[aPoints objectAtIndex: i-1] pointValue];
-//		NSPoint endPoint	= [[aPoints objectAtIndex: i] pointValue];
-//		
-//		CGFloat a = (endPoint.y - startPoint.y)/(endPoint.x - startPoint.y);
-//		CGFloat b = (endPoint.y - startPoint.y)/(endPoint.x - startPoint.y)*startPoint.x + startPoint.y;
-//		
-//		interpolationElements[i] = XNMakeLinearSplineElement(a,b);
-//	}
 	
 	return self;
 }

@@ -7,7 +7,6 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-#import "XNCubicSpline.h"
 
 @interface CubicSplineTest : SenTestCase {
 

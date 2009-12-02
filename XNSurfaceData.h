@@ -6,12 +6,30 @@
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
+#pragma mark -
+#pragma mark Imports
+
+//
+// Use Cocoa framework
 #import <Cocoa/Cocoa.h>
+
+// 
+// Use our point structures
 #import "XN2DPoint.h"
 #import "XN3DPoint.h"
 
+
+//
+// Use plplot for plotting and 3dgrid functions
+#import "plplot.h"
+
+//
+// Consider these classes
 @class XNFloatRange;
 @class XNFunctionOf2D;
+
+#pragma mark -
+#pragma mark XNSurfaceData class inteface
 
 @interface XNSurfaceData : NSObject {
 	
@@ -21,7 +39,8 @@
 	// Value ranges
 	XNFloatRange  *xRange, *yRange, *zRange;
 	
-	// quality is an recalculation points count per one real number.
+	// quality is an recalculation points count per one real unit. quality is used when surfacing from function.
+	// count is how many points are actually crated and should be used in other operations. 
 	NSUInteger quality, xPointsCount, yPointsCount;
 }
 
@@ -36,24 +55,32 @@
 //
 // Build surface with function in rect
 
+// TODO: Write tests
 + (XNSurfaceData *) surfaceWithFunction: (XNFunctionOf2D*) aFunction 
 								  xRange: (XNFloatRange*) aXRange 
 								  yRange: (XNFloatRange*) aYRange 
 							 withQuality: (NSUInteger) lineQuality;
 
+// TODO: Write tests.
++ (XNSurfaceData *) surfaceWithCapacityX: (NSInteger) newXCapacity Y: (NSInteger) newYCapacity;
+
 #pragma mark -
 #pragma mark Instance init methods
+
+// TODO: write tests for all of this shit! 
 
 - (XNSurfaceData *) initWithFunction: (XNFunctionOf2D*) aFunction 
 							  xRange: (XNFloatRange*) aXRange 
 							  yRange: (XNFloatRange*) aYRange 
 						 withQuality: (NSUInteger) lineQuality;
 
+- (XNSurfaceData *) initWithCapacityX: (NSInteger) newXCapacity Y: (NSInteger) newYCapacity;
+
 #pragma mark -
 #pragma mark Instance logic methods
 
-- (void) addValue: (CGFloat) value forX: (CGFloat) xValue Y: (CGFloat) yValue;
-- (void) addValue: (CGFloat) value for2DPoint: (XN2DPoint) point;
-- (void) add3DPoint: (XN3DPoint) point;
+// TODO: write tests
+
+- (void) set3DPoint: (XN3DPoint) point atI: (NSUInteger) i J: (NSUInteger) j;
 
 @end

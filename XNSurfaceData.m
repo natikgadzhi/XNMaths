@@ -6,14 +6,28 @@
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
-#import "XN2DPoint.h"
-#import "XN3DPoint.h"
+#pragma mark -
+#pragma mark Imports
+
+//
+// Class header 
 #import "XNSurfaceData.h"
+
 #import "XNFloatRange.h"
 #import "XNFunctionOf2D.h"
-#import "plplot.h"
 
+#pragma mark -
+#pragma mark XNSurfaceData class private category
+
+@interface XNSurfaceData (Private)
+
+- (void) updateRanges;
+
+@end
+
+
+#pragma mark -
+#pragma mark XNSurfaceData class implementation
 
 @implementation XNSurfaceData
 
@@ -34,6 +48,14 @@
 							 withQuality: (NSUInteger) lineQuality
 {
 	return [[XNSurfaceData alloc] initWithFunction:aFunction xRange:aXRange yRange:aYRange withQuality:lineQuality];
+}
+
+//
+// Create an empty surface with N points
+
++ (XNSurfaceData *) surfaceWithCapacityX: (NSInteger) newXCapacity Y: (NSInteger) newYCapacity
+{
+	return [[XNSurfaceData alloc] initWithCapacityX: newXCapacity Y: newYCapacity];
 }
 
 
@@ -95,34 +117,89 @@
 	return self;
 }
 
+//
+// Inits an empty surface with N points
+
+- (XNSurfaceData *) initWithCapacityX: (NSInteger) newXCapacity Y: (NSInteger) newYCapacity
+{
+	self = [super init];
+	
+	//
+	// Set zero counts
+	xPointsCount = newXCapacity;
+	yPointsCount = newYCapacity;
+	
+	//
+	// Allocate memory
+	xData = calloc(xPointsCount, sizeof(CGFloat));
+	yData = calloc(yPointsCount, sizeof(CGFloat));
+	plAlloc2dGrid(&zData, xPointsCount, yPointsCount);
+	
+	//
+	// Zero memory
+	for( NSUInteger i = 0; i < xPointsCount; i++ ){
+		xData[i] = 0.;
+	}
+	
+	for( NSUInteger i = 0; i < yPointsCount; i++ ){
+		yData[i] = 0.;
+	}
+	
+	for( NSUInteger i = 0; i < xPointsCount; i++ ){
+		for(NSUInteger j = 0; j < yPointsCount; j++ ){
+			zData[i][j] = 0.;
+		}
+	}
+	
+	[self updateRanges];
+	return self;
+}
+
 #pragma mark -
 #pragma mark Instance logic 
 
-// 
-// Adds a value to the surface by whole 3 dimensions float values
-
-- (void) addValue: (CGFloat) value forX: (CGFloat) xValue Y: (CGFloat) yValue
+- (void) set3DPoint: (XN3DPoint) point atI: (NSUInteger) i J: (NSUInteger) j
 {
+	if( i >= xPointsCount){
+		[NSException raise: @"Accessing surface point out of the grid." 
+					format: @"Trying to access %d point in X scale, but X scale contains only %d positions", i, xPointsCount];
+	}
 	
+	if( j >= yPointsCount){
+		[NSException raise: @"Accessing surface point out of the grid." 
+					format: @"Trying to access %d point in Y scale, but Y scale contains only %d positions", j, yPointsCount];		
+	}
+	
+	//
+	// Set the point
+	xData[i] = point.x;
+	yData[j] = point.y;
+	zData[i][j] = point.z;
+	
+	[self updateRanges];
 }
 
-
-// 
-// Adds a value to the surface by 2Dpoint 
-
-- (void) addValue: (CGFloat) value for2DPoint: (XN2DPoint) point
+#pragma mark -
+#pragma mark Private category methods 
+- (void) updateRanges
 {
+	// 
+	// Release old ranges 
+	[xRange release];
+	[yRange release];
+	[zRange release];
 	
-}
-
-// 
-// Adds a value to the surface 
-- (void) add3DPoint: (XN3DPoint) point
-{
+	// 
+	// Create new ranges
+	xRange = [XNFloatRange rangeWithCArray: xData withCapacity: xPointsCount];
+	yRange = [XNFloatRange rangeWithCArray: yData withCapacity: yPointsCount];
 	
+	//
+	// Update Z range
+	CGFloat zMin, zMax;
+	plMinMax2dGrid(zData, xPointsCount, yPointsCount, &zMax, &zMin);
+	zRange = [XNFloatRange rangeWithMin: zMin max: zMax];
 }
-
-
 
 #pragma mark -
 #pragma mark Private runtime service methods 

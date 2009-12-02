@@ -10,3 +10,4 @@
 
 typedef NSPoint XN2DPoint;
 
+XN2DPoint XNMake2DPoint(CGFloat aX, CGFloat aY);
