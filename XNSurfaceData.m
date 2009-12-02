@@ -6,6 +6,9 @@
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
+#import <Cocoa/Cocoa.h>
+#import "XN2DPoint.h"
+#import "XN3DPoint.h"
 #import "XNSurfaceData.h"
 #import "XNFloatRange.h"
 #import "XNFunctionOf2D.h"
@@ -21,6 +24,10 @@
 
 #pragma mark -
 #pragma mark Class init methods
+
+//
+// Build a surface with functiomn in rect with quality 
+
 + (XNSurfaceData *) surfaceWithFunction: (XNFunctionOf2D*) aFunction 
 								  xRange: (XNFloatRange*) aXRange 
 								  yRange: (XNFloatRange*) aYRange 
@@ -28,6 +35,13 @@
 {
 	return [[XNSurfaceData alloc] initWithFunction:aFunction xRange:aXRange yRange:aYRange withQuality:lineQuality];
 }
+
+
+#pragma mark -
+#pragma mark Instance init methods 
+
+//
+// Build a surface with function in rect with quality.
 
 - (XNSurfaceData *) initWithFunction: (XNFunctionOf2D*) aFunction 
 							  xRange: (XNFloatRange*) aXRange 
@@ -80,6 +94,41 @@
 	
 	return self;
 }
+
+#pragma mark -
+#pragma mark Instance logic 
+
+// 
+// Adds a value to the surface by whole 3 dimensions float values
+
+- (void) addValue: (CGFloat) value forX: (CGFloat) xValue Y: (CGFloat) yValue
+{
+	
+}
+
+
+// 
+// Adds a value to the surface by 2Dpoint 
+
+- (void) addValue: (CGFloat) value for2DPoint: (XN2DPoint) point
+{
+	
+}
+
+// 
+// Adds a value to the surface 
+- (void) add3DPoint: (XN3DPoint) point
+{
+	
+}
+
+
+
+#pragma mark -
+#pragma mark Private runtime service methods 
+
+//
+// Deallocate instance hook
 
 - (void) dealloc
 {

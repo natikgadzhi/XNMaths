@@ -7,6 +7,8 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "XN2DPoint.h"
+#import "XN3DPoint.h"
 
 @class XNFloatRange;
 @class XNFunctionOf2D;
@@ -30,13 +32,28 @@
 
 #pragma mark -
 #pragma mark Class init methods
-+ (XNSurfaceData *) surfaceWithFunction: (XNFunctionOf2D*)aFunction 
-								  xRange: (XNFloatRange*)aXRange 
+
+//
+// Build surface with function in rect
+
++ (XNSurfaceData *) surfaceWithFunction: (XNFunctionOf2D*) aFunction 
+								  xRange: (XNFloatRange*) aXRange 
 								  yRange: (XNFloatRange*) aYRange 
 							 withQuality: (NSUInteger) lineQuality;
 
-- (XNSurfaceData *) initWithFunction: (XNFunctionOf2D*)aFunction 
-							  xRange: (XNFloatRange*)aXRange 
+#pragma mark -
+#pragma mark Instance init methods
+
+- (XNSurfaceData *) initWithFunction: (XNFunctionOf2D*) aFunction 
+							  xRange: (XNFloatRange*) aXRange 
 							  yRange: (XNFloatRange*) aYRange 
 						 withQuality: (NSUInteger) lineQuality;
+
+#pragma mark -
+#pragma mark Instance logic methods
+
+- (void) addValue: (CGFloat) value forX: (CGFloat) xValue Y: (CGFloat) yValue;
+- (void) addValue: (CGFloat) value for2DPoint: (XN2DPoint) point;
+- (void) add3DPoint: (XN3DPoint) point;
+
 @end

@@ -9,3 +9,4 @@
 #import <Cocoa/Cocoa.h>
 
 typedef NSPoint XN2DPoint;
+

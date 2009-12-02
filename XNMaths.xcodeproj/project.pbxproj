@@ -71,6 +71,10 @@
 		E57C81FB10C56E1E006B2981 /* XNBox.h in Headers */ = {isa = PBXBuildFile; fileRef = E57C81F910C56E1E006B2981 /* XNBox.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E57C81FC10C56E1E006B2981 /* XNBox.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C81FA10C56E1E006B2981 /* XNBox.m */; };
 		E57C81FD10C56E1E006B2981 /* XNBox.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C81FA10C56E1E006B2981 /* XNBox.m */; };
+		E57C83AF10C6ADEE006B2981 /* XNTabulatedFunctionOf2D.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C83AE10C6ADEE006B2981 /* XNTabulatedFunctionOf2D.m */; };
+		E57C83B010C6ADEE006B2981 /* XNTabulatedFunctionOf2D.h in Headers */ = {isa = PBXBuildFile; fileRef = E57C83AD10C6ADEE006B2981 /* XNTabulatedFunctionOf2D.h */; };
+		E57C83B110C6ADEE006B2981 /* XNTabulatedFunctionOf2D.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C83AE10C6ADEE006B2981 /* XNTabulatedFunctionOf2D.m */; };
+		E57C83CA10C6B062006B2981 /* XN3DPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = E57C83C710C6B062006B2981 /* XN3DPoint.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -133,6 +137,9 @@
 		E57C81F510C56CAE006B2981 /* XN3DPlot.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XN3DPlot.m; sourceTree = "<group>"; };
 		E57C81F910C56E1E006B2981 /* XNBox.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNBox.h; sourceTree = "<group>"; };
 		E57C81FA10C56E1E006B2981 /* XNBox.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNBox.m; sourceTree = "<group>"; };
+		E57C83AD10C6ADEE006B2981 /* XNTabulatedFunctionOf2D.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNTabulatedFunctionOf2D.h; sourceTree = "<group>"; };
+		E57C83AE10C6ADEE006B2981 /* XNTabulatedFunctionOf2D.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNTabulatedFunctionOf2D.m; sourceTree = "<group>"; };
+		E57C83C710C6B062006B2981 /* XN3DPoint.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XN3DPoint.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -296,6 +303,8 @@
 				E5751F6210B60522004D572E /* XNFunction+LagrangeInterpolation.m */,
 				E5751F6310B60522004D572E /* XNFunction+NewtonInterpolation.h */,
 				E5751F6410B60522004D572E /* XNFunction+NewtonInterpolation.m */,
+				E57C83AD10C6ADEE006B2981 /* XNTabulatedFunctionOf2D.h */,
+				E57C83AE10C6ADEE006B2981 /* XNTabulatedFunctionOf2D.m */,
 			);
 			name = Function;
 			sourceTree = "<group>";
@@ -308,6 +317,7 @@
 				E518B00A10BB471500D2E454 /* XNFloatRange.m */,
 				E57C81F910C56E1E006B2981 /* XNBox.h */,
 				E57C81FA10C56E1E006B2981 /* XNBox.m */,
+				E57C83C710C6B062006B2981 /* XN3DPoint.h */,
 			);
 			name = Other;
 			sourceTree = "<group>";
@@ -364,6 +374,8 @@
 				E57C81AC10C55AC9006B2981 /* XNSurfaceData.h in Headers */,
 				E57C81F710C56CAE006B2981 /* XN3DPlot.h in Headers */,
 				E57C81FB10C56E1E006B2981 /* XNBox.h in Headers */,
+				E57C83B010C6ADEE006B2981 /* XNTabulatedFunctionOf2D.h in Headers */,
+				E57C83CA10C6B062006B2981 /* XN3DPoint.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -486,6 +498,7 @@
 				E57C81AD10C55AC9006B2981 /* XNSurfaceData.m in Sources */,
 				E57C81F810C56CAE006B2981 /* XN3DPlot.m in Sources */,
 				E57C81FC10C56E1E006B2981 /* XNBox.m in Sources */,
+				E57C83B110C6ADEE006B2981 /* XNTabulatedFunctionOf2D.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -509,6 +522,7 @@
 				E57C81AB10C55AC9006B2981 /* XNSurfaceData.m in Sources */,
 				E57C81F610C56CAE006B2981 /* XN3DPlot.m in Sources */,
 				E57C81FD10C56E1E006B2981 /* XNBox.m in Sources */,
+				E57C83AF10C6ADEE006B2981 /* XNTabulatedFunctionOf2D.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
