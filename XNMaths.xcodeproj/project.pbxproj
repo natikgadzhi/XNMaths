@@ -84,6 +84,7 @@
 		E5F2896310C6BE8A00EA9642 /* XN3DPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F2896210C6BE8A00EA9642 /* XN3DPoint.m */; };
 		E5F2896410C6BE8A00EA9642 /* XN3DPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F2896210C6BE8A00EA9642 /* XN3DPoint.m */; };
 		E5F2898110C6C0BC00EA9642 /* SurfaceDataTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F2898010C6C0BC00EA9642 /* SurfaceDataTest.m */; };
+		E5F28B4110C6F1EF00EA9642 /* XNTabulatedFunctionOf2DTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F28B4010C6F1EF00EA9642 /* XNTabulatedFunctionOf2DTest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -156,6 +157,8 @@
 		E5F2896210C6BE8A00EA9642 /* XN3DPoint.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XN3DPoint.m; sourceTree = "<group>"; };
 		E5F2897F10C6C0BC00EA9642 /* SurfaceDataTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SurfaceDataTest.h; sourceTree = "<group>"; };
 		E5F2898010C6C0BC00EA9642 /* SurfaceDataTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurfaceDataTest.m; sourceTree = "<group>"; };
+		E5F28B3F10C6F1EF00EA9642 /* XNTabulatedFunctionOf2DTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNTabulatedFunctionOf2DTest.h; sourceTree = "<group>"; };
+		E5F28B4010C6F1EF00EA9642 /* XNTabulatedFunctionOf2DTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNTabulatedFunctionOf2DTest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -375,6 +378,8 @@
 		E5F2897B10C6C06700EA9642 /* Function */ = {
 			isa = PBXGroup;
 			children = (
+				E5F28B3F10C6F1EF00EA9642 /* XNTabulatedFunctionOf2DTest.h */,
+				E5F28B4010C6F1EF00EA9642 /* XNTabulatedFunctionOf2DTest.m */,
 			);
 			name = Function;
 			sourceTree = "<group>";
@@ -603,6 +608,7 @@
 				E5F2895910C6BE4D00EA9642 /* XN2DPoint.m in Sources */,
 				E5F2896310C6BE8A00EA9642 /* XN3DPoint.m in Sources */,
 				E5F2898110C6C0BC00EA9642 /* SurfaceDataTest.m in Sources */,
+				E5F28B4110C6F1EF00EA9642 /* XNTabulatedFunctionOf2DTest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

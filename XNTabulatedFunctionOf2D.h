@@ -13,12 +13,20 @@
 #import "XN3DPoint.h"
 
 @class XNSurfaceData;
+@class XNFloatRange;
 
 #pragma mark -
 #pragma mark XNTabulatedFunctionOf2D interface
 
 @interface XNTabulatedFunctionOf2D : NSObject {
 	XNSurfaceData *surface;
+	
+	//
+	// arguments are stored as a grids. 
+	
+	XNFloatRange *firstArgumentRange, *secondArgumentRange;
+	
+	CGFloat firstArgumentIncrement, secondArgumentIncrement;
 }
 
 @property(retain) XNSurfaceData *surface;
@@ -26,16 +34,35 @@
 #pragma mark -
 #pragma mark Class init methods
 
-+ (XNTabulatedFunctionOf2D*) functionWithSurface: (XNSurfaceData*)aSurface;
-
++ (XNTabulatedFunctionOf2D *) functionWithSurface: (XNSurfaceData*) aSurface;
++ (XNTabulatedFunctionOf2D *) functionWithCapacityI: (NSUInteger) iCount J: (NSUInteger) jCount;
++ (XNTabulatedFunctionOf2D *) functionWithFirstArgumentCapacity: (NSUInteger) iCount 
+														  range: (XNFloatRange *) newFirstArgumentRange 
+										 secondArgumentCapacity: (NSUInteger) jCount 
+														  range: (XNFloatRange *) newSecondArgumentRange;
 
 #pragma mark -
 #pragma mark Instance init methods
-- (XNTabulatedFunctionOf2D*) initWithSurface: (XNSurfaceData*)aSurface;
+- (XNTabulatedFunctionOf2D *) initWithSurface: (XNSurfaceData*) aSurface;
+- (XNTabulatedFunctionOf2D *) initWithCapacityI: (NSUInteger) iCount J: (NSUInteger) jCount;
+
+- (XNTabulatedFunctionOf2D *) initWithFirstArgumentCapacity: (NSUInteger) iCount 
+													  range: (XNFloatRange *) newFirstArgumentRange 
+									 secondArgumentCapacity: (NSUInteger) jCount 
+													  range: (XNFloatRange *) newSecondArgumentRange;
 
 #pragma mark -
 #pragma mark Instance logic
 - (CGFloat) valueAtI: (NSUInteger) i J: (NSUInteger) j;
 - (XN3DPoint) pointAtI: (NSUInteger) i J: (NSUInteger) j;
+
+//
+// Argument grids 
+
+- (void) setFirstArgumentRange: (XNFloatRange *) range;
+- (void) setFirstArgumentFrom: (CGFloat) from to: (CGFloat) to; 
+
+- (void) setFirstArgumentRange: (XNFloatRange *) range;
+- (void) setFirstArgumentFrom: (CGFloat) from to: (CGFloat) to; 
 
 @end

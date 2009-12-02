@@ -172,6 +172,20 @@
 	[self updateRanges];
 }
 
+- (void) setArguments2DPoint: (XN2DPoint) point atI: (NSUInteger) i J: (NSUInteger) j dirty: (BOOL) dirty
+{
+	[self validateAccessToI:i J:j];
+	
+	//
+	// Set the point
+	xData[i] = point.x;
+	yData[j] = point.y;
+	
+	if( !dirty){
+		[self updateRanges];
+	}
+}
+
 - (CGFloat) valueAtI: (NSUInteger) i J: (NSUInteger) j
 {
 	[self validateAccessToI:i J:j];

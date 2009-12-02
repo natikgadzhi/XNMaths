@@ -80,6 +80,7 @@
 #pragma mark Instance logic methods
 
 - (void) set3DPoint: (XN3DPoint) point atI: (NSUInteger) i J: (NSUInteger) j;
+- (void) setArguments2DPoint: (XN2DPoint) point atI: (NSUInteger) i J: (NSUInteger) j dirty: (BOOL) dirty;
 
 - (CGFloat) valueAtI: (NSUInteger) i J: (NSUInteger) j;
 
