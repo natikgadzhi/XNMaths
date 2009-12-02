@@ -61,26 +61,29 @@
 								  yRange: (XNFloatRange*) aYRange 
 							 withQuality: (NSUInteger) lineQuality;
 
-// TODO: Write tests.
 + (XNSurfaceData *) surfaceWithCapacityX: (NSInteger) newXCapacity Y: (NSInteger) newYCapacity;
 
 #pragma mark -
 #pragma mark Instance init methods
 
-// TODO: write tests for all of this shit! 
+// TODO: write tests 
 
 - (XNSurfaceData *) initWithFunction: (XNFunctionOf2D*) aFunction 
 							  xRange: (XNFloatRange*) aXRange 
 							  yRange: (XNFloatRange*) aYRange 
 						 withQuality: (NSUInteger) lineQuality;
 
+
 - (XNSurfaceData *) initWithCapacityX: (NSInteger) newXCapacity Y: (NSInteger) newYCapacity;
 
 #pragma mark -
 #pragma mark Instance logic methods
 
-// TODO: write tests
-
 - (void) set3DPoint: (XN3DPoint) point atI: (NSUInteger) i J: (NSUInteger) j;
+
+- (CGFloat) valueAtI: (NSUInteger) i J: (NSUInteger) j;
+
+- (XN3DPoint) pointAtI: (NSUInteger) i J: (NSUInteger) j;
+
 
 @end

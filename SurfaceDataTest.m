@@ -49,4 +49,14 @@
 	STAssertEquals( surface.zRange.max, 3.0f, @"Wrong Z range in the empty surface");
 }
 
+- (void) testRetrievesValuesAndPoints
+{
+	XNSurfaceData *surface = [XNSurfaceData surfaceWithCapacityX:100 Y:100];
+	
+	[surface set3DPoint:XNMake3DPoint(1., 2., 3.) atI:0 J:0];
+	
+	STAssertEquals( [surface valueAtI:0 J:0], 3.0f, @"Surface didn't return value correctly");
+	STAssertEquals( [surface pointAtI:0 J:0], XNMake3DPoint(1., 2., 3.), @"Surface didn't return point correctly");
+}
+
 @end

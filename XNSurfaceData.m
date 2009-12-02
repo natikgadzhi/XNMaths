@@ -22,6 +22,7 @@
 @interface XNSurfaceData (Private)
 
 - (void) updateRanges;
+- (void) validateAccessToI: (NSUInteger) i J: (NSUInteger) j;
 
 @end
 
@@ -160,15 +161,7 @@
 
 - (void) set3DPoint: (XN3DPoint) point atI: (NSUInteger) i J: (NSUInteger) j
 {
-	if( i >= xPointsCount){
-		[NSException raise: @"Accessing surface point out of the grid." 
-					format: @"Trying to access %d point in X scale, but X scale contains only %d positions", i, xPointsCount];
-	}
-	
-	if( j >= yPointsCount){
-		[NSException raise: @"Accessing surface point out of the grid." 
-					format: @"Trying to access %d point in Y scale, but Y scale contains only %d positions", j, yPointsCount];		
-	}
+	[self validateAccessToI:i J:j];
 	
 	//
 	// Set the point
@@ -177,6 +170,18 @@
 	zData[i][j] = point.z;
 	
 	[self updateRanges];
+}
+
+- (CGFloat) valueAtI: (NSUInteger) i J: (NSUInteger) j
+{
+	[self validateAccessToI:i J:j];
+	return zData[i][j];
+}
+
+- (XN3DPoint) pointAtI: (NSUInteger) i J: (NSUInteger) j
+{
+	[self validateAccessToI:i J:j];
+	return XNMake3DPoint(xData[i], yData[j], zData[i][j]);
 }
 
 #pragma mark -
@@ -199,6 +204,19 @@
 	CGFloat zMin, zMax;
 	plMinMax2dGrid(zData, xPointsCount, yPointsCount, &zMax, &zMin);
 	zRange = [XNFloatRange rangeWithMin: zMin max: zMax];
+}
+
+- (void) validateAccessToI: (NSUInteger) i J: (NSUInteger) j
+{
+	if( i >= xPointsCount){
+		[NSException raise: @"Accessing surface point out of the grid." 
+					format: @"Trying to access %d point in X scale, but X scale contains only %d positions", i, xPointsCount];
+	}
+	
+	if( j >= yPointsCount){
+		[NSException raise: @"Accessing surface point out of the grid." 
+					format: @"Trying to access %d point in Y scale, but Y scale contains only %d positions", j, yPointsCount];		
+	}
 }
 
 #pragma mark -
