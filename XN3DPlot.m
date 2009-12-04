@@ -10,19 +10,11 @@
 #pragma mark Imports
 
 #import "XN3DPlot.h"
-
 #import "XNSurfaceData.h"
 #import "XNBox.h"
 #import "XNFloatRange.h"
+#import "XNPlotManager.h"
 #import "plplot.h"
-
-#pragma mark -
-#pragma mark Private category of XN3DPlot
-@interface XN3DPlot (Private)
-
-- (void) initializePLPlot;
-
-@end
 
 #pragma mark -
 #pragma mark XN3DPlot class implementation
@@ -31,39 +23,17 @@
 
 #pragma mark -
 #pragma mark Class init methods
-+ (XN3DPlot*) plot
++ (XN3DPlot*) plotWithBox: (XNBox*) aBox altitude: (NSInteger) aAltitude azimuth: (NSInteger) aAzimuth label: (NSString*) aTitle
 {
-	return [[XN3DPlot alloc] init];
+	return [[XN3DPlot alloc] initWithBox: aBox altitude: aAltitude azimuth: aAzimuth label: aTitle];
 }
 
-+ (XN3DPlot*) plotWithBox: (XNBox*) aBox altitude: (NSInteger) aAltitude azimuth: (NSInteger) aAzimuth title: (NSString*) aTitle
-{
-	return [[XN3DPlot alloc] initWithBox: aBox altitude: aAltitude azimuth: aAzimuth title: aTitle];
-}
-
-#pragma mark -
-#pragma mark Instance init methods
-- (XN3DPlot*) init
+- (XN3DPlot*) initWithBox: (XNBox*) aBox altitude: (NSInteger) aAltitude azimuth: (NSInteger) aAzimuth label: (NSString*) aTitle
 {
 	self = [super init];
-	XNFloatRange *simpleRange = [XNFloatRange rangeWithMin: -5. max: 5.];
-	xRange = [simpleRange copy];
-	yRange = [simpleRange copy];
-	zRange = [simpleRange copy];
 	
-	altitude = 33;
-	azimuth = 24;
+	isReadyToRender = NO;
 	
-	title = @"XN3DPlot";
-	
-	[self initializePLPlot];
-	
-	return self;
-}
-
-- (XN3DPlot*) initWithBox: (XNBox*) aBox altitude: (NSInteger) aAltitude azimuth: (NSInteger) aAzimuth title: (NSString*) aTitle
-{
-	self = [super init];
 	xRange = aBox.xRange;
 	yRange = aBox.yRange;
 	zRange = aBox.zRange;
@@ -71,29 +41,16 @@
 	altitude = aAltitude;
 	azimuth = aAzimuth;
 	
-	title = [aTitle copy];
+	label = [aTitle copy];
 	
-	[self initializePLPlot];
-	
-	return self;
-}
+	// connect to manager and start it.
+	if([[XNPlotManager sharedManager] addPlot]){
+		isReadyToRender = YES;
+	} else {
+		[NSException raise: @"XNPlotManager error." 
+					format: @"XNPlotManager refused to register the plot. It servs %d plots already.", [XNPlotManager sharedManager].connectedPlots];
+	};
 
-
-- (void) initializePLPlot
-{
-	// Use aquaterm
-	plsdev("aqt");
-	
-	// Use white background
-	plscolbg( 255, 255, 255 );
-	
-	// init
-	plinit();
-	
-	// color magic to make black box
-//	plscol0(1, 0, 0, 0);
-//	plcol(1);
-	
 	// a standard viewport
 	pladv(0);
 	plvpor(0.0, 1.0, 0.0, 0.9);
@@ -106,23 +63,20 @@
 		   "bnstu", "y axis", 0.0, 0,
 		   "bcdmnstuv", "z axis", 0.0, 4);
 	
-	plmtex("t", 1.0, 0.5, 0.5, [title UTF8String]);
+	plmtex("t", 1.0, 0.5, 0.5, [label UTF8String]);
 	
-//	plscol0(1, 1, 0, 0);
+	return self;
 }
 
 #pragma mark -
 #pragma mark Rendering API
-- (void) renderSurface: (XNSurfaceData*)surface ofColor: (NSColor *)color;
+- (void) renderSurface: (XNSurfaceData*)surface color: (NSColor *)color;
 {
 	plscol0( 15, [color redComponent] * 255, [color greenComponent] * 255, [color blueComponent] * 255);
 	plcol0(15);
 	plmesh(surface.xData, surface.yData, surface.zData, surface.xPointsCount, surface.yPointsCount, DRAW_LINEXY);
-}
-
-- (void) finalize
-{
-	plend1();
+	
+	plcol0(1);
 }
 
 - (void) dealloc

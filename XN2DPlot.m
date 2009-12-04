@@ -50,8 +50,7 @@
 	label = newTitle;
 	
 	// connect to manager and start it.
-	screenNumber = [[XNPlotManager sharedManager] addPlot];
-	if( screenNumber != -1 ){
+	if([[XNPlotManager sharedManager] addPlot]){
 		isReadyToRender = YES;
 	} else {
 		[NSException raise: @"XNPlotManager error." 

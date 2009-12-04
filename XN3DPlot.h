@@ -19,27 +19,19 @@
 
 @interface XN3DPlot : NSObject {
 	XNFloatRange *xRange, *yRange, *zRange;
-	NSString *title;
+	NSString *label;
 	
 	NSUInteger azimuth, altitude;
+	BOOL isReadyToRender;
 }
 
 #pragma mark -
 #pragma mark Class init methods
-+ (XN3DPlot*) plot;
-+ (XN3DPlot*) plotWithBox: (XNBox*) aBox altitude: (NSInteger) aAltitude azimuth: (NSInteger) aAzimuth title: (NSString*) aTitle;
-
-#pragma mark -
-#pragma mark Instance init methods
-- (XN3DPlot*) init;
-- (XN3DPlot*) initWithBox: (XNBox*) aBox altitude: (NSInteger) aAltitude azimuth: (NSInteger) aAzimuth title: (NSString*) aTitle;
++ (XN3DPlot*) plotWithBox: (XNBox*) aBox altitude: (NSInteger) aAltitude azimuth: (NSInteger) aAzimuth label: (NSString*) aTitle;
+- (XN3DPlot*) initWithBox: (XNBox*) aBox altitude: (NSInteger) aAltitude azimuth: (NSInteger) aAzimuth label: (NSString*) aTitle;
 
 #pragma mark -
 #pragma mark Rendering API
-- (void) renderSurface: (XNSurfaceData*)surface ofColor: (NSColor *)color;
-
-#pragma mark -
-#pragma mark Instance methods
-- (void) finalize;
+- (void) renderSurface: (XNSurfaceData*)surface color: (NSColor *)color;
 
 @end

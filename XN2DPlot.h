@@ -27,9 +27,6 @@
 	// show this range
 	XNFloatRange *xRange, *yRange;
 	
-	// colors to use
-	NSColor *boxColor, *foregroundColor; 
-	
 	// label to draw 
 	NSString *label;
 	
@@ -38,8 +35,6 @@
 	
 	// ready to accept render calls? 
 	BOOL isReadyToRender;
-	
-	NSInteger screenNumber;
 }
 
 #pragma mark -

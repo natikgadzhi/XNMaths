@@ -29,7 +29,7 @@
 + (XNPlotManager *) sharedManager;
 - (XNPlotManager *) init;
 
-- (NSInteger) addPlot;
+- (BOOL) addPlot;
 
 - (void) startPlotting;
 - (void) endPlotting;
