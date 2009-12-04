@@ -101,13 +101,13 @@ static XNPlotManager *sharedManager = nil;
 //
 // Control methods
 
-- (BOOL) addPlot {
+- (NSInteger) addPlot {
 	if( ( connectedPlots < maxPlots ) && isInitialized ) {
 		connectedPlots++;
-		return YES;
+		return connectedPlots;
 	}
 	
-	return NO;
+	return -1;
 }
 
 - (void) startPlotting {

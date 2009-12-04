@@ -38,6 +38,8 @@
 	
 	// ready to accept render calls? 
 	BOOL isReadyToRender;
+	
+	NSInteger screenNumber;
 }
 
 #pragma mark -

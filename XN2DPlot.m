@@ -50,7 +50,8 @@
 	label = newTitle;
 	
 	// connect to manager and start it.
-	if( [[XNPlotManager sharedManager] addPlot] ){
+	screenNumber = [[XNPlotManager sharedManager] addPlot];
+	if( screenNumber != -1 ){
 		isReadyToRender = YES;
 	} else {
 		[NSException raise: @"XNPlotManager error." 
@@ -152,6 +153,7 @@
 - (void) renderLine: (XNLineData *)data color: (NSColor *)color width: (NSUInteger)width
 {
 	// draw!
+//	pladv(screenNumber);
 	plscol0(15, (NSInteger)([color redComponent]*255), (NSInteger)([color greenComponent]*255), (NSInteger)([color blueComponent]*255));
 	plcol(15);
 	plwid(width);
