@@ -9,53 +9,35 @@
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
 
+//
+// Import it's own header
 #import "XN2DPlot.h"
+
+//
+// Import what was marked with @class
 #import "XNFunction.h"
 #import "XNLineData.h"
 #import "XNFloatRange.h"
+#import "XNPlotManager.h"
+
+//
+// Import PLPlot
 #import "plplot.h"
-
-@interface XN2DPlot (Private)
-- (void) initializePLplot;
-//- (void) setCurrentColor: (NSColor*)color;
-
-- (void) renderPointsWithX: (CGFloat*)x y: (CGFloat*)y  count: (NSUInteger)count color: (NSColor*) color;
-@end
-
 
 
 @implementation XN2DPlot
 
-@synthesize quality;
-@synthesize title;
-
 #pragma mark -
 #pragma mark Class init methods
-+ (XN2DPlot*) plot
+
++ (XN2DPlot*) plotInRect: (NSRect)rect label: (NSString*)newTitle quality: (NSUInteger)newQuality
 {
-	return [[XN2DPlot alloc] init];
+	return [[XN2DPlot alloc] initInRect:rect label:newTitle quality:newQuality];
 }
 
-+ (XN2DPlot*) plotInRect: (NSRect)rect withTitle: (NSString*)newTitle quality: (NSUInteger)newQuality
+- (XN2DPlot*) initInRect: (NSRect)rect label: (NSString*)newTitle quality: (NSUInteger)newQuality
 {
-	return [[XN2DPlot alloc] initInRect:rect withTitle:newTitle quality:newQuality];
-}
-
-
-#pragma mark -
-#pragma mark Instance init methods
-- (XN2DPlot*) init
-{
-	self = [super init];
-	return [self initInRect: NSMakeRect(-10.0f, -5.0f, 20.0f, 10.0f) withTitle:@"XN2DPlot" quality:20];
-}
-
-- (XN2DPlot*) initInRect: (NSRect)rect withTitle: (NSString*)newTitle quality: (NSUInteger)newQuality
-{
-	// default values 
-	labelsDrawn = 0;
 	
 	// set range from rect
 	xRange = [XNFloatRange rangeWithMin: rect.origin.x max: (rect.origin.x + rect.size.width)];
@@ -65,53 +47,36 @@
 	quality = newQuality;
 	
 	// and set title at last.
-	title = newTitle;
+	label = newTitle;
 	
-	// perform plinit
-	[self initializePLplot];
+	// connect to manager and start it.
+	if( [[XNPlotManager sharedManager] addPlot] ){
+		isReadyToRender = YES;
+	} else {
+		[NSException raise: @"XNPlotManager error." 
+					 format: @"XNPlotManager refused to register the plot. It servs %d plots already.", [XNPlotManager sharedManager].connectedPlots];
+	};
+	
+	// now use plplot routines
+//	pladv(0);
+//	plvpor(0.05, 0.95, 0.05, 0.95);
+//	plwind(xRange.min, xRange.max, yRange.min, yRange.max);
+//	plbox("bn", 0, 0, "bn", 0, 0);
+	
+	plenv(xRange.min, xRange.max, yRange.min, yRange.max, 0, 1);
+	pllab("(x axis)", "(y axis)", [label UTF8String]);
 	
 	return self;
 }
 
-- (void) initializePLplot
-{
-	// Use aquaterm
-	plsdev("aqt");
-	
-	// Use white background
-	plscolbg( 255, 255, 255 );
-	
-	// init
-	plinit();
-	
-	// 2d env
-	plscol0(1, 0, 0, 0);
-	plcol(1);
-	plenv( xRange.min, xRange.max, yRange.min, yRange.max, 1, 1);
-	pllab([[NSString stringWithString: @"(x axis)"] cString], [[NSString stringWithString: @"(y axis)"] cString], [title cString]);
-	plscol0(1, 1, 0, 0);
-}
-
-
 #pragma mark -
 #pragma mark Drawing API
 
-- (void) renderFunction: (XNFunction*)aFunction inRange: (XNFloatRange*)range withColor: (NSColor*)color;
-{
-	[self renderFunction:aFunction inRange:range withColor:color labeled: aFunction.expression];
-}
+//
+//// FUNCTION
+// 
 
-- (void) renderFunction: (XNFunction*)aFunction inRange: (XNFloatRange*)range withColor: (NSColor*)color width: (NSUInteger)width
-{
-	[self renderFunction:aFunction inRange:range withColor:color labeled: aFunction.expression width: width];
-}
-
-- (void) renderFunction: (XNFunction*)aFunction inRange: (XNFloatRange*) range withColor: (NSColor*)color labeled: (NSString*)label 
-{
-	[self renderFunction:aFunction inRange:range withColor:color labeled: aFunction.expression width: 1];
-}
-
-- (void) renderFunction: (XNFunction*)aFunction inRange: (XNFloatRange*) range withColor: (NSColor*)color labeled: (NSString*)label width: (NSUInteger)width
+- (void) renderFunction: (XNFunction*)aFunction range: (XNFloatRange*)range color: (NSColor*)color width: (NSUInteger)width
 {
 	XNLineData *line = [aFunction createLineDataInRange: range withQuality:quality];
 	
@@ -131,15 +96,14 @@
 		yRange.max = line.yRange.max;
 	}
 	
-	// draw!
-	[self renderLine: line color: color width: width];
-	
-	// label!
-	//plptex( xRange.min + 1.0f , yRange.max - 1.0f - labelsDrawn * 0.8f, 1.0f, 0.0f, 1, [label cString] );
-	//NSLog(label);
-	
-	labelsDrawn++;
+	[self renderLine: line 
+			   color: color 
+			   width: width];
 }
+
+//
+//// POINTS
+//
 
 - (void) renderPoint: (XN2DPoint)point color: (NSColor*) color
 {
@@ -154,6 +118,7 @@
 	free(x);
 	free(y);
 }
+
 
 - (void) renderPoints: (NSArray*) arrayOfPoints color:(NSColor*) color
 {
@@ -171,6 +136,19 @@
 	free(y);
 }
 
+- (void) renderPointsWithX: (CGFloat*)x y: (CGFloat*)y  count: (NSUInteger)count color: (NSColor*) color
+{
+	plscol0(15, (NSInteger)([color redComponent]*255), (NSInteger)([color greenComponent]*255), (NSInteger)([color blueComponent]*255));
+	plcol(15);
+	plpoin(count, x, y, 21);
+	plcol(1);
+}
+
+
+//
+//// LINE
+//
+
 - (void) renderLine: (XNLineData *)data color: (NSColor *)color width: (NSUInteger)width
 {
 	// draw!
@@ -181,18 +159,7 @@
 	
 	// back to default width: 
 	plwid(1);
-}
-
-- (void) renderPointsWithX: (CGFloat*)x y: (CGFloat*)y  count: (NSUInteger)count color: (NSColor*) color
-{
-	plscol0(15, (NSInteger)([color redComponent]*255), (NSInteger)([color greenComponent]*255), (NSInteger)([color blueComponent]*255));
-	plcol(15);
-	plpoin(count, x, y, 21);
-}
-
-- (void) finalize
-{
-	plend1();
+	plcol(1);
 }
 
 

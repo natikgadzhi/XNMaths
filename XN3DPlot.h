@@ -36,7 +36,7 @@
 
 #pragma mark -
 #pragma mark Rendering API
-- (void) renderSurface: (XNSurfaceData*)surface;
+- (void) renderSurface: (XNSurfaceData*)surface ofColor: (NSColor *)color;
 
 #pragma mark -
 #pragma mark Instance methods

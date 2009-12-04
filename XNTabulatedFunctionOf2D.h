@@ -56,6 +56,10 @@
 - (CGFloat) valueAtI: (NSUInteger) i J: (NSUInteger) j;
 - (XN3DPoint) pointAtI: (NSUInteger) i J: (NSUInteger) j;
 
+- (void) setValue: (CGFloat) value atI: (NSUInteger) i J: (NSUInteger) j dirty: (BOOL) dirty;
+- (void) set3DPoint: (XN3DPoint) point atI: (NSUInteger) i J: (NSUInteger) j dirty: (BOOL) dirty;
+
+
 //
 // Argument grids 
 

@@ -130,6 +130,18 @@
 	return [surface pointAtI:i J:j];
 }
 
+
+- (void) setValue: (CGFloat) value atI: (NSUInteger) i J: (NSUInteger) j dirty: (BOOL) dirty
+{
+	[surface setValue:value atI:i J:j dirty:dirty];
+}
+
+- (void) set3DPoint: (XN3DPoint) point atI: (NSUInteger) i J: (NSUInteger) j dirty: (BOOL) dirty
+{
+	[surface set3DPoint: point atI:i J:j dirty:dirty];
+}
+
+
 //
 // Argument grids 
 
@@ -169,7 +181,7 @@
 		surface.xData[i] = firstArgumentRange.min + firstArgumentIncrement * i;
 	}
 	
-	[surface updateRanges];
+	[surface cleanupRanges];
 }
 
 - (void) generateSecondArgumentValues
@@ -178,7 +190,7 @@
 		surface.yData[i] = secondArgumentRange.min + secondArgumentIncrement * i;
 	}
 	
-	[surface updateRanges];
+	[surface cleanupRanges];
 }
 
 - (void) generateArgumentsGrid

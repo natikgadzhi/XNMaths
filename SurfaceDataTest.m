@@ -39,7 +39,7 @@
 {
 	XNSurfaceData *surface = [XNSurfaceData surfaceWithCapacityX:100 Y:100];
 	
-	[surface set3DPoint:XNMake3DPoint(1., 2., 3.) atI:0 J:0];
+	[surface set3DPoint:XNMake3DPoint(1., 2., 3.) atI:0 J:0 dirty: NO];
 	
 	STAssertEquals( surface.xRange.min, 0.0f, @"Wrong X range in the empty surface");
 	STAssertEquals( surface.xRange.max, 1.0f, @"Wrong X range in the empty surface");
@@ -53,7 +53,7 @@
 {
 	XNSurfaceData *surface = [XNSurfaceData surfaceWithCapacityX:100 Y:100];
 	
-	[surface set3DPoint:XNMake3DPoint(1., 2., 3.) atI:0 J:0];
+	[surface set3DPoint:XNMake3DPoint(1., 2., 3.) atI:0 J:0 dirty: NO];
 	
 	STAssertEquals( [surface valueAtI:0 J:0], 3.0f, @"Surface didn't return value correctly");
 	STAssertEquals( [surface pointAtI:0 J:0], XNMake3DPoint(1., 2., 3.), @"Surface didn't return point correctly");

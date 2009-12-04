@@ -70,13 +70,11 @@
 		E57C81FC10C56E1E006B2981 /* XNBox.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C81FA10C56E1E006B2981 /* XNBox.m */; };
 		E57C81FD10C56E1E006B2981 /* XNBox.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C81FA10C56E1E006B2981 /* XNBox.m */; };
 		E57C83AF10C6ADEE006B2981 /* XNTabulatedFunctionOf2D.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C83AE10C6ADEE006B2981 /* XNTabulatedFunctionOf2D.m */; };
-		E57C83B010C6ADEE006B2981 /* XNTabulatedFunctionOf2D.h in Headers */ = {isa = PBXBuildFile; fileRef = E57C83AD10C6ADEE006B2981 /* XNTabulatedFunctionOf2D.h */; };
+		E57C83B010C6ADEE006B2981 /* XNTabulatedFunctionOf2D.h in Headers */ = {isa = PBXBuildFile; fileRef = E57C83AD10C6ADEE006B2981 /* XNTabulatedFunctionOf2D.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E57C83B110C6ADEE006B2981 /* XNTabulatedFunctionOf2D.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C83AE10C6ADEE006B2981 /* XNTabulatedFunctionOf2D.m */; };
-		E57C83CA10C6B062006B2981 /* XN3DPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = E57C83C710C6B062006B2981 /* XN3DPoint.h */; };
+		E57C83CA10C6B062006B2981 /* XN3DPoint.h in Headers */ = {isa = PBXBuildFile; fileRef = E57C83C710C6B062006B2981 /* XN3DPoint.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E57C83F310C6B266006B2981 /* XN2DPointTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C83F210C6B266006B2981 /* XN2DPointTest.m */; };
-		E57C83F410C6B266006B2981 /* XN2DPointTest.h in Headers */ = {isa = PBXBuildFile; fileRef = E57C83F110C6B266006B2981 /* XN2DPointTest.h */; };
 		E57C83F810C6B26F006B2981 /* XN3DPointTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C83F710C6B26F006B2981 /* XN3DPointTest.m */; };
-		E57C83F910C6B26F006B2981 /* XN3DPointTest.h in Headers */ = {isa = PBXBuildFile; fileRef = E57C83F610C6B26F006B2981 /* XN3DPointTest.h */; };
 		E57C840610C6B58A006B2981 /* GCMathParser.m in Sources */ = {isa = PBXBuildFile; fileRef = E5751F2E10B60492004D572E /* GCMathParser.m */; };
 		E57C840710C6B58A006B2981 /* ZExpParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5751F3010B60492004D572E /* ZExpParser.mm */; };
 		E5F2895910C6BE4D00EA9642 /* XN2DPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F2895810C6BE4D00EA9642 /* XN2DPoint.m */; };
@@ -85,6 +83,9 @@
 		E5F2896410C6BE8A00EA9642 /* XN3DPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F2896210C6BE8A00EA9642 /* XN3DPoint.m */; };
 		E5F2898110C6C0BC00EA9642 /* SurfaceDataTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F2898010C6C0BC00EA9642 /* SurfaceDataTest.m */; };
 		E5F28B4110C6F1EF00EA9642 /* XNTabulatedFunctionOf2DTest.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F28B4010C6F1EF00EA9642 /* XNTabulatedFunctionOf2DTest.m */; };
+		E5F8E0E110C8480300404F98 /* XNPlotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F8E0E010C8480300404F98 /* XNPlotManager.m */; };
+		E5F8E0E210C8480300404F98 /* XNPlotManager.h in Headers */ = {isa = PBXBuildFile; fileRef = E5F8E0DF10C8480300404F98 /* XNPlotManager.h */; settings = {ATTRIBUTES = (Public, ); }; };
+		E5F8E0E310C8480300404F98 /* XNPlotManager.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F8E0E010C8480300404F98 /* XNPlotManager.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -159,6 +160,8 @@
 		E5F2898010C6C0BC00EA9642 /* SurfaceDataTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SurfaceDataTest.m; sourceTree = "<group>"; };
 		E5F28B3F10C6F1EF00EA9642 /* XNTabulatedFunctionOf2DTest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNTabulatedFunctionOf2DTest.h; sourceTree = "<group>"; };
 		E5F28B4010C6F1EF00EA9642 /* XNTabulatedFunctionOf2DTest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNTabulatedFunctionOf2DTest.m; sourceTree = "<group>"; };
+		E5F8E0DF10C8480300404F98 /* XNPlotManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNPlotManager.h; sourceTree = "<group>"; };
+		E5F8E0E010C8480300404F98 /* XNPlotManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNPlotManager.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -360,6 +363,8 @@
 				E518AD7910BB262700D2E454 /* XNLineData.m */,
 				E57C81A910C55AC9006B2981 /* XNSurfaceData.h */,
 				E57C81AA10C55AC9006B2981 /* XNSurfaceData.m */,
+				E5F8E0DF10C8480300404F98 /* XNPlotManager.h */,
+				E5F8E0E010C8480300404F98 /* XNPlotManager.m */,
 			);
 			name = Plotting;
 			sourceTree = "<group>";
@@ -452,8 +457,7 @@
 				E57C81FB10C56E1E006B2981 /* XNBox.h in Headers */,
 				E57C83B010C6ADEE006B2981 /* XNTabulatedFunctionOf2D.h in Headers */,
 				E57C83CA10C6B062006B2981 /* XN3DPoint.h in Headers */,
-				E57C83F410C6B266006B2981 /* XN2DPointTest.h in Headers */,
-				E57C83F910C6B26F006B2981 /* XN3DPointTest.h in Headers */,
+				E5F8E0E210C8480300404F98 /* XNPlotManager.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -577,6 +581,7 @@
 				E57C83B110C6ADEE006B2981 /* XNTabulatedFunctionOf2D.m in Sources */,
 				E5F2895A10C6BE4D00EA9642 /* XN2DPoint.m in Sources */,
 				E5F2896410C6BE8A00EA9642 /* XN3DPoint.m in Sources */,
+				E5F8E0E310C8480300404F98 /* XNPlotManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -609,6 +614,7 @@
 				E5F2896310C6BE8A00EA9642 /* XN3DPoint.m in Sources */,
 				E5F2898110C6C0BC00EA9642 /* SurfaceDataTest.m in Sources */,
 				E5F28B4110C6F1EF00EA9642 /* XNTabulatedFunctionOf2DTest.m in Sources */,
+				E5F8E0E110C8480300404F98 /* XNPlotManager.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

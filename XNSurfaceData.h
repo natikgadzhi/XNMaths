@@ -18,11 +18,6 @@
 #import "XN2DPoint.h"
 #import "XN3DPoint.h"
 
-
-//
-// Use plplot for plotting and 3dgrid functions
-#import "plplot.h"
-
 //
 // Consider these classes
 @class XNFloatRange;
@@ -42,12 +37,15 @@
 	// quality is an recalculation points count per one real unit. quality is used when surfacing from function.
 	// count is how many points are actually crated and should be used in other operations. 
 	NSUInteger quality, xPointsCount, yPointsCount;
+	
+	BOOL isDirty;
 }
 
 @property(readonly) CGFloat *xData, *yData;
 @property(readonly) CGFloat **zData;
 @property(readonly) XNFloatRange *xRange, *yRange, *zRange;
 @property(readonly) NSUInteger xPointsCount, yPointsCount;
+@property(readonly) BOOL isDirty;
 
 #pragma mark -
 #pragma mark Class init methods
@@ -79,12 +77,20 @@
 #pragma mark -
 #pragma mark Instance logic methods
 
-- (void) set3DPoint: (XN3DPoint) point atI: (NSUInteger) i J: (NSUInteger) j;
+//
+// Setters
+- (void) set3DPoint: (XN3DPoint) point atI: (NSUInteger) i J: (NSUInteger) j dirty: (BOOL) dirty;
+- (void) setValue: (CGFloat) value atI: (NSUInteger) i J: (NSUInteger) j dirty: (BOOL) dirty;
 - (void) setArguments2DPoint: (XN2DPoint) point atI: (NSUInteger) i J: (NSUInteger) j dirty: (BOOL) dirty;
 
+//
+// Getters
 - (CGFloat) valueAtI: (NSUInteger) i J: (NSUInteger) j;
-
 - (XN3DPoint) pointAtI: (NSUInteger) i J: (NSUInteger) j;
+
+//
+// Cleanup after set method calls with dirty = YES
+- (void) cleanupRanges;
 
 
 @end

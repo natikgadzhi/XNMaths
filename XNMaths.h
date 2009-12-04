@@ -24,6 +24,8 @@
 
 #import "XNFunctionOf2D.h"
 
+#import "XNTabulatedFunctionOf2D.h"
+
 //
 // Include matrices and vectors
 #import "XNVector.h"
@@ -40,6 +42,7 @@
 #import "XNSurfaceData.h"
 #import "XN2DPlot.h"
 #import "XN3DPlot.h"
+#import "XNPlotManager.h"
 
 
 

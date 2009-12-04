@@ -15,6 +15,7 @@
 
 #import "XNFloatRange.h"
 #import "XNFunctionOf2D.h"
+#import "plplot.h"
 
 #pragma mark -
 #pragma mark XNSurfaceData class private category
@@ -36,6 +37,7 @@
 @synthesize zData;
 @synthesize xRange, yRange, zRange;
 @synthesize xPointsCount, yPointsCount;
+@synthesize isDirty;
 
 #pragma mark -
 #pragma mark Class init methods
@@ -152,14 +154,14 @@
 		}
 	}
 	
-	[self updateRanges];
+	[self cleanupRanges];
 	return self;
 }
 
 #pragma mark -
 #pragma mark Instance logic 
 
-- (void) set3DPoint: (XN3DPoint) point atI: (NSUInteger) i J: (NSUInteger) j
+- (void) set3DPoint: (XN3DPoint) point atI: (NSUInteger) i J: (NSUInteger) j dirty: (BOOL) dirty
 {
 	[self validateAccessToI:i J:j];
 	
@@ -169,7 +171,12 @@
 	yData[j] = point.y;
 	zData[i][j] = point.z;
 	
-	[self updateRanges];
+	if( !dirty){
+		[self cleanupRanges];
+	} else {
+		isDirty = YES;
+	}
+	
 }
 
 - (void) setArguments2DPoint: (XN2DPoint) point atI: (NSUInteger) i J: (NSUInteger) j dirty: (BOOL) dirty
@@ -182,7 +189,22 @@
 	yData[j] = point.y;
 	
 	if( !dirty){
-		[self updateRanges];
+		[self cleanupRanges];
+	} else {
+		isDirty = YES;
+	}
+}
+
+- (void) setValue: (CGFloat) value atI: (NSUInteger) i J: (NSUInteger) j dirty: (BOOL) dirty
+{
+	[self validateAccessToI:i J:j];
+	
+	zData[i][j] = value;
+	
+	if( !dirty){
+		[self cleanupRanges];
+	} else {
+		isDirty = YES;
 	}
 }
 
@@ -200,7 +222,7 @@
 
 #pragma mark -
 #pragma mark Private category methods 
-- (void) updateRanges
+- (void) cleanupRanges
 {
 	// 
 	// Release old ranges 
@@ -218,6 +240,8 @@
 	CGFloat zMin, zMax;
 	plMinMax2dGrid(zData, xPointsCount, yPointsCount, &zMax, &zMin);
 	zRange = [XNFloatRange rangeWithMin: zMin max: zMax];
+	
+	isDirty = NO;
 }
 
 - (void) validateAccessToI: (NSUInteger) i J: (NSUInteger) j

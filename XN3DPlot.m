@@ -90,23 +90,6 @@
 	// init
 	plinit();
 	
-	PLFLT i[2], h[2], l[2], s[2];
-	
-	i[0] = 0.0;		/* left boundary */
-	i[1] = 1.0;		/* right boundary */
-	
-	h[0] = 240; /* blue -> green -> yellow -> */
-	h[1] = 0;   /* -> red */
-	
-	l[0] = 0.6;
-	l[1] = 0.6;
-	
-	s[0] = 0.8;
-	s[1] = 0.8;
-	
-	plscmap1n(256);
-	c_plscmap1l(0, 2, i, h, l, s, NULL);
-	
 	// color magic to make black box
 //	plscol0(1, 0, 0, 0);
 //	plcol(1);
@@ -116,20 +99,24 @@
 	plvpor(0.0, 1.0, 0.0, 0.9);
 	
 	plwind(-1.0, 1.0, -1.0, 1.2);
+	
 	plw3d(1., 1., 1., xRange.min, xRange.max, yRange.min, yRange.max, zRange.min, zRange.max, altitude, azimuth);
 	
 	plbox3("bnstu", "x axis", 0.0, 0,
 		   "bnstu", "y axis", 0.0, 0,
 		   "bcdmnstuv", "z axis", 0.0, 4);
 	
+	plmtex("t", 1.0, 0.5, 0.5, [title UTF8String]);
+	
 //	plscol0(1, 1, 0, 0);
 }
 
 #pragma mark -
 #pragma mark Rendering API
-- (void) renderSurface: (XNSurfaceData*)surface
+- (void) renderSurface: (XNSurfaceData*)surface ofColor: (NSColor *)color;
 {
-	plcol0(2);
+	plscol0( 15, [color redComponent] * 255, [color greenComponent] * 255, [color blueComponent] * 255);
+	plcol0(15);
 	plmesh(surface.xData, surface.yData, surface.zData, surface.xPointsCount, surface.yPointsCount, DRAW_LINEXY);
 }
 
