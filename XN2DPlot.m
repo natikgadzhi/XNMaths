@@ -43,6 +43,8 @@
 	xRange = [XNFloatRange rangeWithMin: rect.origin.x max: (rect.origin.x + rect.size.width)];
 	yRange = [XNFloatRange rangeWithMin: rect.origin.y max: (rect.origin.y + rect.size.height)];
 	
+	//NSLog(@"Will do plot in rect (%f, %f) to (%f, %f)", xRange.min, xRange.max, yRange.min, yRange.max);
+	
 	// set quality
 	quality = newQuality;
 	

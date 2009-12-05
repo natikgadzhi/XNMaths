@@ -73,7 +73,7 @@
 #pragma mark Instance logic
 - (CGFloat) length
 {
-	return abs(max - min);
+	return fabsf(max - min);
 }
 
 @end

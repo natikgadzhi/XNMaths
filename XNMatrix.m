@@ -228,7 +228,7 @@
 		NSMutableString *logFormatForRow = [NSMutableString stringWithCapacity: 30];
 		for( NSInteger j = 0; j < columnsCount; j++ ){
 			//NSLog(@"%d x %d => %f", (i * columnsCount), j, data[(i * columnsCount) + j]);
-			[logFormatForRow appendString: [NSMutableString stringWithFormat: @"%1.2f, ", data[(i * columnsCount) + j]]];
+			[logFormatForRow appendString: [NSMutableString stringWithFormat: @"%2.8f, ", data[(i * columnsCount) + j]]];
 		}
 		NSLog(@"[%@]", logFormatForRow);
 	}

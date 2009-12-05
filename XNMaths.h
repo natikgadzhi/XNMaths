@@ -31,6 +31,7 @@
 #import "XNVector.h"
 #import "XNMatrix.h"
 
+#import "XNLinearEquationSystem.h"
 // 
 // Include splines
 #import "XNLinearSpline.h"
