@@ -25,9 +25,10 @@
 	};
 	
 	XNMatrix *matrix = [[XNMatrix alloc] initWithRows: 5 columns: 6 filledWith:	&data];
-	XNLinearEquationSystem* equationSystem = [[XNLinearEquationSystem alloc] initWithMatrix: matrix];
+	XNLinearEquationSystem* equationSystem = [[XNLinearEquationSystem alloc] initWithMatrix: [matrix autorelease]];
 	
-	XNVector* solution = [equationSystem sweep];
+	XNVector* solution = [[equationSystem sweep] retain];
+	
 	
 	//-5 0 3 5 7
 	STAssertEquals( [solution valueAtIndex:0], -5.0f, @"Solution not found" );

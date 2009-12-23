@@ -31,4 +31,8 @@
 #pragma mark Instance logic
 - (CGFloat) length;
 
+#pragma mark -
+#pragma mark Copying
+- (XNFloatRange *) copy;
+
 @end

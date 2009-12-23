@@ -16,17 +16,17 @@
 #pragma mark Class initializers
 + (XNFloatRange*) rangeWithMin:(CGFloat)aMin max:(CGFloat)aMax
 {
-	return [[XNFloatRange alloc] initWithMin:aMin max:aMax];
+	return [[[XNFloatRange alloc] initWithMin:aMin max:aMax] autorelease];
 }
 
 + (XNFloatRange*) rangeWithRange:(NSRange)range
 {
-	return [[XNFloatRange alloc] initWithRange:range];
+	return [[[XNFloatRange alloc] initWithRange:range] autorelease];
 }
 
 + (XNFloatRange*) rangeWithCArray:(CGFloat*)array withCapacity:(NSUInteger)capacity
 {
-	return [[XNFloatRange alloc] initWithCArray:array withCapacity:capacity ];
+	return [[[XNFloatRange alloc] initWithCArray:array withCapacity:capacity] autorelease];
 }
 
 #pragma mark -
@@ -74,6 +74,13 @@
 - (CGFloat) length
 {
 	return fabsf(max - min);
+}
+
+#pragma mark -
+#pragma mark Copying
+- (XNFloatRange *) copy
+{
+	return [[XNFloatRange alloc]initWithMin: min max: max];
 }
 
 @end

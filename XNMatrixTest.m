@@ -8,6 +8,7 @@
 
 #import "XNMatrixTest.h"
 #import "XNMatrix.h"
+#import "XNVector.h"
 
 
 @implementation XNMatrixTest
@@ -135,6 +136,26 @@
 	
 	matrix = [[XNMatrix alloc] initWithRows: 3 columns: 4 filledWith: &newData ];
 	STAssertFalse( [matrix isSquare], @"Matrix 4x4 should respond YES to isSquare selector.");
+}
+
+- (void) testMultiplication
+{
+	CGFloat data[] = {
+		1, 2, 3, 4, 
+		5, 6, 7, 8
+	};
+	
+	CGFloat vectorData[] = { 1, 1, 1, 1 };
+	
+	XNMatrix *matrix = [[XNMatrix alloc] initWithRows: 2 columns: 4 filledWith: &data ];
+	XNVector *vector = [[XNVector alloc] initWithCapacity: 4 filledWith: &vectorData];
+	
+	XNVector *product = [[matrix multiplyByVector:vector] retain];
+	
+	STAssertEquals( product.capacity, 2u, @"wrong product capacity");
+	
+	STAssertEquals( [product valueAtIndex: 0], 10.0f, @"wrong product value");
+	STAssertEquals( [product valueAtIndex: 1], 26.0f, @"wrong product value");
 }
 
 @end

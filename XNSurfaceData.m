@@ -50,7 +50,7 @@
 								  yRange: (XNFloatRange*) aYRange 
 							 withQuality: (NSUInteger) lineQuality
 {
-	return [[XNSurfaceData alloc] initWithFunction:aFunction xRange:aXRange yRange:aYRange withQuality:lineQuality];
+	return [[[XNSurfaceData alloc] initWithFunction:aFunction xRange:aXRange yRange:aYRange withQuality:lineQuality] autorelease];
 }
 
 //
@@ -58,7 +58,7 @@
 
 + (XNSurfaceData *) surfaceWithCapacityX: (NSInteger) newXCapacity Y: (NSInteger) newYCapacity
 {
-	return [[XNSurfaceData alloc] initWithCapacityX: newXCapacity Y: newYCapacity];
+	return [[[XNSurfaceData alloc] initWithCapacityX: newXCapacity Y: newYCapacity] autorelease];
 }
 
 
@@ -78,8 +78,8 @@
 	// set new line quality;
 	quality = lineQuality;
 	
-	xRange = aXRange;
-	yRange = aYRange;
+	xRange = [aXRange retain];
+	yRange = [aYRange retain];
 	
 	xPointsCount = quality * (NSInteger)[xRange length];
 	yPointsCount = quality * (NSInteger)[yRange length];
@@ -232,14 +232,14 @@
 	
 	// 
 	// Create new ranges
-	xRange = [XNFloatRange rangeWithCArray: xData withCapacity: xPointsCount];
-	yRange = [XNFloatRange rangeWithCArray: yData withCapacity: yPointsCount];
+	xRange = [[XNFloatRange rangeWithCArray: xData withCapacity: xPointsCount] retain];
+	yRange = [[XNFloatRange rangeWithCArray: yData withCapacity: yPointsCount] retain];
 	
 	//
 	// Update Z range
 	CGFloat zMin, zMax;
 	plMinMax2dGrid(zData, xPointsCount, yPointsCount, &zMax, &zMin);
-	zRange = [XNFloatRange rangeWithMin: zMin max: zMax];
+	zRange = [[XNFloatRange rangeWithMin: zMin max: zMax] retain];
 	
 	isDirty = NO;
 }

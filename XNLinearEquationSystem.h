@@ -19,7 +19,11 @@
 	XNMatrix *equationMatrix;
 	XNMatrix *leftSideMatrix; 
 	XNVector *rightSideVector; 
+	
+	NSUInteger iterationsSpent, iterationsLimit;
 }
+
+@property(readonly) NSUInteger iterationsSpent, iterationsLimit;
 
 
 #pragma mark -
@@ -28,4 +32,6 @@
 
 
 - (XNVector *) sweep;
+
+- (XNVector *) solveWithMaxIterations: (NSUInteger) iterationsLimit withPrecision: (CGFloat) precision withFirstApproximation: (XNVector*) firstApproximation allowRelaxation: (BOOL) allowRelaxation;
 @end

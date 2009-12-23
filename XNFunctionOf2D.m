@@ -23,12 +23,12 @@
 #pragma mark Class initialization
 + (XNFunctionOf2D*) functionWithExpression: (NSString*)aExpression
 {
-	return [[XNFunctionOf2D alloc] initWithExpression:aExpression];
+	return [[[XNFunctionOf2D alloc] initWithExpression:aExpression] autorelease];
 }
 
 + (XNFunctionOf2D*) functionWithExpression: (NSString*)aExpression firstArgument: (NSString*) aFirstArgumentName secondArgument: (NSString*) aSecondArgumentName
 {
-	return [[XNFunctionOf2D alloc] initWithExpression:aExpression firstArgument: aFirstArgumentName secondArgument: aSecondArgumentName];
+	return [[[XNFunctionOf2D alloc] initWithExpression:aExpression firstArgument: aFirstArgumentName secondArgument: aSecondArgumentName] autorelease];
 }
 
 #pragma mark -

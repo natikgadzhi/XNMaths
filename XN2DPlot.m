@@ -33,7 +33,7 @@
 
 + (XN2DPlot*) plotInRect: (NSRect)rect label: (NSString*)newTitle quality: (NSUInteger)newQuality
 {
-	return [[XN2DPlot alloc] initInRect:rect label:newTitle quality:newQuality];
+	return [[[XN2DPlot alloc] initInRect:rect label:newTitle quality:newQuality] autorelease];
 }
 
 - (XN2DPlot*) initInRect: (NSRect)rect label: (NSString*)newTitle quality: (NSUInteger)newQuality
@@ -49,7 +49,7 @@
 	quality = newQuality;
 	
 	// and set title at last.
-	label = newTitle;
+	label = [newTitle copy];
 	
 	// connect to manager and start it.
 	if([[XNPlotManager sharedManager] addPlot]){
@@ -81,22 +81,6 @@
 - (void) renderFunction: (XNFunction*)aFunction range: (XNFloatRange*)range color: (NSColor*)color width: (NSUInteger)width
 {
 	XNLineData *line = [aFunction createLineDataInRange: range withQuality:quality];
-	
-	if( xRange.min > range.min){
-		xRange.min = range.min;
-	}
-	
-	if( xRange.max < range.max){
-		xRange.max = range.max;
-	}
-	
-	if( yRange.min > line.yRange.min ){
-		yRange.min = line.yRange.min;
-	}
-	
-	if( yRange.max < line.yRange.max ){
-		yRange.max = line.yRange.max;
-	}
 	
 	[self renderLine: line 
 			   color: color 
@@ -170,6 +154,7 @@
 #pragma mark Dealloc
 - (void) dealloc
 {
+	[label release];
 	[xRange release];
 	[yRange release];
 	

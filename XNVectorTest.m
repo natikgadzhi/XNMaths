@@ -73,6 +73,16 @@
 	STAssertEquals( [vector valueAtIndex: 1], 5.0f, @"Value should be set correctly, but it's %f, not 5f", [vector valueAtIndex: 1]);
 }
 
+- (void) testNorm
+{
+	CGFloat vectorData[] = { 5, 6, 3, 5, 2, 1 };
+	
+	XNVector *vector = [[XNVector alloc] initWithCapacity: 6 filledWith: &vectorData];
+	
+	
+	STAssertEquals( [vector norm], 10.0f, @"Wrong vector norm.");
+}
+
 // test something more complex.
 
 @end

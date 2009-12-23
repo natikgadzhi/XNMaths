@@ -25,7 +25,7 @@
 #pragma mark Class init methods
 + (XN3DPlot*) plotWithBox: (XNBox*) aBox altitude: (NSInteger) aAltitude azimuth: (NSInteger) aAzimuth label: (NSString*) aTitle
 {
-	return [[XN3DPlot alloc] initWithBox: aBox altitude: aAltitude azimuth: aAzimuth label: aTitle];
+	return [[[XN3DPlot alloc] initWithBox: aBox altitude: aAltitude azimuth: aAzimuth label: aTitle] autorelease];
 }
 
 - (XN3DPlot*) initWithBox: (XNBox*) aBox altitude: (NSInteger) aAltitude azimuth: (NSInteger) aAzimuth label: (NSString*) aTitle
@@ -34,9 +34,9 @@
 	
 	isReadyToRender = NO;
 	
-	xRange = aBox.xRange;
-	yRange = aBox.yRange;
-	zRange = aBox.zRange;
+	xRange = [aBox.xRange retain];
+	yRange = [aBox.yRange retain];
+	zRange = [aBox.zRange retain];
 	
 	altitude = aAltitude;
 	azimuth = aAzimuth;
@@ -72,15 +72,35 @@
 #pragma mark Rendering API
 - (void) renderSurface: (XNSurfaceData*)surface color: (NSColor *)color;
 {
+	// rendering will (!) free the memory from surface data, so copy it into a separate variables. 
+	
+	CGFloat *x, *y, **z;
+	
+	plAlloc2dGrid(&z, surface.xPointsCount, surface.yPointsCount);
+	x = calloc(surface.xPointsCount, sizeof(CGFloat));
+	y = calloc(surface.yPointsCount, sizeof(CGFloat));
+	
+	for( NSInteger i = 0; i < surface.xPointsCount; i++){
+			x[i] = surface.xData[i];
+		for( NSInteger j = 0; j < surface.yPointsCount; j++){
+			z[i][j] = surface.zData[i][j];
+		}
+	}
+	
+	for( NSInteger j = 0; j < surface.yPointsCount; j++){
+		y[j] = surface.yData[j];
+	}
+	
 	plscol0( 15, [color redComponent] * 255, [color greenComponent] * 255, [color blueComponent] * 255);
 	plcol0(15);
-	plmesh(surface.xData, surface.yData, surface.zData, surface.xPointsCount, surface.yPointsCount, DRAW_LINEXY);
+	plmesh(x, y, z, surface.xPointsCount, surface.yPointsCount, DRAW_LINEXY);
 	
 	plcol0(1);
 }
 
 - (void) dealloc
 {
+	[label release];
 	[xRange release];
 	[yRange release];
 	[zRange release];

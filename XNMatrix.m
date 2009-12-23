@@ -23,12 +23,12 @@
 #pragma mark Class init methods
 - (XNMatrix *) matrixWithRows: (NSUInteger) newRowsCount columns: (NSUInteger) newColumnsCount
 {
-	return [[XNMatrix alloc] initWithRows: newRowsCount columns: newColumnsCount];
+	return [[[XNMatrix alloc] initWithRows: newRowsCount columns: newColumnsCount] autorelease];
 }
 
 - (XNMatrix *) matrixWithRows: (NSUInteger) newRowsCount columns: (NSUInteger) newColumnsCount filledWith: ( CGFloat *) newCArray
 {
-	return [[XNMatrix alloc] initWithRows: newRowsCount columns: newColumnsCount filledWith: newCArray];
+	return [[[XNMatrix alloc] initWithRows: newRowsCount columns: newColumnsCount filledWith: newCArray] autorelease];
 }
 
 #pragma mark -
@@ -218,6 +218,32 @@
 }
 
 
+- (XNVector *) multiplyByVector: (XNVector *) vector
+{
+	if( vector.capacity != columnsCount ){
+		[NSException raise: @"Matrix multiplication error." format: @"Can't multiply %d-dimentional vector with %d x %d matrix.", 
+		 vector.capacity, 
+		 columnsCount, 
+		 rowsCount];
+	}
+	
+	XNVector *newVector = [[XNVector alloc] initWithCapacity: rowsCount];
+	
+	for( NSInteger i = 0; i < rowsCount; i++){
+		
+		CGFloat newValue = 0.;
+		
+		for( NSInteger j = 0; j < columnsCount; j++){
+			newValue += [self valueAtRow: i column: j] * [vector valueAtIndex: j];
+		}
+		
+		[newVector setValue: newValue atIndex: i];
+	}
+	
+	return [newVector autorelease];
+}
+
+
 #pragma mark -
 #pragma mark Debugging
 - (void) printToLog
@@ -228,7 +254,7 @@
 		NSMutableString *logFormatForRow = [NSMutableString stringWithCapacity: 30];
 		for( NSInteger j = 0; j < columnsCount; j++ ){
 			//NSLog(@"%d x %d => %f", (i * columnsCount), j, data[(i * columnsCount) + j]);
-			[logFormatForRow appendString: [NSMutableString stringWithFormat: @"%2.8f, ", data[(i * columnsCount) + j]]];
+			[logFormatForRow appendString: [NSMutableString stringWithFormat: @"%1.3f, ", data[(i * columnsCount) + j]]];
 		}
 		NSLog(@"[%@]", logFormatForRow);
 	}

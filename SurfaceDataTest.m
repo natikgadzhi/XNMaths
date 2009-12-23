@@ -12,7 +12,7 @@
 
 - (void) testCreatesWithCapacity
 {
-	XNSurfaceData *surface = [XNSurfaceData surfaceWithCapacityX:100 Y:100];
+	XNSurfaceData *surface = [[XNSurfaceData surfaceWithCapacityX:100 Y:100] retain];
 	
 	//
 	// Dimensions test. 
@@ -33,11 +33,13 @@
 	STAssertEquals( surface.yRange.max, 0.0f, @"Wrong Y range in the empty surface");
 	STAssertEquals( surface.zRange.min, 0.0f, @"Wrong Z range in the empty surface");
 	STAssertEquals( surface.zRange.max, 0.0f, @"Wrong Z range in the empty surface");
+	
+	[surface release];
 }
 
 - (void) testSetsPoint
 {
-	XNSurfaceData *surface = [XNSurfaceData surfaceWithCapacityX:100 Y:100];
+	XNSurfaceData *surface = [[XNSurfaceData surfaceWithCapacityX:100 Y:100] retain];
 	
 	[surface set3DPoint:XNMake3DPoint(1., 2., 3.) atI:0 J:0 dirty: NO];
 	
@@ -47,16 +49,19 @@
 	STAssertEquals( surface.yRange.max, 2.0f, @"Wrong Y range in the empty surface");
 	STAssertEquals( surface.zRange.min, 0.0f, @"Wrong Z range in the empty surface");
 	STAssertEquals( surface.zRange.max, 3.0f, @"Wrong Z range in the empty surface");
+	
+	[surface release];
 }
 
 - (void) testRetrievesValuesAndPoints
 {
-	XNSurfaceData *surface = [XNSurfaceData surfaceWithCapacityX:100 Y:100];
+	XNSurfaceData *surface = [[XNSurfaceData surfaceWithCapacityX:100 Y:100] retain];
 	
 	[surface set3DPoint:XNMake3DPoint(1., 2., 3.) atI:0 J:0 dirty: NO];
 	
 	STAssertEquals( [surface valueAtI:0 J:0], 3.0f, @"Surface didn't return value correctly");
 	STAssertEquals( [surface pointAtI:0 J:0], XNMake3DPoint(1., 2., 3.), @"Surface didn't return point correctly");
+	[surface release];
 }
 
 @end

@@ -94,6 +94,33 @@
 	return self;
 }
 
+- (XNVector *) substract: (XNVector *) vector
+{
+	if( capacity != vector.capacity){
+		[NSException raise: @"Vector operations error." format: @"Can't substract [%d] vector from [%d] vector.", vector.capacity, capacity];
+	}
+	
+	XNVector *result = [[XNVector alloc] initWithCapacity: capacity];
+	
+	for( NSInteger i = 0; i < capacity; i++){
+		[result setValue: [self valueAtIndex: i] - [vector valueAtIndex: i] atIndex: i];
+	}
+	
+	return [result autorelease];
+}
+
+
+- (CGFloat) norm
+{
+	CGFloat norm = 0.0f;
+	
+	for( NSInteger i = 0; i < capacity; i++ ){
+		norm += powf([self valueAtIndex: i], 2);
+	}
+	
+	return sqrtf(norm);
+}
+
 #pragma mark -
 #pragma mark Getters and setters
 
@@ -115,6 +142,17 @@
 	}
 	
 	data[index] = value; 
+}
+
+- (XNVector *) copy
+{
+	XNVector *copiedVector = [[XNVector alloc] initWithCapacity: capacity];
+	
+	for( NSInteger i = 0; i < capacity; i++){
+		[copiedVector setValue: [self valueAtIndex:i] atIndex: i];
+	}
+	
+	return copiedVector;
 }
 
 #pragma mark -

@@ -12,6 +12,8 @@
 
 @implementation XNLinearEquationSystem
 
+@synthesize iterationsSpent, iterationsLimit;
+
 #pragma mark -
 #pragma mark Initialization methods
 - (XNLinearEquationSystem *) initWithMatrix: (XNMatrix *)newEquationMatrix
@@ -50,10 +52,13 @@
 	// matrix representation with diagonals. 
 	CGFloat *dl, *d, *du;
 	
+	// b vector data
 	CGFloat *b;
 	
+	// rows count in b vector
 	NSUInteger ldb = n;
 	
+	// kinda return code
 	NSInteger info;
 	
 	// 
@@ -79,34 +84,64 @@
 	// call the routine
 	sgtsv_(&n, &nrhs, dl, d, du, b, &ldb, &info);
 	
+	if( info != 0){
+		[NSException raise:@"Linear equation system sweep LAPACK error." format:@"LAPACK return code: %d", info];
+	}
+	
+	// 
+	// Create a solution vector from lapack output
 	XNVector *solution = [[XNVector alloc] initWithCapacity: n filledWith: b];
 	
-//	XNVector *p = [[XNVector alloc] initWithCapacity: n];
-//	XNVector *q = [[XNVector alloc] initWithCapacity: n];
+	//
+	// Free resources after lapack routines
+	free(d);
+	free(b);
+	free(du);
+	free(dl);
 	
-//	
-//	[p setValue: [leftSideMatrix valueAtRow:0 column:1] / (-[leftSideMatrix valueAtRow:0 column:0]) atIndex: 1];
-//	[q setValue: [rightSideVector valueAtIndex:0] / [leftSideMatrix valueAtRow:0 column:0] atIndex:1];
-//	
-//	for(NSUInteger i = 2; i < n; i++){
-//		[p setValue:[leftSideMatrix valueAtRow:i-1 column:i] / 
-//		 ( -[leftSideMatrix valueAtRow:i-1 column:i-1] - [leftSideMatrix valueAtRow:i-1 column:i-2] * [p valueAtIndex:i-1]) 
-//			atIndex:i ];
-//		
-//		[q setValue:( [leftSideMatrix valueAtRow:i-1 column:i-2] * [q valueAtIndex:i-1] - [rightSideVector valueAtIndex:i-1] ) /
-//					 ( -[leftSideMatrix valueAtRow:i-1 column:i-1] - [leftSideMatrix valueAtRow:i-1 column:i-2]*[p valueAtIndex:i-1] )
-//			atIndex:i ];
-//	}
-//	
-//	[solution setValue:[q valueAtIndex:n-1] atIndex:n-1];
-//	
-//	for( NSInteger i = n-2; i >= 0; i-- ){
-//		[solution setValue: ([p valueAtIndex:i+1]*[solution valueAtIndex:i+1] + [q valueAtIndex:i+1]) atIndex: i];
-//	}
+	//
+	// Autorelease and return solution vector
+	return [solution autorelease];
+}
+
+
+- (XNVector *) solveWithMaxIterations: (NSUInteger) aIterationsLimit withPrecision: (CGFloat) precision withFirstApproximation: (XNVector*) firstApproximation allowRelaxation: (BOOL) allowRelaxation
+{
+	iterationsLimit = aIterationsLimit;
+	XNVector *solution = [firstApproximation retain];
+	XNVector *oldSolution = nil;
+	iterationsSpent = 1;
 	
-//	for( NSUInteger i = 0; i < solution.capacity; i++ ){
-//		[solution setValue: floorf([solution valueAtIndex: i]) atIndex: i];
-//	}
+	CGFloat speed = 1.5f;
+
+	while( (iterationsSpent < iterationsLimit) && [[[leftSideMatrix multiplyByVector:solution] substract: rightSideVector] norm] > precision){
+		
+		oldSolution = [solution copy];
+		
+		// calculate new solution and place it right into the old one.
+		for( NSInteger i = 0; i < solution.capacity; i++ ){
+			CGFloat newValue = [rightSideVector valueAtIndex: i];
+			
+			for(NSInteger j = 0; j < [leftSideMatrix columnsCount]; j++ ){
+				if( i == j){
+					continue;
+				}
+				newValue -= [leftSideMatrix valueAtRow:i column:j] * [solution valueAtIndex:j];
+			}
+			
+			newValue /=  [leftSideMatrix valueAtRow: i column: i];
+			
+			[solution setValue:	newValue atIndex:i ];
+		}
+		
+		iterationsSpent++;
+		
+		if( allowRelaxation ){ 
+			for( NSInteger i = 0; i < solution.capacity; i++ ){
+				[ solution setValue: speed * [solution valueAtIndex: i] + (1 - speed)* [oldSolution valueAtIndex: i] atIndex: i];
+			}
+		}
+	}
 	
 	return solution;
 }

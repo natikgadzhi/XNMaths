@@ -41,12 +41,12 @@
 
 + (XNTabulatedFunctionOf2D *) functionWithSurface: (XNSurfaceData *) newSurface
 {
-	return [[XNTabulatedFunctionOf2D alloc] initWithSurface: newSurface];
+	return [[[XNTabulatedFunctionOf2D alloc] initWithSurface: newSurface] autorelease];
 }
 
 + (XNTabulatedFunctionOf2D *) functionWithCapacityI: (NSUInteger) iCount J: (NSUInteger) jCount
 {
-	return [[XNTabulatedFunctionOf2D alloc] initWithCapacityI:iCount J:jCount];
+	return [[[XNTabulatedFunctionOf2D alloc] initWithCapacityI:iCount J:jCount] autorelease];
 }
 
 
@@ -56,10 +56,10 @@
 									 secondArgumentCapacity: (NSUInteger) jCount 
 													  range: (XNFloatRange *) newSecondArgumentRange
 {
-	return [[XNTabulatedFunctionOf2D alloc] initWithFirstArgumentCapacity: iCount 
+	return [[[XNTabulatedFunctionOf2D alloc] initWithFirstArgumentCapacity: iCount 
 																	range: newFirstArgumentRange 
 												   secondArgumentCapacity: jCount 
-																	range: newSecondArgumentRange];
+																	range: newSecondArgumentRange] autorelease];
 }
 
 
@@ -72,8 +72,8 @@
 	self = [super init];
 	
 	surface = [newSurface retain];	
-	firstArgumentRange = [XNFloatRange rangeWithMin:0. max:0.];
-	secondArgumentRange = [XNFloatRange rangeWithMin:0. max:0.];
+	firstArgumentRange = [[XNFloatRange rangeWithMin:0. max:0.] retain];
+	secondArgumentRange = [[XNFloatRange rangeWithMin:0. max:0.] retain];
 	
 	return self;
 }
@@ -82,10 +82,9 @@
 {
 	self = [super init];
 	
-	surface = [XNSurfaceData surfaceWithCapacityX:iCount Y:jCount];
-	firstArgumentRange = [XNFloatRange rangeWithMin:0. max:0.];
-	secondArgumentRange = [XNFloatRange rangeWithMin:0. max:0.];
-	
+	surface = [[XNSurfaceData surfaceWithCapacityX:iCount Y:jCount] retain];
+	firstArgumentRange = [[XNFloatRange rangeWithMin:0. max:0.] retain];
+	secondArgumentRange = [[XNFloatRange rangeWithMin:0. max:0.] retain];	
 	return self;
 }
 
@@ -98,12 +97,12 @@
 	
 	//
 	// Init empty surface with capacity
-	surface = [XNSurfaceData surfaceWithCapacityX:iCount Y:jCount];
+	surface = [[XNSurfaceData alloc] initWithCapacityX:iCount Y:jCount];
 	
 	//
 	// Rerain ranges
-	firstArgumentRange = [newFirstArgumentRange retain];
-	secondArgumentRange = [newSecondArgumentRange retain];
+	firstArgumentRange = [newFirstArgumentRange copy];
+	secondArgumentRange = [newSecondArgumentRange copy];
 	
 	//
 	// Calculate increments

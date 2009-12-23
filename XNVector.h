@@ -47,6 +47,13 @@
 - (CGFloat) valueAtIndex: (NSUInteger) index;
 - (void) setValue: (CGFloat) value atIndex: (NSUInteger) index;
 
+- (XNVector *) substract: (XNVector *) vector;
+
+
+- (XNVector *) copy;
+
+- (CGFloat) norm;
+
 #pragma mark -
 #pragma mark IO
 // TODO

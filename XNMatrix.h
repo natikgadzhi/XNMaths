@@ -50,6 +50,9 @@
 - (XNVector *) columnVectorAtIndex: (NSUInteger) index;
 - (XNVector *) rowVectorAtIndex: (NSUInteger) index;
 
+
+- (XNVector *) multiplyByVector: (XNVector *) vector;
+
 - (void) removeColumnAtIndex: (NSUInteger) index;
 - (void) removeRowAtIndex: (NSUInteger) index;
 

@@ -26,12 +26,12 @@
 #pragma mark Class init methods
 + (XNBox*) boxWithRangesX: (XNFloatRange*)aXRange Y: (XNFloatRange*)aYRange Z: (XNFloatRange*)aZRange
 {
-	return [[XNBox alloc] initWithRangesX:aXRange Y:aYRange Z:aZRange];
+	return [[[XNBox alloc] initWithRangesX:aXRange Y:aYRange Z:aZRange] autorelease];
 }
 
 + (XNBox*) boxWithXMin: (CGFloat)xMin XMax: (CGFloat)xMax YMin: (CGFloat)yMin YMax: (CGFloat)yMax ZMin: (CGFloat)zMin ZMax: (CGFloat)zMax
 {
-	return [[XNBox alloc] initWithXMin:xMin XMax:xMax YMin:yMin YMax:yMax ZMin:zMin ZMax:zMax];
+	return [[[XNBox alloc] initWithXMin:xMin XMax:xMax YMin:yMin YMax:yMax ZMin:zMin ZMax:zMax] autorelease];
 }
 
 #pragma mark -
@@ -51,9 +51,9 @@
 {
 	self = [super init];
 	
-	xRange = [XNFloatRange rangeWithMin:xMin max:xMax];
-	yRange = [XNFloatRange rangeWithMin:yMin max:yMax];
-	zRange = [XNFloatRange rangeWithMin:zMin max:zMax];
+	xRange = [[XNFloatRange alloc] initWithMin:xMin max:xMax];
+	yRange = [[XNFloatRange alloc] initWithMin:yMin max:yMax];
+	zRange = [[XNFloatRange alloc] initWithMin:zMin max:zMax];
 	
 	return self;
 }
