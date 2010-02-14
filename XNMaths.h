@@ -24,6 +24,8 @@
 
 #import "XNFunctionOf2D.h"
 
+#import "XNAbstractFunction.h"
+
 #import "XNTabulatedFunctionOf2D.h"
 
 //

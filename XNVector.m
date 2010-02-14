@@ -31,7 +31,7 @@
 
 + (XNVector *) vectorWithCapacity: (NSUInteger) newCapacity filledWith: (CGFloat *) newCArray
 {
-	return [[XNVector alloc] initWithCapacity: newCapacity filedWith: newCArray];
+	return [[XNVector alloc] initWithCapacity: newCapacity filledWith: newCArray];
 }
 
 + (XNVector *) vectorWithCapacity: (NSUInteger) newCapacity

@@ -20,7 +20,7 @@
 {
 	self = [super init];
 	
-	equationMatrix = newEquationMatrix;
+	equationMatrix = [newEquationMatrix retain];
 	
 	leftSideMatrix = [newEquationMatrix copy];
 	[leftSideMatrix removeColumnAtIndex: (leftSideMatrix.columnsCount - 1)];
