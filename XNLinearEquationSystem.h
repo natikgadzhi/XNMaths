@@ -9,7 +9,6 @@
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
 #import "XNVector.h" 
 #import "XNMatrix.h" 
 

@@ -9,7 +9,7 @@
 *
 *
 *
-*			© 2000, Graham Cox
+*			ï¿½ 2000, Graham Cox
 *
 *
 *
@@ -34,14 +34,14 @@
 
 double_t	degtorad( double_t d )
 {
-	return pi * ( d / 180.0 );
+	return M_PI * ( d / 180.0 );
 }
 
 
 
 double_t	radtodeg( double_t r )
 {
-	return 180.0 * ( r / pi );
+	return 180.0 * ( r / M_PI );
 }
 
 
@@ -292,17 +292,17 @@ int yyparse( void* param )
 	register int yyn;
 	register short *yyssp;
 	register YYSTYPE *yyvsp;
-	YYLTYPE *yylsp;
+//	YYLTYPE *yylsp;
 	int yyerrstatus;	/*  number of tokens to shift before error messages enabled */
 	int yychar1;		/*  lookahead token as an internal (translated) token number */
 	
 	short	yyssa[YYMAXDEPTH];	/*  the state stack			*/
 	YYSTYPE yyvsa[YYMAXDEPTH];	/*  the semantic value stack		*/
-	YYLTYPE yylsa[YYMAXDEPTH];	/*  the location stack			*/
+//	YYLTYPE yylsa[YYMAXDEPTH];	/*  the location stack			*/
 	
 	short *yyss = yyssa;		/*  refer to the stacks thru separate pointers */
 	YYSTYPE *yyvs = yyvsa;	/*  to allow yyoverflow to reallocate them elsewhere */
-	YYLTYPE *yyls = yylsa;
+//	YYLTYPE *yyls = yylsa;
 	
 	int yymaxdepth = YYMAXDEPTH;
 	
@@ -334,7 +334,7 @@ int yyparse( void* param )
 	
 	yyssp = yyss - 1;
 	yyvsp = yyvs;
-	yylsp = yyls;
+//	yylsp = yyls;
 	
 	/* Push a new state, which is found in  yystate  .  */
 	/* In all cases, when you get here, the value and location stacks
@@ -848,7 +848,7 @@ static int	yylex( YYSTYPE* lvalp, YYLTYPE* llocp, void* param )
 
 // error function
 
-void yyerror ( char* errStr )
+void yyerror ( const char* errStr )
 {
 	//FailOSErr( kExpParseErr );
 	

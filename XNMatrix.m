@@ -115,7 +115,7 @@
 		columnData[i] = data[i * columnsCount + index];
 	}
 	
-	return [[XNVector alloc] initWithCapacity: rowsCount filledWith: columnData];
+	return [[[XNVector alloc] initWithCapacity: rowsCount filledWith: columnData]autorelease];
 }
 
 - (XNVector *) rowVectorAtIndex: (NSUInteger) index
@@ -131,7 +131,7 @@
 		rowData[j] = data[index * columnsCount + j];
 	}
 	
-	return [[XNVector alloc] initWithCapacity: columnsCount filledWith: rowData];
+	return [[[XNVector alloc] initWithCapacity: columnsCount filledWith: rowData]autorelease];
 }
 
 //

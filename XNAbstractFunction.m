@@ -86,8 +86,8 @@
 - (CGFloat) valueWithArguments: (NSDictionary *) anArgumentsDictionary
 {
 	[arguments release];
-	arguments = [anArgumentsDictionary retain];
-	
+	arguments = [ [ NSMutableDictionary alloc ] initWithDictionary: anArgumentsDictionary ];
+
 	return [self valueWithCurrentArguments];
 }
 

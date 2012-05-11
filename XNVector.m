@@ -26,17 +26,17 @@
 
 + (XNVector *) vectorWithMutableArray: (NSMutableArray *) vertices
 {
-	return [[XNVector alloc] initWithMutableArray: vertices];
+	return [[[XNVector alloc] initWithMutableArray: vertices]autorelease];
 }
 
 + (XNVector *) vectorWithCapacity: (NSUInteger) newCapacity filledWith: (CGFloat *) newCArray
 {
-	return [[XNVector alloc] initWithCapacity: newCapacity filledWith: newCArray];
+	return [[[XNVector alloc] initWithCapacity: newCapacity filledWith: newCArray]autorelease];
 }
 
 + (XNVector *) vectorWithCapacity: (NSUInteger) newCapacity
 {
-	return [[XNVector alloc] initWithCapacity: newCapacity];
+	return [[[XNVector alloc] initWithCapacity: newCapacity]autorelease];
 }
 
 #pragma mark -

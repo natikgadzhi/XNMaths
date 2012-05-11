@@ -15,6 +15,8 @@
 #import "XNLinearSpline.h"
 #import "XNLineData.h"
 
+#import <UIKit/UIKit.h>
+
 #pragma mark -
 #pragma	mark Spline interploation element data 
 
@@ -35,7 +37,7 @@ XNLinearSplineElement XNMakeLinearSplineElement(CGFloat a, CGFloat b)
 
 + (XNLinearSpline *) splineWithPoints: (NSArray *)aPoints
 {
-	return [[XNLinearSpline alloc] initWithPoints: aPoints];
+	return [[[XNLinearSpline alloc] initWithPoints: aPoints]autorelease];
 }
 
 - (XNLinearSpline *) initWithPoints: (NSArray *)aPoints
@@ -55,8 +57,8 @@ XNLinearSplineElement XNMakeLinearSplineElement(CGFloat a, CGFloat b)
 - (float) valueWithFloat: (CGFloat) a_X
 {
 	for(NSInteger i = 1; i < approximationPoints.count; i++){
-		NSPoint startPoint = [[approximationPoints objectAtIndex:i-1] pointValue];
-		NSPoint endPoint = [[approximationPoints objectAtIndex:i] pointValue];
+		CGPoint startPoint = [[approximationPoints objectAtIndex:i-1] CGPointValue];
+		CGPoint endPoint = [[approximationPoints objectAtIndex:i] CGPointValue];
 		
 		if( startPoint.x < a_X && endPoint.x > a_X ){
 			return interpolationElements[i].a * a_X + interpolationElements[i].b;
@@ -72,8 +74,8 @@ XNLinearSplineElement XNMakeLinearSplineElement(CGFloat a, CGFloat b)
 	CGFloat* y = calloc(approximationPoints.count, sizeof(CGFloat));
 	
 	for( NSUInteger i = 0; i < approximationPoints.count; i++ ){
-		x[i] = [[approximationPoints objectAtIndex:i] pointValue].x;
-		y[i] = [[approximationPoints objectAtIndex:i] pointValue].y;
+		x[i] = [[approximationPoints objectAtIndex:i] CGPointValue].x;
+		y[i] = [[approximationPoints objectAtIndex:i] CGPointValue].y;
 	}
 	
 	return [XNLineData lineDataWithXData:x yData:y pointsCount:approximationPoints.count];

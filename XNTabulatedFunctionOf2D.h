@@ -9,7 +9,6 @@
 #pragma mark -
 #pragma mark Imports
 
-#import <Cocoa/Cocoa.h>
 #import "XN3DPoint.h"
 
 @class XNSurfaceData;

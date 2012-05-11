@@ -12,6 +12,7 @@
 
 #import "XNFunction+NewtonInterpolation.h"
 
+#import <UIKit/UIKit.h>
 
 @implementation XNFunction (NewtonInterpolation)
 
@@ -24,18 +25,18 @@
 {
 	if( [aPoints count] == 1 )
 	{
-		return [[aPoints objectAtIndex:0] pointValue].y;
+		return [[aPoints objectAtIndex:0] CGPointValue].y;
 	}
 	
 	// create another arrays
 	NSMutableArray *aPointsWithoutLast = [aPoints mutableCopy];
 	[aPointsWithoutLast removeLastObject];
-	
+
 	NSMutableArray *aPointsWithoutFirst = [aPoints mutableCopy];
 	[aPointsWithoutFirst removeObjectAtIndex:0];
-	
+
 	return ( [XNFunction finiteDiffWithPoints:aPointsWithoutLast] - [XNFunction finiteDiffWithPoints:aPointsWithoutFirst] ) / 
-		( [[aPoints objectAtIndex:0] pointValue].x - [[aPoints lastObject] pointValue].x);
+		( [[aPoints objectAtIndex:0] CGPointValue].x - [[aPoints lastObject] CGPointValue].x);
 }
 
 //
@@ -47,7 +48,7 @@
 	
 	for( NSValue* iValue in aPoints)
 	{
-		NSPoint i = [iValue pointValue];
+		CGPoint i = [iValue CGPointValue];
 		NSMutableArray* pointsForDiff = [[aPoints subarrayWithRange: NSMakeRange(0, iteration)] mutableCopy];
 		
 		[expressionString appendString:[NSString stringWithFormat: @"%f", [XNFunction finiteDiffWithPoints: pointsForDiff]]];
@@ -55,8 +56,7 @@
 
 		for( NSValue* jValue in pointsForDiff)
 		{
-						
-			NSPoint j = [jValue pointValue];
+			CGPoint j = [jValue CGPointValue];
 			
 			if( i.x == j.x){
 				continue;

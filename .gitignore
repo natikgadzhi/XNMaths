@@ -2,7 +2,12 @@
 *.swp
 *~.nib
 
+.svn
 build/
+
+
+*xcworkspace*
+*xcuserdata*
 
 *.pbxuser
 *.perspective

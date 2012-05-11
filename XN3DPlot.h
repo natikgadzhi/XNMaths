@@ -9,8 +9,8 @@
 #pragma mark -
 #pragma mark Imports
 
-#import <Cocoa/Cocoa.h>
 @class XNBox;
+@class UIColor;
 @class XNFloatRange;
 @class XNSurfaceData;
 
@@ -32,6 +32,6 @@
 
 #pragma mark -
 #pragma mark Rendering API
-- (void) renderSurface: (XNSurfaceData*)surface color: (NSColor *)color;
+- (void) renderSurface: (XNSurfaceData*)surface color: (UIColor *)color;
 
 @end

@@ -20,9 +20,9 @@
 {
 	self = [super init];
 	
-	equationMatrix = [newEquationMatrix retain];
+	self->equationMatrix = [newEquationMatrix retain];
 	
-	leftSideMatrix = [newEquationMatrix copy];
+	self->leftSideMatrix = [newEquationMatrix copy];
 	[leftSideMatrix removeColumnAtIndex: (leftSideMatrix.columnsCount - 1)];
 	
 	rightSideVector = [newEquationMatrix columnVectorAtIndex:(newEquationMatrix.columnsCount - 1)];
@@ -44,10 +44,10 @@
 	// params preparation
 	
 	// n
-	NSUInteger n = [leftSideMatrix rowsCount];
+	__CLPK_integer n = [leftSideMatrix rowsCount];
 	
 	// nrhs (b columns) 
-	NSUInteger nrhs = 1;
+	__CLPK_integer nrhs = 1;
 	
 	// matrix representation with diagonals. 
 	CGFloat *dl, *d, *du;
@@ -56,10 +56,10 @@
 	CGFloat *b;
 	
 	// rows count in b vector
-	NSUInteger ldb = n;
+	__CLPK_integer ldb = n;
 	
 	// kinda return code
-	NSInteger info;
+	__CLPK_integer info;
 	
 	// 
 	// Init float arrays 
@@ -141,9 +141,10 @@
 				[ solution setValue: speed * [solution valueAtIndex: i] + (1 - speed)* [oldSolution valueAtIndex: i] atIndex: i];
 			}
 		}
+        [oldSolution release];
 	}
 	
-	return solution;
+	return [solution autorelease];
 }
 
 
@@ -151,7 +152,9 @@
 #pragma mark Dealloc
 - (void) dealloc
 {
-	[equationMatrix dealloc];
+	[self->equationMatrix release];
+    [self->leftSideMatrix release];
+
 	[super dealloc];
 }
 

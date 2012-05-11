@@ -9,7 +9,7 @@
 #pragma mark -
 #pragma mark Imports && classes requirements 
 
-#import <Cocoa/Cocoa.h>
+#import <CoreGraphics/CoreGraphics.h>
 
 @class XNFloatRange;
 @class XNFunction;

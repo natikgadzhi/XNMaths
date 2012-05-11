@@ -12,7 +12,7 @@
 #pragma mark -
 #pragma mark Imports 
 
-#import <Cocoa/Cocoa.h>
+#import <CoreGraphics/CoreGraphics.h>
 
 #pragma mark -
 #pragma mark XNVector class interface

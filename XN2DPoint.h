@@ -6,8 +6,8 @@
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <CoreGraphics/CoreGraphics.h>
 
-typedef NSPoint XN2DPoint;
+typedef CGPoint XN2DPoint;
 
 XN2DPoint XNMake2DPoint(CGFloat aX, CGFloat aY);

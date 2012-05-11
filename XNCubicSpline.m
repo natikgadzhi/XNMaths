@@ -13,6 +13,8 @@
 #import "XNLineData.h"
 #import "XNLinearEquationSystem.h"
 
+#import <UIKit/UIKit.h>
+
 @implementation XNCubicSpline
 
 #pragma mark -
@@ -20,7 +22,7 @@
 
 + (XNCubicSpline *) splineWithPoints: (NSArray *) aPoints
 {
-	return [[XNCubicSpline alloc] initWithPoints:aPoints];
+	return [[[XNCubicSpline alloc] initWithPoints:aPoints]autorelease];
 }
 
 - (XNCubicSpline *) initWithPoints: (NSArray *) aPoints
@@ -70,8 +72,8 @@
 	//
 	// copy X and Y arrays
 	for( NSInteger i = 0; i < n; i++ ){
-		x[i] = [[aPoints objectAtIndex:i] pointValue].x;
-		f[i] = [[aPoints objectAtIndex:i] pointValue].y;
+		x[i] = [[aPoints objectAtIndex:i] CGPointValue].x;
+		f[i] = [[aPoints objectAtIndex:i] CGPointValue].y;
 	}
 	
 	//
@@ -82,7 +84,7 @@
 	
 	//
 	// Init the matrix 
-	equationMatrix = [[XNMatrix alloc] initWithRows: n-2 columns: n-1];
+	equationMatrix = [[[XNMatrix alloc] initWithRows: n-2 columns: n-1]autorelease];
 	
 	// 
 	// Now fill in some data into the matrix.
@@ -103,7 +105,7 @@
 		[equationMatrix	setValue: 3*( (f[i+2]-f[i+1])/h[i+1] - (f[i+1]-f[i])/h[i] ) atRow:i column: n-2];
  	}
 	
-	equationSystem = [[XNLinearEquationSystem alloc] initWithMatrix:equationMatrix];
+	equationSystem = [[[XNLinearEquationSystem alloc] initWithMatrix:equationMatrix]autorelease];
 	
 	XNVector *cVector = [equationSystem sweep];
 	
@@ -149,11 +151,11 @@
 	// range of datapoints.
 	CGFloat xMin, xMax; 
 	
-	xMin = [[approximationPoints objectAtIndex:0] pointValue].x;
-	xMax = [[approximationPoints objectAtIndex:0] pointValue].x;
+	xMin = [[approximationPoints objectAtIndex:0] CGPointValue].x;
+	xMax = [[approximationPoints objectAtIndex:0] CGPointValue].x;
 	
 	for(NSValue *pointObject in approximationPoints){
-		NSPoint point = [pointObject pointValue];
+		CGPoint point = [pointObject CGPointValue];
 		
 		if( xMin > point.x ){
 			xMin = point.x;
@@ -175,14 +177,14 @@
 		CGFloat xValue = xMin + step * dataIndex;
 		
 		for( NSUInteger i = 1; i < approximationPoints.count; i++ ){
-			if( xValue >= [[approximationPoints objectAtIndex: i-1] pointValue].x && xValue <= [[approximationPoints objectAtIndex: i] pointValue].x ){
-				CGFloat xFrom = [[approximationPoints objectAtIndex: i-1] pointValue].x;
+			if( xValue >= [[approximationPoints objectAtIndex: i-1] CGPointValue].x && xValue <= [[approximationPoints objectAtIndex: i] CGPointValue].x ){
+				CGFloat xFrom = [[approximationPoints objectAtIndex: i-1] CGPointValue].x;
 				x[dataIndex] = xValue;
 				y[dataIndex] = a[i-1] + b[i-1]*(xValue -  xFrom) + c[i-1]*pow((xValue -  xFrom), 2) + d[i-1]*pow((xValue -  xFrom), 3);
 			}
 		}
 		
-		NSLog(@"calculating point %d at %f with value %f", dataIndex, x[dataIndex], y[dataIndex]);
+		//NSLog(@"calculating point %d at %f with value %f", dataIndex, x[dataIndex], y[dataIndex]);
 	}
 	
 	NSLog(@"%d points total from x = %f to %f with step %f", pointsCount, xMin, xMax, step);

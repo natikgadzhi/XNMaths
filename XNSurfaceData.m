@@ -15,7 +15,7 @@
 
 #import "XNFloatRange.h"
 #import "XNFunctionOf2D.h"
-#import "plplot.h"
+#import <Accelerate/Accelerate.h>
 
 #pragma mark -
 #pragma mark XNSurfaceData class private category
@@ -232,8 +232,8 @@
 	
 	// 
 	// Create new ranges
-	xRange = [[XNFloatRange rangeWithCArray: xData withCapacity: xPointsCount] retain];
-	yRange = [[XNFloatRange rangeWithCArray: yData withCapacity: yPointsCount] retain];
+	self->xRange = [[XNFloatRange rangeWithCArray: xData withCapacity: xPointsCount] retain];
+	self->yRange = [[XNFloatRange rangeWithCArray: yData withCapacity: yPointsCount] retain];
 	
 	//
 	// Update Z range
