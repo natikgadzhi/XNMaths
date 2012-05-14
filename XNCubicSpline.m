@@ -13,7 +13,6 @@
 #import "XNLineData.h"
 #import "XNLinearEquationSystem.h"
 
-#import <UIKit/UIKit.h>
 
 @implementation XNCubicSpline
 
@@ -186,9 +185,9 @@
 		
 		//NSLog(@"calculating point %d at %f with value %f", dataIndex, x[dataIndex], y[dataIndex]);
 	}
-	
+
 	NSLog(@"%d points total from x = %f to %f with step %f", pointsCount, xMin, xMax, step);
-	
+
 	return [XNLineData lineDataWithXData:x yData:y pointsCount:pointsCount];
 }
 

@@ -12,7 +12,6 @@
 
 #import "XNFunction+LagrangeInterpolation.h"
 
-#import <UIKit/UIKit.h>
 
 @implementation XNFunction (LagrangeInterpolation)
 

@@ -12,7 +12,6 @@
 
 #import "XNFunction+NewtonInterpolation.h"
 
-#import <UIKit/UIKit.h>
 
 @implementation XNFunction (NewtonInterpolation)
 

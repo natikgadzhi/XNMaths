@@ -3,5 +3,7 @@
 //
 
 #ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <CoreGraphics/CoreGraphics.h>
     #import <Cocoa/Cocoa.h>
 #endif

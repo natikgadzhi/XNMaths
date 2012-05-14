@@ -3,14 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		1BDA098C155BF303004E55A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BDA098B155BF303004E55A0 /* Foundation.framework */; };
 		1BDA098E155BF30C004E55A0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BDA098D155BF30C004E55A0 /* QuartzCore.framework */; };
 		1BDA0990155BF446004E55A0 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BDA098F155BF446004E55A0 /* Accelerate.framework */; };
-		1BF68CD9155BEDBD00DBE3E9 /* XNMathsIOS.m in Sources */ = {isa = PBXBuildFile; fileRef = 1BF68CD8155BEDBD00DBE3E9 /* XNMathsIOS.m */; };
 		1BF68CF9155BEDD400DBE3E9 /* ZExpParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5751F3010B60492004D572E /* ZExpParser.mm */; };
 		1BF68CFA155BEDD700DBE3E9 /* XN2DPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F2895810C6BE4D00EA9642 /* XN2DPoint.m */; };
 		1BF68CFB155BEDD900DBE3E9 /* XN3DPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F2896210C6BE8A00EA9642 /* XN3DPoint.m */; };
@@ -117,8 +116,6 @@
 		1BDA098F155BF446004E55A0 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
 		1BF68CD0155BEDBD00DBE3E9 /* libXNMathsIOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libXNMathsIOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		1BF68CD6155BEDBD00DBE3E9 /* XNMathsIOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XNMathsIOS-Prefix.pch"; sourceTree = "<group>"; };
-		1BF68CD7155BEDBD00DBE3E9 /* XNMathsIOS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = XNMathsIOS.h; sourceTree = "<group>"; };
-		1BF68CD8155BEDBD00DBE3E9 /* XNMathsIOS.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = XNMathsIOS.m; sourceTree = "<group>"; };
 		1BF68CE0155BEDBD00DBE3E9 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		32DBCF5E0370ADEE00C91783 /* XNMaths_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMaths_Prefix.pch; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -329,8 +326,6 @@
 		1BF68CD4155BEDBD00DBE3E9 /* XNMathsIOS */ = {
 			isa = PBXGroup;
 			children = (
-				1BF68CD7155BEDBD00DBE3E9 /* XNMathsIOS.h */,
-				1BF68CD8155BEDBD00DBE3E9 /* XNMathsIOS.m */,
 				1BF68CD5155BEDBD00DBE3E9 /* Supporting Files */,
 			);
 			path = XNMathsIOS;
@@ -608,8 +603,11 @@
 /* Begin PBXProject section */
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+			};
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "XNMaths" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
 			developmentRegion = English;
 			hasScannedForEncodings = 1;
 			knownRegions = (
@@ -668,7 +666,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				1BF68CD9155BEDBD00DBE3E9 /* XNMathsIOS.m in Sources */,
 				1BF68CF9155BEDD400DBE3E9 /* ZExpParser.mm in Sources */,
 				1BF68CFA155BEDD700DBE3E9 /* XN2DPoint.m in Sources */,
 				1BF68CFB155BEDD900DBE3E9 /* XN3DPoint.m in Sources */,
@@ -827,7 +824,6 @@
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -882,8 +878,7 @@
 				HEADER_SEARCH_PATHS = "/usr/local/include/**";
 				LIBRARY_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;
-				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
@@ -894,8 +889,7 @@
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -909,7 +903,6 @@
 					"\"$(SRCROOT)\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -928,7 +921,6 @@
 					"-framework",
 					SenTestingKit,
 				);
-				PREBINDING = NO;
 				PRODUCT_NAME = Test;
 				WRAPPER_EXTENSION = octest;
 			};
@@ -944,7 +936,6 @@
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"\"$(SRCROOT)\"",
 				);
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -962,7 +953,6 @@
 					"-framework",
 					SenTestingKit,
 				);
-				PREBINDING = NO;
 				PRODUCT_NAME = Test;
 				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
