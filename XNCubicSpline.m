@@ -19,6 +19,19 @@
 #pragma mark -
 #pragma mark Initialization methods
 
+-(void)dealloc
+{
+    free( a );
+    free( b );
+    free( c );
+    free( d );
+    free( h );
+
+    [ approximationPoints release ];
+
+    [ super dealloc ];
+}
+
 + (XNCubicSpline *) splineWithPoints: (NSArray *) aPoints
 {
 	return [[[XNCubicSpline alloc] initWithPoints:aPoints]autorelease];
@@ -31,15 +44,16 @@
 	//
 	// Step 1. 
 	// Name some variables we will need in the spline. 
-	CGFloat *x, *f;
+	CGFloat* x = NULL; 
+    CGFloat* f = NULL;
 	
 	// 
 	//  The equation matrix
-	XNMatrix *equationMatrix;
+	XNMatrix *equationMatrix = nil;
 	
-	XNLinearEquationSystem *equationSystem;
+	XNLinearEquationSystem *equationSystem = nil;
 	
-	NSUInteger n; 
+	NSUInteger n = 0; 
 	
 	// 
 	// Step 2. 
@@ -135,7 +149,11 @@
 	
 	b[n-2] = (f[n-1] - f[n-2])/h[n-2] - (2./3.)*h[n-2]*c[n-2];
 	d[n-2] = -c[n-2]/(3*h[n-2]);
+
 	
+    free( x );
+    free( f );
+    
 	return self;
 }
 
