@@ -13,8 +13,12 @@
 #import "XNLineData.h"
 #import "XNLinearEquationSystem.h"
 
+#include <vector>
 
 @implementation XNCubicSpline
+{
+    std::vector< CGPoint >* _approximationPointsPtr;
+}
 
 #pragma mark -
 #pragma mark Initialization methods
@@ -26,26 +30,32 @@
     free( c );
     free( d );
     free( h );
-
-    [ approximationPoints release ];
-
+    
+    delete self->_approximationPointsPtr;
     [ super dealloc ];
 }
 
-+ (XNCubicSpline *) splineWithPoints: (NSArray *) aPoints
++ (XNCubicSpline *) splineWithPoints: (const std::vector< CGPoint >&) aPoints
 {
 	return [[[XNCubicSpline alloc] initWithPoints:aPoints]autorelease];
 }
 
-- (XNCubicSpline *) initWithPoints: (NSArray *) aPoints
+- (XNCubicSpline *) initWithPoints: (const std::vector< CGPoint >&) aPoints
 {
 	self = [super init];
-	
+
+	NSUInteger n = aPoints.size(); 
+    NSParameterAssert( n > 2 );
+
+
 	//
 	// Step 1. 
 	// Name some variables we will need in the spline. 
-	CGFloat* x = NULL; 
-    CGFloat* f = NULL;
+    std::vector<CGFloat> vx_( n, 0.f );
+    std::vector<CGFloat> vf_( n, 0.f );    
+    
+	CGFloat* x = &vx_.at( 0 ); 
+    CGFloat* f = &vf_.at( 0 );
 	
 	// 
 	//  The equation matrix
@@ -53,21 +63,13 @@
 	
 	XNLinearEquationSystem *equationSystem = nil;
 	
-	NSUInteger n = 0; 
-	
 	// 
 	// Step 2. 
 	// Initializing and allocating variables and parameters
 	// Points count property
-	n = aPoints.count; 
-	
-	approximationPoints = [aPoints retain];
-	
-	//
-	// alloc X and Y arrays.
-	x = calloc(n, sizeof(CGFloat));
-	f = calloc(n, sizeof(CGFloat));
-	
+
+    self->_approximationPointsPtr = new std::vector< CGPoint >(aPoints);
+
 	//
 	// Allocating h with n floats inside, but will use only 
 	// n-1 starting not from 0, but from 1. 
@@ -75,18 +77,18 @@
 	// 
 	// That's done so to better fit the algorythm, in which
 	// h[i] = x[i] - x[i-1].
-	h = calloc(n-1, sizeof(CGFloat));
+	h = (CGFloat*)calloc(n-1, sizeof(CGFloat));
 	
-	a = calloc(n-1, sizeof(CGFloat));
-	b = calloc(n-1, sizeof(CGFloat));
-	c = calloc(n-1, sizeof(CGFloat));
-	d = calloc(n-1, sizeof(CGFloat));
+	a = (CGFloat*)calloc(n-1, sizeof(CGFloat));
+	b = (CGFloat*)calloc(n-1, sizeof(CGFloat));
+	c = (CGFloat*)calloc(n-1, sizeof(CGFloat));
+	d = (CGFloat*)calloc(n-1, sizeof(CGFloat));
 	
 	//
 	// copy X and Y arrays
 	for( NSInteger i = 0; i < n; i++ ){
-		x[i] = [[aPoints objectAtIndex:i] CGPointValue].x;
-		f[i] = [[aPoints objectAtIndex:i] CGPointValue].y;
+		x[i] = aPoints[i].x;
+		f[i] = aPoints[i].y;
 	}
 	
 	//
@@ -146,14 +148,10 @@
 		b[i] = (f[i+1] - f[i])/h[i] - (1./3.)*h[i]*(c[i+1] + 2*c[i]);
 		d[i] = (c[i+1] - c[i])/(3*h[i]);
 	}
-	
+
 	b[n-2] = (f[n-1] - f[n-2])/h[n-2] - (2./3.)*h[n-2]*c[n-2];
 	d[n-2] = -c[n-2]/(3*h[n-2]);
 
-	
-    free( x );
-    free( f );
-    
 	return self;
 }
 
@@ -167,17 +165,16 @@
 	
 	// range of datapoints.
 	CGFloat xMin, xMax; 
+    
+    xMin = (*self->_approximationPointsPtr)[0].x;
+	xMax = (*self->_approximationPointsPtr)[0].x;
 	
-	xMin = [[approximationPoints objectAtIndex:0] CGPointValue].x;
-	xMax = [[approximationPoints objectAtIndex:0] CGPointValue].x;
-	
-	for(NSValue *pointObject in approximationPoints){
-		CGPoint point = [pointObject CGPointValue];
-		
+	for( CGPoint point : (*self->_approximationPointsPtr) )
+    {
 		if( xMin > point.x ){
 			xMin = point.x;
 		}
-		
+        
 		if(xMax < point.x){
 			xMax = point.x;
 		}
@@ -187,15 +184,15 @@
 	CGFloat step = (xMax - xMin)/(float)pointsCount;
 	
 	// init data arrays and fill them
-	x = calloc(pointsCount, sizeof(CGFloat));
-	y = calloc(pointsCount, sizeof(CGFloat));
+	x = (CGFloat*)calloc(pointsCount, sizeof(CGFloat));
+	y = (CGFloat*)calloc(pointsCount, sizeof(CGFloat));
 	
 	for(NSUInteger dataIndex = 0; dataIndex < pointsCount; dataIndex++ ){
 		CGFloat xValue = xMin + step * dataIndex;
 		
-		for( NSUInteger i = 1; i < approximationPoints.count; i++ ){
-			if( xValue >= [[approximationPoints objectAtIndex: i-1] CGPointValue].x && xValue <= [[approximationPoints objectAtIndex: i] CGPointValue].x ){
-				CGFloat xFrom = [[approximationPoints objectAtIndex: i-1] CGPointValue].x;
+		for( NSUInteger i = 1; i < (*self->_approximationPointsPtr).size(); i++ ){
+			if( xValue >= (*self->_approximationPointsPtr)[i-1].x && xValue <= (*self->_approximationPointsPtr)[i].x ){
+				CGFloat xFrom = (*self->_approximationPointsPtr)[i-1].x;
 				x[dataIndex] = xValue;
 				y[dataIndex] = a[i-1] + b[i-1]*(xValue -  xFrom) + c[i-1]*pow((xValue -  xFrom), 2) + d[i-1]*pow((xValue -  xFrom), 3);
 			}
@@ -203,11 +200,10 @@
 		
 		//NSLog(@"calculating point %d at %f with value %f", dataIndex, x[dataIndex], y[dataIndex]);
 	}
-
+    
 	NSLog(@"%d points total from x = %f to %f with step %f", pointsCount, xMin, xMax, step);
-
+    
 	return [XNLineData lineDataWithXData:x yData:y pointsCount:pointsCount];
 }
-
 
 @end

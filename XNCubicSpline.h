@@ -12,6 +12,8 @@
 
 #import <CoreGraphics/CoreGraphics.h>
 
+#include <vector>
+
 @class XNLineData;
 
 // any classes? 
@@ -21,14 +23,13 @@
 
 @interface XNCubicSpline : NSObject {
 	CGFloat *a, *b, *c, *d, *h;
-	NSArray *approximationPoints;
 }
 
 #pragma mark -
 #pragma mark Initialization methods
-+ (XNCubicSpline *) splineWithPoints: (NSArray *) aPoints;
++ (XNCubicSpline *) splineWithPoints: (const std::vector< CGPoint >&) aPoints;
 
-- (XNCubicSpline *) initWithPoints: (NSArray *) aPoints;
+- (XNCubicSpline *) initWithPoints: (const std::vector< CGPoint >&) aPoints;
 
 #pragma mark -
 #pragma mark Other methods

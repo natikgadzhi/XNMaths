@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B0E88911563F2C400825E3C /* XNCubicSpline.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1B0E888E1563F24A00825E3C /* XNCubicSpline.mm */; };
 		1BDA098C155BF303004E55A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BDA098B155BF303004E55A0 /* Foundation.framework */; };
 		1BDA098E155BF30C004E55A0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BDA098D155BF30C004E55A0 /* QuartzCore.framework */; };
 		1BDA0990155BF446004E55A0 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BDA098F155BF446004E55A0 /* Accelerate.framework */; };
@@ -18,7 +19,6 @@
 		1BF68D02155BEDE700DBE3E9 /* XNMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = E575221710B64C39004D572E /* XNMatrix.m */; };
 		1BF68D03155BEDE700DBE3E9 /* XNFloatRange.m in Sources */ = {isa = PBXBuildFile; fileRef = E518B00A10BB471500D2E454 /* XNFloatRange.m */; };
 		1BF68D04155BEDE700DBE3E9 /* XNBox.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C81FA10C56E1E006B2981 /* XNBox.m */; };
-		1BF68D0B155BEDF700DBE3E9 /* XNCubicSpline.m in Sources */ = {isa = PBXBuildFile; fileRef = E575222A10B64C7F004D572E /* XNCubicSpline.m */; };
 		1BF68D0C155BEDF700DBE3E9 /* XNLinearSpline.m in Sources */ = {isa = PBXBuildFile; fileRef = E57522EF10B6661C004D572E /* XNLinearSpline.m */; };
 		1BF68D0D155BEDF700DBE3E9 /* XNLinearEquationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = E575222010B64C68004D572E /* XNLinearEquationSystem.m */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
@@ -65,9 +65,7 @@
 		E575222110B64C68004D572E /* XNLinearEquationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = E575222010B64C68004D572E /* XNLinearEquationSystem.m */; };
 		E575222210B64C68004D572E /* XNLinearEquationSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = E575221F10B64C68004D572E /* XNLinearEquationSystem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E575222310B64C68004D572E /* XNLinearEquationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = E575222010B64C68004D572E /* XNLinearEquationSystem.m */; };
-		E575222B10B64C7F004D572E /* XNCubicSpline.m in Sources */ = {isa = PBXBuildFile; fileRef = E575222A10B64C7F004D572E /* XNCubicSpline.m */; };
 		E575222C10B64C7F004D572E /* XNCubicSpline.h in Headers */ = {isa = PBXBuildFile; fileRef = E575222910B64C7F004D572E /* XNCubicSpline.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E575222D10B64C7F004D572E /* XNCubicSpline.m in Sources */ = {isa = PBXBuildFile; fileRef = E575222A10B64C7F004D572E /* XNCubicSpline.m */; };
 		E57522F010B6661C004D572E /* XNLinearSpline.m in Sources */ = {isa = PBXBuildFile; fileRef = E57522EF10B6661C004D572E /* XNLinearSpline.m */; };
 		E57522F110B6661C004D572E /* XNLinearSpline.h in Headers */ = {isa = PBXBuildFile; fileRef = E57522EE10B6661C004D572E /* XNLinearSpline.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E57522F210B6661C004D572E /* XNLinearSpline.m in Sources */ = {isa = PBXBuildFile; fileRef = E57522EF10B6661C004D572E /* XNLinearSpline.m */; };
@@ -111,6 +109,7 @@
 		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		1B0E888E1563F24A00825E3C /* XNCubicSpline.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = XNCubicSpline.mm; sourceTree = "<group>"; };
 		1BDA098B155BF303004E55A0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
 		1BDA098D155BF30C004E55A0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
 		1BDA098F155BF446004E55A0 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
@@ -161,7 +160,6 @@
 		E575221F10B64C68004D572E /* XNLinearEquationSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNLinearEquationSystem.h; sourceTree = "<group>"; };
 		E575222010B64C68004D572E /* XNLinearEquationSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNLinearEquationSystem.m; sourceTree = "<group>"; };
 		E575222910B64C7F004D572E /* XNCubicSpline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNCubicSpline.h; sourceTree = "<group>"; };
-		E575222A10B64C7F004D572E /* XNCubicSpline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNCubicSpline.m; sourceTree = "<group>"; };
 		E57522EE10B6661C004D572E /* XNLinearSpline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNLinearSpline.h; sourceTree = "<group>"; };
 		E57522EF10B6661C004D572E /* XNLinearSpline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNLinearSpline.m; sourceTree = "<group>"; };
 		E575248510B7968D004D572E /* README.textile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.textile; sourceTree = "<group>"; };
@@ -282,7 +280,7 @@
 				E57C822110C57880006B2981 /* Other */,
 				E57C822010C57868006B2981 /* Function */,
 				E575222910B64C7F004D572E /* XNCubicSpline.h */,
-				E575222A10B64C7F004D572E /* XNCubicSpline.m */,
+				1B0E888E1563F24A00825E3C /* XNCubicSpline.mm */,
 				E57522EE10B6661C004D572E /* XNLinearSpline.h */,
 				E57522EF10B6661C004D572E /* XNLinearSpline.m */,
 				E575221F10B64C68004D572E /* XNLinearEquationSystem.h */,
@@ -674,9 +672,9 @@
 				1BF68D02155BEDE700DBE3E9 /* XNMatrix.m in Sources */,
 				1BF68D03155BEDE700DBE3E9 /* XNFloatRange.m in Sources */,
 				1BF68D04155BEDE700DBE3E9 /* XNBox.m in Sources */,
-				1BF68D0B155BEDF700DBE3E9 /* XNCubicSpline.m in Sources */,
 				1BF68D0C155BEDF700DBE3E9 /* XNLinearSpline.m in Sources */,
 				1BF68D0D155BEDF700DBE3E9 /* XNLinearEquationSystem.m in Sources */,
+				1B0E88911563F2C400825E3C /* XNCubicSpline.mm in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -692,7 +690,6 @@
 				E575221B10B64C39004D572E /* XNVector.m in Sources */,
 				E575221D10B64C39004D572E /* XNMatrix.m in Sources */,
 				E575222310B64C68004D572E /* XNLinearEquationSystem.m in Sources */,
-				E575222D10B64C7F004D572E /* XNCubicSpline.m in Sources */,
 				E57522F210B6661C004D572E /* XNLinearSpline.m in Sources */,
 				E518AD6510BB22C800D2E454 /* XN2DPlot.m in Sources */,
 				E518AD7B10BB262700D2E454 /* XNLineData.m in Sources */,
@@ -722,7 +719,6 @@
 				E575221810B64C39004D572E /* XNVector.m in Sources */,
 				E575221910B64C39004D572E /* XNMatrix.m in Sources */,
 				E575222110B64C68004D572E /* XNLinearEquationSystem.m in Sources */,
-				E575222B10B64C7F004D572E /* XNCubicSpline.m in Sources */,
 				E57522F010B6661C004D572E /* XNLinearSpline.m in Sources */,
 				E518AD6610BB22C800D2E454 /* XN2DPlot.m in Sources */,
 				E518AD7C10BB262700D2E454 /* XNLineData.m in Sources */,
@@ -762,13 +758,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/XNMathsIOS.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
 				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XNMathsIOS/XNMathsIOS-Prefix.pch";
@@ -791,13 +789,15 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/XNMathsIOS.dst;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
 				);
-				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XNMathsIOS/XNMathsIOS-Prefix.pch";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
