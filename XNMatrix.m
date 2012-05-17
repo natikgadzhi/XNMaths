@@ -115,7 +115,10 @@
 		columnData[i] = data[i * columnsCount + index];
 	}
 	
-	return [[[XNVector alloc] initWithCapacity: rowsCount filledWith: columnData]autorelease];
+	XNVector* result = [[XNVector alloc] initWithCapacity: rowsCount filledWith: columnData];
+    free( columnData );
+
+    return [result autorelease];
 }
 
 - (XNVector *) rowVectorAtIndex: (NSUInteger) index
