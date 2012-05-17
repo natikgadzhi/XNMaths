@@ -17,7 +17,7 @@
 
 @implementation XNCubicSpline
 {
-    std::vector< CGPoint >* _approximationPointsPtr;
+    std::vector< CGPoint > _approximationPoints;
 }
 
 #pragma mark -
@@ -31,7 +31,6 @@
     free( d );
     free( h );
     
-    delete self->_approximationPointsPtr;
     [ super dealloc ];
 }
 
@@ -68,7 +67,7 @@
 	// Initializing and allocating variables and parameters
 	// Points count property
 
-    self->_approximationPointsPtr = new std::vector< CGPoint >(aPoints);
+    self->_approximationPoints = aPoints;
 
 	//
 	// Allocating h with n floats inside, but will use only 
@@ -166,10 +165,10 @@
 	// range of datapoints.
 	CGFloat xMin, xMax; 
     
-    xMin = (*self->_approximationPointsPtr)[0].x;
-	xMax = (*self->_approximationPointsPtr)[0].x;
+    xMin = self->_approximationPoints[0].x;
+	xMax = self->_approximationPoints[0].x;
 	
-	for( CGPoint point : (*self->_approximationPointsPtr) )
+	for( CGPoint point : self->_approximationPoints )
     {
 		if( xMin > point.x ){
 			xMin = point.x;
@@ -180,7 +179,7 @@
 		}
  	}
 	
-	pointsCount = (int)(xMax - xMin) * 100;
+	pointsCount = (int)(xMax - xMin) * 2;
 	CGFloat step = (xMax - xMin)/(float)pointsCount;
 	
 	// init data arrays and fill them
@@ -190,9 +189,9 @@
 	for(NSUInteger dataIndex = 0; dataIndex < pointsCount; dataIndex++ ){
 		CGFloat xValue = xMin + step * dataIndex;
 		
-		for( NSUInteger i = 1; i < (*self->_approximationPointsPtr).size(); i++ ){
-			if( xValue >= (*self->_approximationPointsPtr)[i-1].x && xValue <= (*self->_approximationPointsPtr)[i].x ){
-				CGFloat xFrom = (*self->_approximationPointsPtr)[i-1].x;
+		for( NSUInteger i = 1; i < self->_approximationPoints.size(); i++ ){
+			if( xValue >= self->_approximationPoints[i-1].x && xValue <= self->_approximationPoints[i].x ){
+				CGFloat xFrom = self->_approximationPoints[i-1].x;
 				x[dataIndex] = xValue;
 				y[dataIndex] = a[i-1] + b[i-1]*(xValue -  xFrom) + c[i-1]*pow((xValue -  xFrom), 2) + d[i-1]*pow((xValue -  xFrom), 3);
 			}
