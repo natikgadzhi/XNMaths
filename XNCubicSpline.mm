@@ -185,6 +185,7 @@
 	x = (CGFloat*)calloc(pointsCount, sizeof(CGFloat));
 	y = (CGFloat*)calloc(pointsCount, sizeof(CGFloat));
 	
+    //STODO remove nested cycle
 	for(NSUInteger dataIndex = 0; dataIndex < pointsCount; dataIndex++ ){
 		CGFloat xValue = xMin + step * dataIndex;
 		
