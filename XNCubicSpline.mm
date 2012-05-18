@@ -12,12 +12,11 @@
 #import "XNMatrix.h"
 #import "XNLineData.h"
 #import "XNLinearEquationSystem.h"
-
-#include <vector>
+#import "XNMathTypes.hpp"
 
 @implementation XNCubicSpline
 {
-    std::vector< CGPoint > _approximationPoints;
+    CGPoint_vt _approximationPoints;
 }
 
 #pragma mark -
@@ -34,12 +33,12 @@
     [ super dealloc ];
 }
 
-+ (XNCubicSpline *) splineWithPoints: (const std::vector< CGPoint >&) aPoints
++ (XNCubicSpline *) splineWithPoints: (const CGPoint_vt&) aPoints
 {
 	return [[[XNCubicSpline alloc] initWithPoints:aPoints]autorelease];
 }
 
-- (XNCubicSpline *) initWithPoints: (const std::vector< CGPoint >&) aPoints
+- (XNCubicSpline *) initWithPoints: (const CGPoint_vt&) aPoints
 {
 	self = [super init];
 
@@ -50,8 +49,8 @@
 	//
 	// Step 1. 
 	// Name some variables we will need in the spline. 
-    std::vector<CGFloat> vx_( n, 0.f );
-    std::vector<CGFloat> vf_( n, 0.f );    
+    CGFloat_vt vx_( n, 0.f );
+    CGFloat_vt vf_( n, 0.f );    
     
 	CGFloat* x = &vx_.at( 0 ); 
     CGFloat* f = &vf_.at( 0 );

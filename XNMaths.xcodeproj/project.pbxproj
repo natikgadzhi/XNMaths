@@ -21,6 +21,7 @@
 		1BF68D04155BEDE700DBE3E9 /* XNBox.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C81FA10C56E1E006B2981 /* XNBox.m */; };
 		1BF68D0C155BEDF700DBE3E9 /* XNLinearSpline.m in Sources */ = {isa = PBXBuildFile; fileRef = E57522EF10B6661C004D572E /* XNLinearSpline.m */; };
 		1BF68D0D155BEDF700DBE3E9 /* XNLinearEquationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = E575222010B64C68004D572E /* XNLinearEquationSystem.m */; };
+		7E47976215663A28009C82B9 /* libstdc++.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 7E47976115663A28009C82B9 /* libstdc++.dylib */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 		E518AD6410BB22C800D2E454 /* XN2DPlot.h in Headers */ = {isa = PBXBuildFile; fileRef = E518AD6210BB22C800D2E454 /* XN2DPlot.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -117,6 +118,9 @@
 		1BF68CD6155BEDBD00DBE3E9 /* XNMathsIOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XNMathsIOS-Prefix.pch"; sourceTree = "<group>"; };
 		1BF68CE0155BEDBD00DBE3E9 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		32DBCF5E0370ADEE00C91783 /* XNMaths_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMaths_Prefix.pch; sourceTree = "<group>"; };
+		7E1FE4F4156634040067F1D5 /* XNMathTypes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XNMathTypes.hpp; sourceTree = "<group>"; };
+		7E47975F15663A22009C82B9 /* libc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libc++.dylib"; path = "Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/usr/lib/libc++.dylib"; sourceTree = DEVELOPER_DIR; };
+		7E47976115663A28009C82B9 /* libstdc++.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = "libstdc++.dylib"; path = "Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/usr/lib/libstdc++.dylib"; sourceTree = DEVELOPER_DIR; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		E518AD6210BB22C800D2E454 /* XN2DPlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XN2DPlot.h; sourceTree = "<group>"; };
@@ -195,6 +199,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7E47976215663A28009C82B9 /* libstdc++.dylib in Frameworks */,
 				1BDA0990155BF446004E55A0 /* Accelerate.framework in Frameworks */,
 				1BDA098E155BF30C004E55A0 /* QuartzCore.framework in Frameworks */,
 				1BDA098C155BF303004E55A0 /* Foundation.framework in Frameworks */,
@@ -238,6 +243,8 @@
 		0867D691FE84028FC02AAC07 /* XNMaths */ = {
 			isa = PBXGroup;
 			children = (
+				7E47976115663A28009C82B9 /* libstdc++.dylib */,
+				7E47975F15663A22009C82B9 /* libc++.dylib */,
 				E575216210B64B8E004D572E /* Test */,
 				E5751F2B10B60483004D572E /* Dependencies */,
 				08FB77AEFE84172EC02AAC07 /* Classes */,
@@ -285,6 +292,7 @@
 				E57522EF10B6661C004D572E /* XNLinearSpline.m */,
 				E575221F10B64C68004D572E /* XNLinearEquationSystem.h */,
 				E575222010B64C68004D572E /* XNLinearEquationSystem.m */,
+				7E1FE4F4156634040067F1D5 /* XNMathTypes.hpp */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -757,15 +765,10 @@
 		1BF68CF1155BEDBD00DBE3E9 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LIBRARY = "libstdc++";
 				COPY_PHASE_STRIP = NO;
 				DSTROOT = /tmp/XNMathsIOS.dst;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
-				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -773,6 +776,7 @@
 				GCC_PREPROCESSOR_DEFINITIONS = (
 					"DEBUG=1",
 					"$(inherited)",
+					TBB_PREVIEW_TUPLE,
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
@@ -788,18 +792,14 @@
 		1BF68CF2155BEDBD00DBE3E9 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
 				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
-				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_CXX_LIBRARY = "libstdc++";
 				COPY_PHASE_STRIP = YES;
 				DSTROOT = /tmp/XNMathsIOS.dst;
-				FRAMEWORK_SEARCH_PATHS = (
-					"$(inherited)",
-					"\"$(SYSTEM_APPS_DIR)/Xcode.app/Contents/Developer/Library/Frameworks\"",
-				);
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "XNMathsIOS/XNMathsIOS-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "TBB_PREVIEW_TUPLE=1";
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.1;
@@ -871,6 +871,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -886,6 +888,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
 				GCC_C_LANGUAGE_STANDARD = c99;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;

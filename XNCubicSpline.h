@@ -7,12 +7,13 @@
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
+#import <CoreGraphics/CoreGraphics.h>
+
+#import "XNMathTypes.hpp"
+
 #pragma mark -
 #pragma mark Imports
 
-#import <CoreGraphics/CoreGraphics.h>
-
-#include <vector>
 
 @class XNLineData;
 
@@ -27,9 +28,9 @@
 
 #pragma mark -
 #pragma mark Initialization methods
-+ (XNCubicSpline *) splineWithPoints: (const std::vector< CGPoint >&) aPoints;
++ (XNCubicSpline *) splineWithPoints: (const CGPoint_vt&) aPoints;
 
-- (XNCubicSpline *) initWithPoints: (const std::vector< CGPoint >&) aPoints;
+- (XNCubicSpline *) initWithPoints: (const CGPoint_vt&) aPoints;
 
 #pragma mark -
 #pragma mark Other methods
