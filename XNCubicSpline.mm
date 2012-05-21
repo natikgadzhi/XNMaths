@@ -196,12 +196,8 @@
 				y[dataIndex] = a[i-1] + b[i-1]*(xValue -  xFrom) + c[i-1]*pow((xValue -  xFrom), 2) + d[i-1]*pow((xValue -  xFrom), 3);
 			}
 		}
-		
-		//NSLog(@"calculating point %d at %f with value %f", dataIndex, x[dataIndex], y[dataIndex]);
-	}
-    
-	NSLog(@"%d points total from x = %f to %f with step %f", pointsCount, xMin, xMax, step);
-    
+    }
+        
 	return [XNLineData lineDataWithXData:x yData:y pointsCount:pointsCount];
 }
 
