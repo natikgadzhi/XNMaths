@@ -29,7 +29,7 @@
     free( c );
     free( d );
     free( h );
-    
+
     [ super dealloc ];
 }
 
@@ -52,7 +52,7 @@
     CGFloat_vt vx_( n, 0.f );
     CGFloat_vt vf_( n, 0.f );    
     
-	CGFloat* x = &vx_.at( 0 ); 
+	CGFloat* x = &vx_.at( 0 );
     CGFloat* f = &vf_.at( 0 );
 	
 	// 

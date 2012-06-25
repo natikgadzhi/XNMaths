@@ -5,6 +5,6 @@
 #import <vector>
 
 typedef std::vector<CGPoint> CGPoint_vt;
-typedef std::vector<CGFloat>   CGFloat_vt;
+typedef std::vector<CGFloat> CGFloat_vt;
 
 #endif
