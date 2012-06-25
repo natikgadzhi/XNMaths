@@ -85,7 +85,7 @@
 	sgtsv_(&n, &nrhs, dl, d, du, b, &ldb, &info);
 	
 	if( info != 0){
-		[NSException raise:@"Linear equation system sweep LAPACK error." format:@"LAPACK return code: %d", info];
+		[NSException raise:@"Linear equation system sweep LAPACK error." format:@"LAPACK return code: %ld", info];
 	}
 	
 	// 
