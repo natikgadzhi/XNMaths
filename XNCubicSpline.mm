@@ -193,7 +193,7 @@
 			if( xValue >= self->_approximationPoints[i-1].x && xValue <= self->_approximationPoints[i].x ){
 				CGFloat xFrom = self->_approximationPoints[i-1].x;
 				x[dataIndex] = xValue;
-				y[dataIndex] = a[i-1] + b[i-1]*(xValue -  xFrom) + c[i-1]*pow((xValue -  xFrom), 2) + d[i-1]*pow((xValue -  xFrom), 3);
+				y[dataIndex] = a[i-1] + b[i-1]*(xValue -  xFrom) + c[i-1]*pow((xValue -  xFrom), 2.) + d[i-1]*pow((xValue -  xFrom), 3.);
 			}
 		}
     }
