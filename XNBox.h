@@ -25,7 +25,7 @@
 	
 }
 
-@property(copy) XNFloatRange *xRange, *yRange, *zRange;
+@property(copy, nonatomic) XNFloatRange *xRange, *yRange, *zRange;
 
 #pragma mark -
 #pragma mark Class init methods

@@ -96,39 +96,70 @@
 
 - (XNVector *) substract: (XNVector *) vector
 {
-	if( capacity != vector.capacity){
-		[NSException raise: @"Vector operations error." format: @"Can't substract [%d] vector from [%d] vector.", vector.capacity, capacity];
+	if( capacity != vector.capacity)
+    {
+        NSString* strCapacity       = [ @(capacity)        descriptionWithLocale: nil ];
+        NSString* strVectorCapacity = [ @(vector.capacity) descriptionWithLocale: nil ];
+        
+		[NSException raise: @"Vector operations error." format: @"Can't substract [%@] vector from [%@] vector.", strVectorCapacity, strCapacity];
 	}
 	
 	XNVector *result = [[XNVector alloc] initWithCapacity: capacity];
 	
-	for( NSInteger i = 0; i < capacity; i++){
+	for( NSUInteger i = 0; i != capacity; ++i){
 		[result setValue: [self valueAtIndex: i] - [vector valueAtIndex: i] atIndex: i];
 	}
 	
 	return [result autorelease];
 }
 
-
+#if defined(__LP64__) && __LP64__
 - (CGFloat) norm
 {
 	CGFloat norm = 0.0f;
 	
-	for( NSInteger i = 0; i < capacity; i++ ){
+	for( NSUInteger i = 0; i != capacity; i++ ){
+		norm += pow([self valueAtIndex: i], 2);
+	}
+	
+	return sqrt(norm);
+}
+#else
+- (CGFloat) norm
+{
+	CGFloat norm = 0.0f;
+	
+	for( NSUInteger i = 0; i != capacity; i++ ){
 		norm += powf([self valueAtIndex: i], 2);
 	}
 	
 	return sqrtf(norm);
 }
+#endif
 
 #pragma mark -
 #pragma mark Getters and setters
 
+-(NSString*)stringFromIndex: (NSUInteger) index
+{
+    NSString* result = [ @(index) descriptionWithLocale: nil ];
+    return result;
+}
+
+-(NSString*)stringFromCapacity
+{
+    NSString* strCapacity = [ self stringFromIndex: capacity ];
+    return strCapacity;
+}
+
+
 - (CGFloat) valueAtIndex: (NSUInteger) index
 {
-	if( index >= capacity ){ 
+	if( index >= capacity ){
+        NSString* strIndex = [ self stringFromIndex: index ];
+        
 		[NSException raise:@"Trying to get not existing vertice from vector" 
-					format:@"Trying to get vertice at index %d", index];
+					format:@"Trying to get vertice at index %@", strIndex];
 	}
 	
 	return data[index];
@@ -136,9 +167,11 @@
 
 - (void) setValue: (CGFloat) value atIndex: (NSUInteger) index
 {
-	if( index >= capacity ){ 
+	if( index >= capacity ){
+        NSString* strIndex = [ self stringFromIndex: index ];
+        
 		[NSException raise:@"Trying to get not existing vertice from vector" 
-					format:@"Trying to get vertice at index %d", index];
+					format:@"Trying to get vertice at index %@", strIndex];
 	}
 	
 	data[index] = value; 
@@ -148,7 +181,7 @@
 {
 	XNVector *copiedVector = [[XNVector alloc] initWithCapacity: capacity];
 	
-	for( NSInteger i = 0; i < capacity; i++){
+	for( NSUInteger i = 0; i != capacity; ++i){
 		[copiedVector setValue: [self valueAtIndex:i] atIndex: i];
 	}
 	
@@ -159,9 +192,10 @@
 #pragma mark Debuging
 - (void) printToLog
 {
-	NSLog(@"Vector if %d elements", capacity);
+    
+	NSLog(@"Vector if %@ elements", [ self stringFromCapacity ]);
 	NSMutableString *logFormatForRow = [NSMutableString stringWithCapacity: 30];
-	for( NSInteger i = 0; i < capacity; i++ ){
+	for( NSUInteger i = 0; i != capacity; ++i){
 		[logFormatForRow appendString: [NSMutableString stringWithFormat: @"%1.2f, ", data[i]]];
 	}
 	NSLog(@"[%@]", logFormatForRow);

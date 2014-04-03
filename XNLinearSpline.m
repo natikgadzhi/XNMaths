@@ -54,9 +54,13 @@ XNLinearSplineElement XNMakeLinearSplineElement(CGFloat a, CGFloat b)
 #pragma mark -
 #pragma mark Value getters
 
+
+// @adk : not used.
+// TODO : remove if no runtime magic appears
+#if 0
 - (float) valueWithFloat: (CGFloat) a_X
 {
-	for(NSInteger i = 1; i < approximationPoints.count; i++){
+	for(NSUInteger i = 1; i < approximationPoints.count; i++){
 		CGPoint startPoint = [[approximationPoints objectAtIndex:i-1] CGPointValue];
 		CGPoint endPoint = [[approximationPoints objectAtIndex:i] CGPointValue];
 		
@@ -67,6 +71,7 @@ XNLinearSplineElement XNMakeLinearSplineElement(CGFloat a, CGFloat b)
 	
 	return 0;
 }
+#endif
 
 - (XNLineData*) lineData
 {

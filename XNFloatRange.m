@@ -71,10 +71,19 @@
 
 #pragma mark -
 #pragma mark Instance logic
+
+#if defined(__LP64__) && __LP64__
+- (CGFloat) length
+{
+	return fabs(max - min);
+}
+
+#else
 - (CGFloat) length
 {
 	return fabsf(max - min);
 }
+#endif
 
 #pragma mark -
 #pragma mark Copying

@@ -78,7 +78,7 @@
 	yRange = [XNFloatRange rangeWithMin:[aFunction valueWithFloat: xRange.min] max:[aFunction valueWithFloat: xRange.min]];
 	
 	// calculate data and set min/max values
-	for(NSInteger i = 0; i < pointsCount; i++){
+	for(NSUInteger i = 0; i != pointsCount; ++i){
 		xData[i] = xRange.min + (strechLength / pointsCount)*i;
 		yData[i] = [aFunction valueWithFloat: xData[i]];
 		
