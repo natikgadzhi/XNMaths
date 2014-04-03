@@ -84,14 +84,14 @@
 	
 	//
 	// copy X and Y arrays
-	for( NSInteger i = 0; i < n; i++ ){
+	for( NSUInteger i = 0; i < n; i++ ){
 		x[i] = aPoints[i].x;
 		f[i] = aPoints[i].y;
 	}
 	
 	//
 	// Fill h array
-	for( NSInteger i = 1; i < n; i++){
+	for( NSUInteger i = 1; i < n; i++){
 		h[i-1] = x[i] - x[i-1];
 	}
 	
@@ -110,8 +110,10 @@
 	[equationMatrix	setValue: h[1] atRow:0 column: 1];
 	[equationMatrix	setValue: 3*( (f[2]-f[1])/h[1] - (f[1]-f[0])/h[0] ) atRow:0 column: n-2];
 	
-	for( NSInteger i = 1; i < n-2; i++ ){
-		[equationMatrix setValue: h[i-1] atRow: i column: i-1];
+	for( NSUInteger i = 1; i < n-2; i++ ){
+		[equationMatrix setValue: h[i-1]
+                           atRow: i
+                          column: i-1];
 		[equationMatrix setValue: (2*(h[i-1] + h[i])) atRow:i column:i ];
 		[equationMatrix	setValue: h[i] atRow:i column: i+1];
 		
@@ -142,12 +144,20 @@
 		a[i] = f[i];
 	}
 	
+#if defined(__LP64__) && __LP64__
+    static const CGFloat oneOverThree = 1./3.;
+    static const CGFloat twoOverThree = 2./3.;
+#else
+    static const CGFloat oneOverThree = 1.f/3.f;
+    static const CGFloat twoOverThree = 2.f/3.f;
+#endif
+    
 	for( NSUInteger i = 0; i < n-2; i++ ){
-		b[i] = (f[i+1] - f[i])/h[i] - (1./3.)*h[i]*(c[i+1] + 2*c[i]);
+		b[i] = (f[i+1] - f[i])/h[i] - oneOverThree*h[i]*(c[i+1] + 2*c[i]);
 		d[i] = (c[i+1] - c[i])/(3*h[i]);
 	}
 
-	b[n-2] = (f[n-1] - f[n-2])/h[n-2] - (2./3.)*h[n-2]*c[n-2];
+	b[n-2] = (f[n-1] - f[n-2])/h[n-2] - twoOverThree*h[n-2]*c[n-2];
 	d[n-2] = -c[n-2]/(3*h[n-2]);
 
 	return self;
@@ -178,13 +188,16 @@
 		}
  	}
 	
-	pointsCount = (int)(xMax - xMin) * 2;
-	CGFloat step = (xMax - xMin)/(float)pointsCount;
+	pointsCount = static_cast<NSUInteger>( (xMax - xMin) * 2 );
+	CGFloat step = (xMax - xMin)/static_cast<CGFloat>(pointsCount);
 	
 	// init data arrays and fill them
 	x = (CGFloat*)calloc(pointsCount, sizeof(CGFloat));
 	y = (CGFloat*)calloc(pointsCount, sizeof(CGFloat));
 	
+    static const CGFloat CG_TWO = 2;
+    static const CGFloat CG_THREE = 3;
+    
     //STODO remove nested cycle
 	for(NSUInteger dataIndex = 0; dataIndex < pointsCount; dataIndex++ ){
 		CGFloat xValue = xMin + step * dataIndex;
@@ -193,11 +206,20 @@
 			if( xValue >= self->_approximationPoints[i-1].x && xValue <= self->_approximationPoints[i].x ){
 				CGFloat xFrom = self->_approximationPoints[i-1].x;
 				x[dataIndex] = xValue;
-				y[dataIndex] = a[i-1] + b[i-1]*(xValue -  xFrom) + c[i-1]*pow((xValue -  xFrom), 2.) + d[i-1]*pow((xValue -  xFrom), 3.);
+				y[dataIndex] =
+                    a[i-1] +
+                    b[i-1]*(xValue -  xFrom) +
+#if defined(__LP64__) && __LP64__
+                    c[i-1]*pow((xValue -  xFrom), CG_TWO) +
+                    d[i-1]*pow((xValue -  xFrom), CG_THREE);
+#else
+                    c[i-1]*powf((xValue -  xFrom), CG_TWO) +
+                    d[i-1]*powf((xValue -  xFrom), CG_THREE);
+#endif
 			}
 		}
     }
-        
+    
 	return [XNLineData lineDataWithXData:x yData:y pointsCount:pointsCount];
 }
 

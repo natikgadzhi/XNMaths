@@ -32,6 +32,11 @@
 #endif
 
 
+// @adk : parser is not used yet.
+// Uncomment and fix if this code goes to production.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wconversion"
+
 double_t	degtorad( double_t d )
 {
 	return M_PI * ( d / 180.0 );
@@ -351,7 +356,7 @@ yynewstate:
 		short *yyss1 = yyss;
 		
 		  /* Get the current used size of the three stacks, in elements.  */
-		int size = yyssp - yyss + 1;
+		NSInteger size = yyssp - yyss + 1;
 		
 #ifdef yyoverflow
 		YYLTYPE *yyls1 = yyls;
@@ -1070,5 +1075,7 @@ void	ZExpParser::SetResult( double_t v )
 {
 	result = v;
 }				
+
+#pragma clang diagnostic pop
 
 #endif
