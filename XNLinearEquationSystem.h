@@ -22,7 +22,7 @@
 	NSUInteger iterationsSpent, iterationsLimit;
 }
 
-@property(readonly) NSUInteger iterationsSpent, iterationsLimit;
+@property(readonly, nonatomic) NSUInteger iterationsSpent, iterationsLimit;
 
 
 #pragma mark -

@@ -13,7 +13,7 @@
 	CGFloat min, max;
 }
 
-@property CGFloat min, max;
+@property (nonatomic) CGFloat min, max;
 
 #pragma mark -
 #pragma mark Class initializers

@@ -32,10 +32,10 @@
 #pragma mark -
 #pragma mark XNLineData object public properties declaration
 
-@property(readonly) CGFloat *xData;
-@property(readonly) CGFloat *yData;
-@property(readonly) XNFloatRange *xRange, *yRange;
-@property(readonly) NSUInteger quality, pointsCount;
+@property(nonatomic, readonly) CGFloat *xData;
+@property(nonatomic, readonly) CGFloat *yData;
+@property(nonatomic, readonly) XNFloatRange *xRange, *yRange;
+@property(nonatomic, readonly) NSUInteger quality, pointsCount;
 
 
 #pragma mark -

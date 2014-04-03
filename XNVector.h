@@ -28,7 +28,7 @@
 	NSUInteger capacity;
 }
 
-@property NSUInteger capacity;
+@property (nonatomic, assign) NSUInteger capacity;
 
 #pragma mark -
 #pragma mark Class init methods

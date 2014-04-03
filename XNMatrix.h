@@ -24,7 +24,7 @@
 	CGFloat *data;
 }
 
-@property NSUInteger rowsCount, columnsCount;
+@property (nonatomic) NSUInteger rowsCount, columnsCount;
 
 #pragma mark -
 #pragma mark Class init methods
