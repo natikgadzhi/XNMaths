@@ -73,11 +73,38 @@
 
 #pragma mark -
 #pragma mark Accessor methods
+-(NSString*)stringForIndex:(NSUInteger)index
+{
+    NSString* result = [ @(index) descriptionWithLocale: nil ];
+    return result;
+}
+
+-(NSString*)stringForRow: (NSUInteger)row
+                  column: (NSUInteger)column
+{
+    NSString* strRow    = [ self stringForIndex: row   ];
+    NSString* strColumn = [ self stringForIndex: column ];
+    
+    NSString* result = [ NSString stringWithFormat: @"[%@, %@]", strRow, strColumn ];
+    return result;
+}
+
+-(NSString*)stringForMatrixDimensions
+{
+    NSString* strRow    = [ self stringForIndex: rowsCount    ];
+    NSString* strColumn = [ self stringForIndex: columnsCount ];
+    
+    NSString* result = [ NSString stringWithFormat: @"[%@, %@]", strRow, strColumn ];
+    return result;
+}
+
+
 - (CGFloat) valueAtRow: (NSUInteger)row column: (NSUInteger)column
 {
 	if( row >= rowsCount || column >= columnsCount ){
-		[NSException raise:@"Out of dimensions error." format:@"Trying to get element [%d, %d] of [%d, %d] matrix.", 
-		 row, column, rowsCount, columnsCount];
+		[NSException raise:@"Out of dimensions error." format:@"Trying to get element %@ of %@ matrix.",
+		 [ self stringForRow: row column: column ],
+         [ self stringForMatrixDimensions ] ];
 	}
 	
 	return data[ (row * columnsCount) + column ];
@@ -86,8 +113,9 @@
 - (void) setValue: (CGFloat)value atRow: (NSUInteger)row column: (NSUInteger)column
 {
 	if( row >= rowsCount || column >= columnsCount ){
-		[NSException raise:@"Out of dimensions error." format:@"Trying to set element [%d, %d] of [%d, %d] matrix.", 
-			row, column, rowsCount, columnsCount];
+		[NSException raise:@"Out of dimensions error." format:@"Trying to set element %@ of %@ matrix.",
+		 [ self stringForRow: row column: column ],
+         [ self stringForMatrixDimensions ] ];
 	}
 	
 	data[row * columnsCount + column] = value;
@@ -105,8 +133,9 @@
 - (XNVector *) columnVectorAtIndex: (NSUInteger) index
 {
 	if(index >= columnsCount){
-		[NSException raise:@"Out of dimensions error." format:@"Trying to access  %d column of [%d, %d] matrix.", 
-		 index, rowsCount, columnsCount];
+		[NSException raise:@"Out of dimensions error." format:@"Trying to access  %@ column of %@ matrix.",
+         [ self stringForIndex: index ],
+         [ self stringForMatrixDimensions ] ];
 	}
 	
 	CGFloat *columnData = calloc(rowsCount, sizeof(CGFloat));
@@ -124,8 +153,9 @@
 - (XNVector *) rowVectorAtIndex: (NSUInteger) index
 {
 	if(index >= rowsCount){
-		[NSException raise:@"Out of dimensions error." format:@"Trying to access  %d row of [%d, %d] matrix.", 
-		 index, rowsCount, columnsCount];
+		[NSException raise:@"Out of dimensions error." format:@"Trying to access  %@ row of %@ matrix.",
+         [ self stringForIndex: index ],
+         [ self stringForMatrixDimensions ] ];
 	}
 	
 	CGFloat *rowData = calloc(columnsCount, sizeof(CGFloat));
@@ -144,8 +174,9 @@
 - (void) removeColumnAtIndex: (NSUInteger) index
 {
 	if( index >= columnsCount){
-		[NSException raise:@"Out of dimensions error." format:@"Trying to access  %d column of [%d, %d] matrix.", 
-		 index, rowsCount, columnsCount];
+		[NSException raise:@"Out of dimensions error." format:@"Trying to access  %@ column of %@ matrix.",
+         [ self stringForIndex: index ],
+         [ self stringForMatrixDimensions ] ];
 	}
 	
 	if( columnsCount == 1){
@@ -178,8 +209,9 @@
 - (void) removeRowAtIndex: (NSUInteger) index
 {
 	if(index >= rowsCount){
-		[NSException raise:@"Out of dimensions error." format:@"Trying to access  %d row of [%d, %d] matrix.", 
-		 index, rowsCount, columnsCount];
+		[NSException raise:@"Out of dimensions error." format:@"Trying to access  %@ row of %@ matrix.",
+         [ self stringForIndex: index ],
+         [ self stringForMatrixDimensions ] ];
 	}
 	
 	if( rowsCount == 1){
@@ -224,19 +256,18 @@
 - (XNVector *) multiplyByVector: (XNVector *) vector
 {
 	if( vector.capacity != columnsCount ){
-		[NSException raise: @"Matrix multiplication error." format: @"Can't multiply %d-dimentional vector with %d x %d matrix.", 
-		 vector.capacity, 
-		 columnsCount, 
-		 rowsCount];
+		[NSException raise: @"Matrix multiplication error." format: @"Can't multiply %@-dimentional vector with %@ matrix.",
+         [ self stringForIndex: vector.capacity ],
+         [ self stringForMatrixDimensions ] ];
 	}
 	
 	XNVector *newVector = [[XNVector alloc] initWithCapacity: rowsCount];
 	
-	for( NSInteger i = 0; i < rowsCount; i++){
+	for( NSUInteger i = 0; i < rowsCount; i++){
 		
 		CGFloat newValue = 0.;
 		
-		for( NSInteger j = 0; j < columnsCount; j++){
+		for( NSUInteger j = 0; j < columnsCount; j++){
 			newValue += [self valueAtRow: i column: j] * [vector valueAtIndex: j];
 		}
 		
@@ -251,11 +282,11 @@
 #pragma mark Debugging
 - (void) printToLog
 {
-	NSLog(@"Matrix of %d on %d elements.", rowsCount, columnsCount );
+	NSLog(@"Matrix of %@ elements.", [ self stringForMatrixDimensions ] );
 	
-	for(NSInteger i = 0; i < rowsCount; i++ ){
+	for(NSUInteger i = 0; i < rowsCount; i++ ){
 		NSMutableString *logFormatForRow = [NSMutableString stringWithCapacity: 30];
-		for( NSInteger j = 0; j < columnsCount; j++ ){
+		for( NSUInteger j = 0; j < columnsCount; j++ ){
 			//NSLog(@"%d x %d => %f", (i * columnsCount), j, data[(i * columnsCount) + j]);
 			[logFormatForRow appendString: [NSMutableString stringWithFormat: @"%1.3f, ", data[(i * columnsCount) + j]]];
 		}
