@@ -36,6 +36,7 @@
 // Uncomment and fix if this code goes to production.
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wconversion"
+#pragma clang diagnostic ignored "-Wdeprecated-register"
 
 double_t	degtorad( double_t d )
 {
@@ -130,6 +131,7 @@ static const char yytranslate[] = {     0,
     11
 };
 
+#if YYDEBUG != 0
 static const short yyrline[] = {     0,
     74,    75,    76,    79,    80,    81,    82,    83,    84,    85,
     86,    87,    88,    89,    90
@@ -139,6 +141,8 @@ static const char * const yytname[] = {     0,
 "error","$illegal.","NUMBER","FUNCTION","VAR","'='","'-'","'+'","'*'","'/'",
 "NEG","';'","'^'","'%'","'\\n'","'('","')'","line"
 };
+#endif
+
 
 static const short yyr1[] = {     0,
     18,    18,    18,    19,    19,    19,    19,    19,    19,    19,
@@ -297,6 +301,8 @@ int yyparse( void* param )
 	register int yyn;
 	register short *yyssp;
 	register YYSTYPE *yyvsp;
+
+    
 //	YYLTYPE *yylsp;
 	int yyerrstatus;	/*  number of tokens to shift before error messages enabled */
 	int yychar1;		/*  lookahead token as an internal (translated) token number */
