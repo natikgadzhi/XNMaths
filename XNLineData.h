@@ -9,7 +9,7 @@
 #pragma mark -
 #pragma mark Imports && classes requirements 
 
-#import <Cocoa/Cocoa.h>
+#import <CoreGraphics/CoreGraphics.h>
 
 @class XNFloatRange;
 @class XNFunction;
@@ -32,16 +32,18 @@
 #pragma mark -
 #pragma mark XNLineData object public properties declaration
 
-@property(readonly) CGFloat *xData;
-@property(readonly) CGFloat *yData;
-@property(readonly) XNFloatRange *xRange, *yRange;
-@property(readonly) NSUInteger quality, pointsCount;
+@property(nonatomic, readonly) CGFloat *xData;
+@property(nonatomic, readonly) CGFloat *yData;
+@property(nonatomic, readonly) XNFloatRange *xRange, *yRange;
+@property(nonatomic, readonly) NSUInteger quality, pointsCount;
 
 
 #pragma mark -
 #pragma mark Class init methods
 + (XNLineData *) lineDataWithFunction: (XNFunction*)aFunction inRange: (XNFloatRange*)range withQuality: (NSUInteger) lineQuality;
-+ (XNLineData *) lineDataWithXData: (CGFloat*)x yData:(CGFloat*)y pointsCount: (NSUInteger) count;
++ (XNLineData *) lineDataWithXData: (CGFloat*) CF_CONSUMED x  
+                             yData: (CGFloat*) CF_CONSUMED y  
+                       pointsCount: (NSUInteger) count;
 
 - (XNLineData *) initWithXData: (CGFloat*)x yData:(CGFloat*)y pointsCount: (NSUInteger) count;
 - (XNLineData *) initWithFunction: (XNFunction *)aFunction inRange: (XNFloatRange*)newRange withQuality: (NSUInteger) lineQuality;

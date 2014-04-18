@@ -9,7 +9,6 @@
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
 #import "XNVector.h" 
 #import "XNMatrix.h" 
 
@@ -23,7 +22,7 @@
 	NSUInteger iterationsSpent, iterationsLimit;
 }
 
-@property(readonly) NSUInteger iterationsSpent, iterationsLimit;
+@property(readonly, nonatomic) NSUInteger iterationsSpent, iterationsLimit;
 
 
 #pragma mark -

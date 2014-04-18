@@ -6,10 +6,7 @@
 //  Copyright 2007 Apptree.net. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
 #import "ZExpParser.h"
-
-
 
 @interface GCMathParser : NSObject
 {

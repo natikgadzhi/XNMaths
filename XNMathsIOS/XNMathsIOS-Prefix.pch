@@ -1,0 +1,11 @@
+//
+// Prefix header for all source files of the 'XNMathsIOS' target in the 'XNMathsIOS' project
+//
+
+#ifdef __OBJC__
+    //#import <UIKit/UIGeometry.h> // - (CGPoint)CGPointValue
+    #import <UIKit/UIKit.h>
+
+    #import <CoreGraphics/CoreGraphics.h>
+    #import <Foundation/Foundation.h>
+#endif

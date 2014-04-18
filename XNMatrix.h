@@ -12,7 +12,8 @@
 #pragma mark -
 #pragma mark Imports
 
-#import <Cocoa/Cocoa.h>
+#import <CoreGraphics/CoreGraphics.h>
+
 @class XNVector;
 
 #pragma mark -
@@ -23,7 +24,7 @@
 	CGFloat *data;
 }
 
-@property NSUInteger rowsCount, columnsCount;
+@property (nonatomic) NSUInteger rowsCount, columnsCount;
 
 #pragma mark -
 #pragma mark Class init methods

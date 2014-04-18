@@ -6,14 +6,14 @@
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <CoreGraphics/CoreGraphics.h>
 
 @interface XNFloatRange : NSObject
 {
 	CGFloat min, max;
 }
 
-@property CGFloat min, max;
+@property (nonatomic) CGFloat min, max;
 
 #pragma mark -
 #pragma mark Class initializers

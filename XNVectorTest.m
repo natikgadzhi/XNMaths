@@ -37,13 +37,13 @@
 {
 	NSUInteger testCapacity = 4l;
 	NSMutableArray *testVertices = [NSMutableArray arrayWithCapacity:testCapacity];
-	
+
 	for( NSUInteger i = 0; i < testCapacity; i++){
-		[testVertices addObject:[ NSNumber numberWithFloat: (i * 2.5f)]];
+		[testVertices addObject: @(i * 2.5f) ];
 	}
-	
+
 	XNVector *vector = [[XNVector alloc] initWithMutableArray: testVertices];
-	
+
 	STAssertEquals( [vector valueAtIndex:3], 7.5f, @"Value at index 3 should be 7.5, but was %f", [vector valueAtIndex: 3]);
 }
 

@@ -51,7 +51,6 @@
 #pragma mark Value getters 
 - (CGFloat) valueWithFloat: (CGFloat) a_X
 {
-	//TODO: Optimize this. Read GCMathParser first.
 	[parser setSymbolValue: a_X forKey: @"x"];
 	return (CGFloat)[parser evaluate: expression];
 }

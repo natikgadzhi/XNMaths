@@ -9,7 +9,7 @@
 *
 *
 *
-*			© 2000, Graham Cox
+*			ï¿½ 2000, Graham Cox
 *
 *
 *
@@ -32,16 +32,22 @@
 #endif
 
 
+// @adk : parser is not used yet.
+// Uncomment and fix if this code goes to production.
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Wconversion"
+#pragma clang diagnostic ignored "-Wdeprecated-register"
+
 double_t	degtorad( double_t d )
 {
-	return pi * ( d / 180.0 );
+	return M_PI * ( d / 180.0 );
 }
 
 
 
 double_t	radtodeg( double_t r )
 {
-	return 180.0 * ( r / pi );
+	return 180.0 * ( r / M_PI );
 }
 
 
@@ -125,6 +131,7 @@ static const char yytranslate[] = {     0,
     11
 };
 
+#if YYDEBUG != 0
 static const short yyrline[] = {     0,
     74,    75,    76,    79,    80,    81,    82,    83,    84,    85,
     86,    87,    88,    89,    90
@@ -134,6 +141,8 @@ static const char * const yytname[] = {     0,
 "error","$illegal.","NUMBER","FUNCTION","VAR","'='","'-'","'+'","'*'","'/'",
 "NEG","';'","'^'","'%'","'\\n'","'('","')'","line"
 };
+#endif
+
 
 static const short yyr1[] = {     0,
     18,    18,    18,    19,    19,    19,    19,    19,    19,    19,
@@ -292,17 +301,19 @@ int yyparse( void* param )
 	register int yyn;
 	register short *yyssp;
 	register YYSTYPE *yyvsp;
-	YYLTYPE *yylsp;
+
+    
+//	YYLTYPE *yylsp;
 	int yyerrstatus;	/*  number of tokens to shift before error messages enabled */
 	int yychar1;		/*  lookahead token as an internal (translated) token number */
 	
 	short	yyssa[YYMAXDEPTH];	/*  the state stack			*/
 	YYSTYPE yyvsa[YYMAXDEPTH];	/*  the semantic value stack		*/
-	YYLTYPE yylsa[YYMAXDEPTH];	/*  the location stack			*/
+//	YYLTYPE yylsa[YYMAXDEPTH];	/*  the location stack			*/
 	
 	short *yyss = yyssa;		/*  refer to the stacks thru separate pointers */
 	YYSTYPE *yyvs = yyvsa;	/*  to allow yyoverflow to reallocate them elsewhere */
-	YYLTYPE *yyls = yylsa;
+//	YYLTYPE *yyls = yylsa;
 	
 	int yymaxdepth = YYMAXDEPTH;
 	
@@ -334,7 +345,7 @@ int yyparse( void* param )
 	
 	yyssp = yyss - 1;
 	yyvsp = yyvs;
-	yylsp = yyls;
+//	yylsp = yyls;
 	
 	/* Push a new state, which is found in  yystate  .  */
 	/* In all cases, when you get here, the value and location stacks
@@ -351,7 +362,7 @@ yynewstate:
 		short *yyss1 = yyss;
 		
 		  /* Get the current used size of the three stacks, in elements.  */
-		int size = yyssp - yyss + 1;
+		NSInteger size = yyssp - yyss + 1;
 		
 #ifdef yyoverflow
 		YYLTYPE *yyls1 = yyls;
@@ -848,7 +859,7 @@ static int	yylex( YYSTYPE* lvalp, YYLTYPE* llocp, void* param )
 
 // error function
 
-void yyerror ( char* errStr )
+void yyerror ( const char* errStr )
 {
 	//FailOSErr( kExpParseErr );
 	
@@ -1070,5 +1081,7 @@ void	ZExpParser::SetResult( double_t v )
 {
 	result = v;
 }				
+
+#pragma clang diagnostic pop
 
 #endif

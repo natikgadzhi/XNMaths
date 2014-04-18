@@ -20,9 +20,9 @@
 {
 	self = [super init];
 	
-	equationMatrix = [newEquationMatrix retain];
+	self->equationMatrix = [newEquationMatrix retain];
 	
-	leftSideMatrix = [newEquationMatrix copy];
+	self->leftSideMatrix = [newEquationMatrix copy];
 	[leftSideMatrix removeColumnAtIndex: (leftSideMatrix.columnsCount - 1)];
 	
 	rightSideVector = [newEquationMatrix columnVectorAtIndex:(newEquationMatrix.columnsCount - 1)];
@@ -44,10 +44,11 @@
 	// params preparation
 	
 	// n
-	NSUInteger n = [leftSideMatrix rowsCount];
+    NSUInteger rowsCount = [leftSideMatrix rowsCount];
+	__CLPK_integer n = (__CLPK_integer)rowsCount;
 	
 	// nrhs (b columns) 
-	NSUInteger nrhs = 1;
+	__CLPK_integer nrhs = 1;
 	
 	// matrix representation with diagonals. 
 	CGFloat *dl, *d, *du;
@@ -56,41 +57,51 @@
 	CGFloat *b;
 	
 	// rows count in b vector
-	NSUInteger ldb = n;
+	__CLPK_integer ldb = n;
 	
 	// kinda return code
-	NSInteger info;
+	__CLPK_integer info;
 	
 	// 
 	// Init float arrays 
 	
-	b = calloc(n, sizeof(CGFloat));
-	d = calloc(n, sizeof(CGFloat));
+	b = calloc(rowsCount, sizeof(CGFloat));
+	d = calloc(rowsCount, sizeof(CGFloat));
 	
-	du = calloc(n-1, sizeof(CGFloat));
-	dl = calloc(n-1, sizeof(CGFloat));
+	du = calloc(rowsCount-1, sizeof(CGFloat));
+	dl = calloc(rowsCount-1, sizeof(CGFloat));
 	
-	for( NSUInteger i = 0; i < n; i++ ){
+	for( NSUInteger i = 0; i != rowsCount; i++ ){
 		b[i] = [rightSideVector valueAtIndex:i];
 		d[i] = [leftSideMatrix valueAtRow:i column:i];
 	}
 	
-	for( NSUInteger i = 0; i < (n-1); i++){
+	for( NSUInteger i = 0; i != (rowsCount-1); i++){
 		dl[i] = [leftSideMatrix valueAtRow:i+1 column:i];
 		du[i] = [leftSideMatrix valueAtRow:i column:i+1];
 	}
 	
 	//
 	// call the routine
-	sgtsv_(&n, &nrhs, dl, d, du, b, &ldb, &info);
+#if defined(__LP64__) && __LP64__
+    {
+        dgtsv_(&n, &nrhs, dl, d, du, b, &ldb, &info);
+    }
+#else
+    {
+        sgtsv_(&n, &nrhs, dl, d, du, b, &ldb, &info);
+    }
+#endif
+    
+	
 	
 	if( info != 0){
-		[NSException raise:@"Linear equation system sweep LAPACK error." format:@"LAPACK return code: %d", info];
+		[NSException raise:@"Linear equation system sweep LAPACK error." format:@"LAPACK return code: %ld", (long)info];
 	}
 	
 	// 
 	// Create a solution vector from lapack output
-	XNVector *solution = [[XNVector alloc] initWithCapacity: n filledWith: b];
+	XNVector *solution = [[XNVector alloc] initWithCapacity: rowsCount filledWith: b];
 	
 	//
 	// Free resources after lapack routines
@@ -119,10 +130,10 @@
 		oldSolution = [solution copy];
 		
 		// calculate new solution and place it right into the old one.
-		for( NSInteger i = 0; i < solution.capacity; i++ ){
+		for( NSUInteger i = 0; i < solution.capacity; i++ ){
 			CGFloat newValue = [rightSideVector valueAtIndex: i];
 			
-			for(NSInteger j = 0; j < [leftSideMatrix columnsCount]; j++ ){
+			for(NSUInteger j = 0; j < [leftSideMatrix columnsCount]; j++ ){
 				if( i == j){
 					continue;
 				}
@@ -137,13 +148,14 @@
 		iterationsSpent++;
 		
 		if( allowRelaxation ){ 
-			for( NSInteger i = 0; i < solution.capacity; i++ ){
+			for( NSUInteger i = 0; i < solution.capacity; i++ ){
 				[ solution setValue: speed * [solution valueAtIndex: i] + (1 - speed)* [oldSolution valueAtIndex: i] atIndex: i];
 			}
 		}
+        [oldSolution release];
 	}
 	
-	return solution;
+	return [solution autorelease];
 }
 
 
@@ -151,7 +163,9 @@
 #pragma mark Dealloc
 - (void) dealloc
 {
-	[equationMatrix dealloc];
+	[self->equationMatrix release];
+    [self->leftSideMatrix release];
+
 	[super dealloc];
 }
 

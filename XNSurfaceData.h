@@ -9,11 +9,6 @@
 #pragma mark -
 #pragma mark Imports
 
-//
-// Use Cocoa framework
-#import <Cocoa/Cocoa.h>
-
-// 
 // Use our point structures
 #import "XN2DPoint.h"
 #import "XN3DPoint.h"

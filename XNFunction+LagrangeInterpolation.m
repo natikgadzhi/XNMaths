@@ -24,11 +24,11 @@
 	NSMutableString* expressionString = [[NSMutableString alloc] initWithCapacity: 50];
 	
 	for( NSValue* iValue in aPoints ){
-		NSPoint i = [iValue pointValue];
+		CGPoint i = [iValue CGPointValue];
 		[expressionString appendString: [NSString stringWithFormat: @"%f*(", i.y ]];
 		
 		for( NSValue* jValue in aPoints) {
-			NSPoint j = [jValue pointValue];
+			CGPoint j = [jValue CGPointValue];
 			
 			if( i.x == j.x )
 			{ 

@@ -1,8 +1,15 @@
+._*
+
 .DS_Store
 *.swp
 *~.nib
 
+.svn
 build/
+
+
+*xcworkspace*
+*xcuserdata*
 
 *.pbxuser
 *.perspective

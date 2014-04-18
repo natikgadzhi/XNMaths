@@ -14,7 +14,6 @@
 #import "XNBox.h"
 #import "XNFloatRange.h"
 #import "XNPlotManager.h"
-#import "plplot.h"
 
 #pragma mark -
 #pragma mark XN3DPlot class implementation

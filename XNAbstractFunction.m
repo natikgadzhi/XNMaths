@@ -64,7 +64,7 @@
 	
 	// copy the arguments
 	for( NSString *argName in anArgumentNames ){
-		[arguments setObject: [NSNumber numberWithFloat: 0.] forKey: argName];
+		[arguments setObject: @0. forKey: argName];
 	}
 	
 	return self;
@@ -80,14 +80,14 @@
 					format: @"Argument %@ is unknown in %@ function", anArgumentName, expression];
 	}
 	
-	[arguments setObject: [NSNumber numberWithFloat: aValue] forKey: anArgumentName];
+	[arguments setObject: @aValue forKey: anArgumentName];
 }
 
 - (CGFloat) valueWithArguments: (NSDictionary *) anArgumentsDictionary
 {
 	[arguments release];
-	arguments = [anArgumentsDictionary retain];
-	
+	arguments = [ anArgumentsDictionary mutableCopy ];
+
 	return [self valueWithCurrentArguments];
 }
 

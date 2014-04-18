@@ -78,7 +78,7 @@ struct init
 };
 
 int 		yyparse( void* param );
-void		yyerror( char* errStr );
+void		yyerror( const char* errStr );
 
 #ifdef __cplusplus
 }

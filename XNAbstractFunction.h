@@ -8,7 +8,7 @@
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
+#import <CoreGraphics/CoreGraphics.h>
 
 @class GCMathParser;
 

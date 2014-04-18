@@ -21,11 +21,6 @@
 #import "XNFloatRange.h"
 #import "XNPlotManager.h"
 
-//
-// Import PLPlot
-#import "plplot.h"
-
-
 @implementation XN2DPlot
 
 #pragma mark -
@@ -112,8 +107,8 @@
 	CGFloat* y = calloc(arrayOfPoints.count, sizeof(CGFloat));
 	
 	for( NSUInteger i = 0; i < arrayOfPoints.count; i++){
-		x[i] = [[arrayOfPoints objectAtIndex:i] pointValue].x;
-		y[i] = [[arrayOfPoints objectAtIndex:i] pointValue].y;
+		x[i] = [[arrayOfPoints objectAtIndex:i] CGPointValue].x;
+		y[i] = [[arrayOfPoints objectAtIndex:i] CGPointValue].y;
 	}
 	
 	[self renderPointsWithX:x y:y count:arrayOfPoints.count color:color];

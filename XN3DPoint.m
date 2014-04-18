@@ -6,7 +6,6 @@
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
-#import <Cocoa/Cocoa.h>
 #import "XN3DPoint.h"
 
 XN3DPoint XNMake3DPoint(CGFloat aX, CGFloat aY, CGFloat aZ)

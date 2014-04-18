@@ -12,7 +12,7 @@
 #pragma mark -
 #pragma mark Imports 
 
-#import <Cocoa/Cocoa.h>
+#import <CoreGraphics/CoreGraphics.h>
 
 #pragma mark -
 #pragma mark XNVector class interface
@@ -28,7 +28,7 @@
 	NSUInteger capacity;
 }
 
-@property NSUInteger capacity;
+@property (nonatomic, assign) NSUInteger capacity;
 
 #pragma mark -
 #pragma mark Class init methods

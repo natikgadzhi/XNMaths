@@ -13,6 +13,8 @@
 #import "XNLineData.h"
 #import "XNFunction.h"
 
+#import <CoreGraphics/CoreGraphics.h>
+
 #pragma mark -
 #pragma mark LineData class implementation 
 
@@ -27,12 +29,12 @@
 
 + (XNLineData *) lineDataWithFunction: (XNFunction*)aFunction inRange: (XNFloatRange*)range withQuality: (NSUInteger) lineQuality
 {
-	return [[XNLineData alloc] initWithFunction:aFunction inRange:range withQuality:lineQuality ];
+	return [[[XNLineData alloc] initWithFunction:aFunction inRange:range withQuality:lineQuality ]autorelease];
 }
 
 + (XNLineData *) lineDataWithXData: (CGFloat*)x yData:(CGFloat*)y pointsCount: (NSUInteger) count;
 {
-	return [[XNLineData alloc] initWithXData: x yData: y pointsCount: count ];
+	return [[[XNLineData alloc] initWithXData: x yData: y pointsCount: count ]autorelease];
 }
 
 #pragma mark -
@@ -46,8 +48,8 @@
 	yData = y;
 	pointsCount = count;
 	
-	xRange = [XNFloatRange rangeWithCArray:xData withCapacity:pointsCount ];
-	yRange = [XNFloatRange rangeWithCArray:yData withCapacity:pointsCount ];
+	self->xRange = [[XNFloatRange rangeWithCArray:xData withCapacity:pointsCount ]retain];
+	self->yRange = [[XNFloatRange rangeWithCArray:yData withCapacity:pointsCount ]retain];
 	
 	quality = (NSUInteger)(xRange.length / pointsCount);
 	
@@ -76,7 +78,7 @@
 	yRange = [XNFloatRange rangeWithMin:[aFunction valueWithFloat: xRange.min] max:[aFunction valueWithFloat: xRange.min]];
 	
 	// calculate data and set min/max values
-	for(NSInteger i = 0; i < pointsCount; i++){
+	for(NSUInteger i = 0; i != pointsCount; ++i){
 		xData[i] = xRange.min + (strechLength / pointsCount)*i;
 		yData[i] = [aFunction valueWithFloat: xData[i]];
 		

@@ -7,10 +7,13 @@
 //  Copyright 2009 Нат Гаджибалаев. All rights reserved.
 //
 
+#import <CoreGraphics/CoreGraphics.h>
+
+#import "XNMathTypes.hpp"
+
 #pragma mark -
 #pragma mark Imports
 
-#import <Cocoa/Cocoa.h>
 
 @class XNLineData;
 
@@ -21,14 +24,13 @@
 
 @interface XNCubicSpline : NSObject {
 	CGFloat *a, *b, *c, *d, *h;
-	NSArray *approximationPoints;
 }
 
 #pragma mark -
 #pragma mark Initialization methods
-+ (XNCubicSpline *) splineWithPoints: (NSArray *) aPoints;
++ (XNCubicSpline *) splineWithPoints: (const CGPoint_vt&) aPoints;
 
-- (XNCubicSpline *) initWithPoints: (NSArray *) aPoints;
+- (XNCubicSpline *) initWithPoints: (const CGPoint_vt&) aPoints;
 
 #pragma mark -
 #pragma mark Other methods

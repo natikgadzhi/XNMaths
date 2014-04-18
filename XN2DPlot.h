@@ -11,13 +11,13 @@
 #pragma mark -
 #pragma mark Imports
 
-#import <Cocoa/Cocoa.h>
 #import "XN2DPoint.h"
 
 @class XNFloatRange;
 @class XNLineData;
 @class XNFunction;
 @class XNPlotManager;
+@class UIColor;
 
 #pragma mark -
 #pragma mark XN2DPlot interface
@@ -39,17 +39,17 @@
 
 #pragma mark -
 #pragma mark Init methods
-+ (XN2DPlot*) plotInRect: (NSRect)rect label: (NSString*)newTitle quality: (NSUInteger)newQuality;
-- (XN2DPlot*) initInRect: (NSRect)rect label: (NSString*)newTitle quality: (NSUInteger)newQuality;
++ (XN2DPlot*) plotInRect: (CGRect)rect label: (NSString*)newTitle quality: (NSUInteger)newQuality;
+- (XN2DPlot*) initInRect: (CGRect)rect label: (NSString*)newTitle quality: (NSUInteger)newQuality;
 
 #pragma mark -
 #pragma mark Drawing API
-- (void) renderFunction: (XNFunction *) aFunction range: (XNFloatRange *) range color: (NSColor *) color width: (NSUInteger) width;
+- (void) renderFunction: (XNFunction *) aFunction range: (XNFloatRange *) range color: (UIColor *) color width: (NSUInteger) width;
 
-- (void) renderPoint: (XN2DPoint) point color: (NSColor*)color;
-- (void) renderPoints: (NSArray*) arrayOfPoints color: (NSColor*)color;
-- (void) renderPointsWithX: (CGFloat*)x y: (CGFloat*)y  count: (NSUInteger)count color: (NSColor*) color;
+- (void) renderPoint: (XN2DPoint) point color: (UIColor*)color;
+- (void) renderPoints: (NSArray*) arrayOfPoints color: (UIColor*)color;
+- (void) renderPointsWithX: (CGFloat*)x y: (CGFloat*)y  count: (NSUInteger)count color: (UIColor*) color;
 
-- (void) renderLine: (XNLineData *)lineData color: (NSColor *) color width: (NSUInteger) width;
+- (void) renderLine: (XNLineData *)lineData color: (UIColor *) color width: (NSUInteger) width;
 
 @end

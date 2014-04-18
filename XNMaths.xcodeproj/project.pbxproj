@@ -3,10 +3,24 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 45;
+	objectVersion = 46;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		1B0E88911563F2C400825E3C /* XNCubicSpline.mm in Sources */ = {isa = PBXBuildFile; fileRef = 1B0E888E1563F24A00825E3C /* XNCubicSpline.mm */; };
+		1BDA098C155BF303004E55A0 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BDA098B155BF303004E55A0 /* Foundation.framework */; };
+		1BDA098E155BF30C004E55A0 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BDA098D155BF30C004E55A0 /* QuartzCore.framework */; };
+		1BDA0990155BF446004E55A0 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1BDA098F155BF446004E55A0 /* Accelerate.framework */; };
+		1BF68CF9155BEDD400DBE3E9 /* ZExpParser.mm in Sources */ = {isa = PBXBuildFile; fileRef = E5751F3010B60492004D572E /* ZExpParser.mm */; };
+		1BF68CFA155BEDD700DBE3E9 /* XN2DPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F2895810C6BE4D00EA9642 /* XN2DPoint.m */; };
+		1BF68CFB155BEDD900DBE3E9 /* XN3DPoint.m in Sources */ = {isa = PBXBuildFile; fileRef = E5F2896210C6BE8A00EA9642 /* XN3DPoint.m */; };
+		1BF68CFE155BEDE700DBE3E9 /* XNLineData.m in Sources */ = {isa = PBXBuildFile; fileRef = E518AD7910BB262700D2E454 /* XNLineData.m */; };
+		1BF68D01155BEDE700DBE3E9 /* XNVector.m in Sources */ = {isa = PBXBuildFile; fileRef = E575221510B64C39004D572E /* XNVector.m */; };
+		1BF68D02155BEDE700DBE3E9 /* XNMatrix.m in Sources */ = {isa = PBXBuildFile; fileRef = E575221710B64C39004D572E /* XNMatrix.m */; };
+		1BF68D03155BEDE700DBE3E9 /* XNFloatRange.m in Sources */ = {isa = PBXBuildFile; fileRef = E518B00A10BB471500D2E454 /* XNFloatRange.m */; };
+		1BF68D04155BEDE700DBE3E9 /* XNBox.m in Sources */ = {isa = PBXBuildFile; fileRef = E57C81FA10C56E1E006B2981 /* XNBox.m */; };
+		1BF68D0C155BEDF700DBE3E9 /* XNLinearSpline.m in Sources */ = {isa = PBXBuildFile; fileRef = E57522EF10B6661C004D572E /* XNLinearSpline.m */; };
+		1BF68D0D155BEDF700DBE3E9 /* XNLinearEquationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = E575222010B64C68004D572E /* XNLinearEquationSystem.m */; };
 		8DC2EF530486A6940098B216 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C1666FE841158C02AAC07 /* InfoPlist.strings */; };
 		8DC2EF570486A6940098B216 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */; };
 		E518AD6410BB22C800D2E454 /* XN2DPlot.h in Headers */ = {isa = PBXBuildFile; fileRef = E518AD6210BB22C800D2E454 /* XN2DPlot.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -51,9 +65,7 @@
 		E575222110B64C68004D572E /* XNLinearEquationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = E575222010B64C68004D572E /* XNLinearEquationSystem.m */; };
 		E575222210B64C68004D572E /* XNLinearEquationSystem.h in Headers */ = {isa = PBXBuildFile; fileRef = E575221F10B64C68004D572E /* XNLinearEquationSystem.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E575222310B64C68004D572E /* XNLinearEquationSystem.m in Sources */ = {isa = PBXBuildFile; fileRef = E575222010B64C68004D572E /* XNLinearEquationSystem.m */; };
-		E575222B10B64C7F004D572E /* XNCubicSpline.m in Sources */ = {isa = PBXBuildFile; fileRef = E575222A10B64C7F004D572E /* XNCubicSpline.m */; };
 		E575222C10B64C7F004D572E /* XNCubicSpline.h in Headers */ = {isa = PBXBuildFile; fileRef = E575222910B64C7F004D572E /* XNCubicSpline.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		E575222D10B64C7F004D572E /* XNCubicSpline.m in Sources */ = {isa = PBXBuildFile; fileRef = E575222A10B64C7F004D572E /* XNCubicSpline.m */; };
 		E57522F010B6661C004D572E /* XNLinearSpline.m in Sources */ = {isa = PBXBuildFile; fileRef = E57522EF10B6661C004D572E /* XNLinearSpline.m */; };
 		E57522F110B6661C004D572E /* XNLinearSpline.h in Headers */ = {isa = PBXBuildFile; fileRef = E57522EE10B6661C004D572E /* XNLinearSpline.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		E57522F210B6661C004D572E /* XNLinearSpline.m in Sources */ = {isa = PBXBuildFile; fileRef = E57522EF10B6661C004D572E /* XNLinearSpline.m */; };
@@ -97,7 +109,15 @@
 		0867D6A5FE840307C02AAC07 /* AppKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AppKit.framework; path = /System/Library/Frameworks/AppKit.framework; sourceTree = "<absolute>"; };
 		089C1667FE841158C02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 10; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7B1FEA5585E11CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
+		1B0E888E1563F24A00825E3C /* XNCubicSpline.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = XNCubicSpline.mm; sourceTree = "<group>"; };
+		1BDA098B155BF303004E55A0 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/Foundation.framework; sourceTree = DEVELOPER_DIR; };
+		1BDA098D155BF30C004E55A0 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/QuartzCore.framework; sourceTree = DEVELOPER_DIR; };
+		1BDA098F155BF446004E55A0 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = Platforms/iPhoneOS.platform/Developer/SDKs/iPhoneOS5.1.sdk/System/Library/Frameworks/Accelerate.framework; sourceTree = DEVELOPER_DIR; };
+		1BF68CD0155BEDBD00DBE3E9 /* libXNMathsIOS.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libXNMathsIOS.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		1BF68CD6155BEDBD00DBE3E9 /* XNMathsIOS-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "XNMathsIOS-Prefix.pch"; sourceTree = "<group>"; };
+		1BF68CE0155BEDBD00DBE3E9 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		32DBCF5E0370ADEE00C91783 /* XNMaths_Prefix.pch */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNMaths_Prefix.pch; sourceTree = "<group>"; };
+		7E1FE4F4156634040067F1D5 /* XNMathTypes.hpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.h; path = XNMathTypes.hpp; sourceTree = "<group>"; };
 		8DC2EF5A0486A6940098B216 /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2F7E79907B2D74100F64583 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
 		E518AD6210BB22C800D2E454 /* XN2DPlot.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XN2DPlot.h; sourceTree = "<group>"; };
@@ -141,7 +161,6 @@
 		E575221F10B64C68004D572E /* XNLinearEquationSystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNLinearEquationSystem.h; sourceTree = "<group>"; };
 		E575222010B64C68004D572E /* XNLinearEquationSystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNLinearEquationSystem.m; sourceTree = "<group>"; };
 		E575222910B64C7F004D572E /* XNCubicSpline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNCubicSpline.h; sourceTree = "<group>"; };
-		E575222A10B64C7F004D572E /* XNCubicSpline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNCubicSpline.m; sourceTree = "<group>"; };
 		E57522EE10B6661C004D572E /* XNLinearSpline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = XNLinearSpline.h; sourceTree = "<group>"; };
 		E57522EF10B6661C004D572E /* XNLinearSpline.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = XNLinearSpline.m; sourceTree = "<group>"; };
 		E575248510B7968D004D572E /* README.textile */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.textile; sourceTree = "<group>"; };
@@ -173,6 +192,16 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		1BF68CCD155BEDBD00DBE3E9 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BDA0990155BF446004E55A0 /* Accelerate.framework in Frameworks */,
+				1BDA098E155BF30C004E55A0 /* QuartzCore.framework in Frameworks */,
+				1BDA098C155BF303004E55A0 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DC2EF560486A6940098B216 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -202,6 +231,7 @@
 			children = (
 				E575215D10B64B6D004D572E /* Test.octest */,
 				E5B4682310ED14BF007DD322 /* XNMaths.framework */,
+				1BF68CD0155BEDBD00DBE3E9 /* libXNMathsIOS.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -215,6 +245,8 @@
 				32C88DFF0371C24200C91783 /* Other Sources */,
 				089C1665FE841158C02AAC07 /* Resources */,
 				0867D69AFE84028FC02AAC07 /* External Frameworks and Libraries */,
+				1BF68CD4155BEDBD00DBE3E9 /* XNMathsIOS */,
+				1BF68CD1155BEDBD00DBE3E9 /* Frameworks */,
 				034768DFFF38A50411DB9C8B /* Products */,
 				E575215E10B64B6D004D572E /* Test-Info.plist */,
 			);
@@ -249,11 +281,12 @@
 				E57C822110C57880006B2981 /* Other */,
 				E57C822010C57868006B2981 /* Function */,
 				E575222910B64C7F004D572E /* XNCubicSpline.h */,
-				E575222A10B64C7F004D572E /* XNCubicSpline.m */,
+				1B0E888E1563F24A00825E3C /* XNCubicSpline.mm */,
 				E57522EE10B6661C004D572E /* XNLinearSpline.h */,
 				E57522EF10B6661C004D572E /* XNLinearSpline.m */,
 				E575221F10B64C68004D572E /* XNLinearEquationSystem.h */,
 				E575222010B64C68004D572E /* XNLinearEquationSystem.m */,
+				7E1FE4F4156634040067F1D5 /* XNMathTypes.hpp */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -277,6 +310,33 @@
 				0867D69BFE84028FC02AAC07 /* Foundation.framework */,
 			);
 			name = "Other Frameworks";
+			sourceTree = "<group>";
+		};
+		1BF68CD1155BEDBD00DBE3E9 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1BDA098F155BF446004E55A0 /* Accelerate.framework */,
+				1BDA098D155BF30C004E55A0 /* QuartzCore.framework */,
+				1BDA098B155BF303004E55A0 /* Foundation.framework */,
+				1BF68CE0155BEDBD00DBE3E9 /* SenTestingKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		1BF68CD4155BEDBD00DBE3E9 /* XNMathsIOS */ = {
+			isa = PBXGroup;
+			children = (
+				1BF68CD5155BEDBD00DBE3E9 /* Supporting Files */,
+			);
+			path = XNMathsIOS;
+			sourceTree = "<group>";
+		};
+		1BF68CD5155BEDBD00DBE3E9 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				1BF68CD6155BEDBD00DBE3E9 /* XNMathsIOS-Prefix.pch */,
+			);
+			name = "Supporting Files";
 			sourceTree = "<group>";
 		};
 		32C88DFF0371C24200C91783 /* Other Sources */ = {
@@ -444,6 +504,13 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
+		1BF68CCE155BEDBD00DBE3E9 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DC2EF500486A6940098B216 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
@@ -477,6 +544,23 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
+		1BF68CCF155BEDBD00DBE3E9 /* XNMathsIOS */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 1BF68CF5155BEDBD00DBE3E9 /* Build configuration list for PBXNativeTarget "XNMathsIOS" */;
+			buildPhases = (
+				1BF68CCC155BEDBD00DBE3E9 /* Sources */,
+				1BF68CCD155BEDBD00DBE3E9 /* Frameworks */,
+				1BF68CCE155BEDBD00DBE3E9 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = XNMathsIOS;
+			productName = XNMathsIOS;
+			productReference = 1BF68CD0155BEDBD00DBE3E9 /* libXNMathsIOS.a */;
+			productType = "com.apple.product-type.library.static";
+		};
 		8DC2EF4F0486A6940098B216 /* XNMaths */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = 1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "XNMaths" */;
@@ -519,9 +603,16 @@
 /* Begin PBXProject section */
 		0867D690FE84028FC02AAC07 /* Project object */ = {
 			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0500;
+			};
 			buildConfigurationList = 1DEB91B108733DA50010E9CD /* Build configuration list for PBXProject "XNMaths" */;
-			compatibilityVersion = "Xcode 3.1";
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
 			hasScannedForEncodings = 1;
+			knownRegions = (
+				en,
+			);
 			mainGroup = 0867D691FE84028FC02AAC07 /* XNMaths */;
 			productRefGroup = 034768DFFF38A50411DB9C8B /* Products */;
 			projectDirPath = "";
@@ -529,6 +620,7 @@
 			targets = (
 				8DC2EF4F0486A6940098B216 /* XNMaths */,
 				E575215C10B64B6D004D572E /* Test */,
+				1BF68CCF155BEDBD00DBE3E9 /* XNMathsIOS */,
 			);
 		};
 /* End PBXProject section */
@@ -570,6 +662,24 @@
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
+		1BF68CCC155BEDBD00DBE3E9 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				1BF68CF9155BEDD400DBE3E9 /* ZExpParser.mm in Sources */,
+				1BF68CFA155BEDD700DBE3E9 /* XN2DPoint.m in Sources */,
+				1BF68CFB155BEDD900DBE3E9 /* XN3DPoint.m in Sources */,
+				1BF68CFE155BEDE700DBE3E9 /* XNLineData.m in Sources */,
+				1BF68D01155BEDE700DBE3E9 /* XNVector.m in Sources */,
+				1BF68D02155BEDE700DBE3E9 /* XNMatrix.m in Sources */,
+				1BF68D03155BEDE700DBE3E9 /* XNFloatRange.m in Sources */,
+				1BF68D04155BEDE700DBE3E9 /* XNBox.m in Sources */,
+				1BF68D0C155BEDF700DBE3E9 /* XNLinearSpline.m in Sources */,
+				1BF68D0D155BEDF700DBE3E9 /* XNLinearEquationSystem.m in Sources */,
+				1B0E88911563F2C400825E3C /* XNCubicSpline.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8DC2EF540486A6940098B216 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -582,7 +692,6 @@
 				E575221B10B64C39004D572E /* XNVector.m in Sources */,
 				E575221D10B64C39004D572E /* XNMatrix.m in Sources */,
 				E575222310B64C68004D572E /* XNLinearEquationSystem.m in Sources */,
-				E575222D10B64C7F004D572E /* XNCubicSpline.m in Sources */,
 				E57522F210B6661C004D572E /* XNLinearSpline.m in Sources */,
 				E518AD6510BB22C800D2E454 /* XN2DPlot.m in Sources */,
 				E518AD7B10BB262700D2E454 /* XNLineData.m in Sources */,
@@ -612,7 +721,6 @@
 				E575221810B64C39004D572E /* XNVector.m in Sources */,
 				E575221910B64C39004D572E /* XNMatrix.m in Sources */,
 				E575222110B64C68004D572E /* XNLinearEquationSystem.m in Sources */,
-				E575222B10B64C7F004D572E /* XNCubicSpline.m in Sources */,
 				E57522F010B6661C004D572E /* XNLinearSpline.m in Sources */,
 				E518AD6610BB22C800D2E454 /* XN2DPlot.m in Sources */,
 				E518AD7C10BB262700D2E454 /* XNLineData.m in Sources */,
@@ -648,10 +756,60 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		1BF68CF1155BEDBD00DBE3E9 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				COPY_PHASE_STRIP = NO;
+				DSTROOT = /tmp/XNMathsIOS.dst;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "XNMathsIOS/XNMathsIOS-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+					TBB_PREVIEW_TUPLE,
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		1BF68CF2155BEDBD00DBE3E9 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ARCHS = "$(ARCHS_STANDARD_INCLUDING_64_BIT)";
+				CLANG_CXX_LANGUAGE_STANDARD = "c++0x";
+				COPY_PHASE_STRIP = YES;
+				DSTROOT = /tmp/XNMathsIOS.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "XNMathsIOS/XNMathsIOS-Prefix.pch";
+				GCC_PREPROCESSOR_DEFINITIONS = "TBB_PREVIEW_TUPLE=1";
+				GCC_WARN_UNINITIALIZED_AUTOS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
+				ONLY_ACTIVE_ARCH = NO;
+				OTHER_LDFLAGS = "-ObjC";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SDKROOT = iphoneos;
+				SKIP_INSTALL = YES;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
 		1DEB91AE08733DA50010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -661,7 +819,6 @@
 				);
 				FRAMEWORK_VERSION = A;
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -682,6 +839,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
@@ -708,28 +866,52 @@
 		1DEB91B208733DA50010E9CD /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				GCC_C_LANGUAGE_STANDARD = c99;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_CXX0X_EXTENSIONS = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
 				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				HEADER_SEARCH_PATHS = "/usr/local/include/**";
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				LIBRARY_SEARCH_PATHS = "";
 				ONLY_ACTIVE_ARCH = YES;
-				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				SDKROOT = macosx;
 			};
 			name = Debug;
 		};
 		1DEB91B308733DA50010E9CD /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				GCC_C_LANGUAGE_STANDARD = c99;
+				CLANG_ANALYZER_SECURITY_FLOATLOOPCOUNTER = YES;
+				CLANG_ANALYZER_SECURITY_INSECUREAPI_STRCPY = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_CXX0X_EXTENSIONS = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_IMPLICIT_SIGN_CONVERSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_ATOMIC_PROPERTIES = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_SUSPICIOUS_IMPLICIT_CONVERSION = YES;
+				GCC_TREAT_WARNINGS_AS_ERRORS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_SIGN_COMPARE = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				PREBINDING = NO;
-				SDKROOT = macosx10.5;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				SDKROOT = macosx;
 			};
 			name = Release;
 		};
@@ -737,13 +919,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"\"$(SRCROOT)\"",
 				);
 				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_OPTIMIZATION_LEVEL = 0;
@@ -762,7 +944,6 @@
 					"-framework",
 					SenTestingKit,
 				);
-				PREBINDING = NO;
 				PRODUCT_NAME = Test;
 				WRAPPER_EXTENSION = octest;
 			};
@@ -772,13 +953,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				COMBINE_HIDPI_IMAGES = YES;
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
 					"\"$(SRCROOT)\"",
 				);
-				GCC_ENABLE_FIX_AND_CONTINUE = NO;
 				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
@@ -796,7 +977,6 @@
 					"-framework",
 					SenTestingKit,
 				);
-				PREBINDING = NO;
 				PRODUCT_NAME = Test;
 				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
@@ -806,6 +986,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		1BF68CF5155BEDBD00DBE3E9 /* Build configuration list for PBXNativeTarget "XNMathsIOS" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				1BF68CF1155BEDBD00DBE3E9 /* Debug */,
+				1BF68CF2155BEDBD00DBE3E9 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		1DEB91AD08733DA50010E9CD /* Build configuration list for PBXNativeTarget "XNMaths" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
